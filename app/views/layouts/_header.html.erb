@@ -1,0 +1,100 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav">
+<div class="container container-fluid" id="nav-container">
+
+
+  <!-- Dropdown button/menu for exploring genres -->
+  <div class="dropdown pull-left" id="genre-dropdown">
+
+    <!-- This is a regular dropdown button for genre menu
+      <button
+      class="btn btn-default dropdown-toggle"
+      type="button"
+      id="genre-menu"
+      data-toggle="dropdown">
+      Explore
+      <span class="caret"></span>
+    </button> -->
+
+    <button
+      type="button"
+      class="navbar-toggle"
+      id="genre-menu"
+      data-toggle="dropdown">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+
+    <ul
+      class="dropdown-menu "
+      role="menu"
+      aria-labelledby="genre-menu">
+
+      <li role="presentation">
+        <a role="menuitem" tabindex="-1" href="#">Impressionism</a>
+      </li>
+      <li role="presentation">
+        <a role="menuitem" tabindex="-1" href="#">Modern</a>
+      </li>
+      <li role="presentation">
+        <a role="menuitem" tabindex="-1" href="#">Post Modern</a>
+      </li>
+    </ul>
+  </div> <!-- close dropdown button div -->
+
+  <!-- Search Form -->
+  <form class="navbar-form navbar-left" role="search" id="search">
+    <div class="form-group">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          id="search-input"
+          placeholder="Search">
+        <div
+          class="input-group-addon glyphicon glyphicon-search"
+          id="search-glass">
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <a href="#" class="navbar-brand" id="brand">
+    Pintrospective
+  </a>
+
+  <div class="pull-right">
+    <!-- Add Board/Pin Button-->
+      <button
+        class='dropdown-toggle navbar-btn btn btn-default'
+        id='add-button'
+        data-toggle='dropdown'><span class='glyphicon glyphicon-plus'></span>
+      </button>
+
+    <!-- Current User image/button -->
+    <div class="btn-group pull-right" id="user-info">
+      <img
+        class="btn btn-default"
+        id="user-image" src="https://i1.sndcdn.com/avatars-000052796885-119eva-t50x50.jpg?e76cf77">
+      <button
+        type="button"
+        id="username"
+        class="btn btn-default"><%= current_user.username.capitalize %>
+      </button>
+      <button
+        type="button"
+        id="user-heart"
+        class="btn btn-default glyphicon glyphicon-heart">
+      </button>
+    </div> <!-- close Current User image/button -->
+  </div>
+</div>
+</nav>
+
+<% if flash[:errors] %>
+<div class="alert alert-warning alert-dismissible" role="alert">
+   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+<%= flash[:errors].join("<br>").html_safe %>
+</div>
+<% end %>
