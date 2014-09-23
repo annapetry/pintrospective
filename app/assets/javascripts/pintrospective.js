@@ -3,8 +3,12 @@ window.Pintrospective = {
   Collections: {},
   Views: {},
   Routers: {},
+  Utils: {},
   initialize: function() {
-
+    new Pintrospective.Routers.Router({
+      $rootEl: $('#main')
+    })
+    Backbone.history.start();
   }
 };
 

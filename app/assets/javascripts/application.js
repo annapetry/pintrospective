@@ -12,11 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializejson.min
 //= require underscore
 //= require backbone
 //= require bootstrap
 //= require pintrospective
 //= require_tree ../templates
+//= require_tree ./utils
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ./views
