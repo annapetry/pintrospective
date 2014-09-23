@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :boards, except: [:new, :edit]
+    resources :pins, only: [:create, :update, :destroy]
   end
 end

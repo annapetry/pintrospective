@@ -9,6 +9,12 @@ class User < ActiveRecord::Base
 
   has_many :boards, dependent: :destroy
 
+  has_many(
+    :pins,
+    through: :boards,
+    source: :pins
+  )
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     user && user.is_password?(password) ? user : nil
