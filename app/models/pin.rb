@@ -1,5 +1,5 @@
 class Pin < ActiveRecord::Base
-  validates :board, presence: true
+  validates :board, :description, presence: true
 
   belongs_to :board
 
