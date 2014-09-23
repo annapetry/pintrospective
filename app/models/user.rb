@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   attr_reader :password
 
   has_many :boards, dependent: :destroy
+  has_one :image, as: :imageable, dependent: :destroy
 
   has_many(
     :pins,

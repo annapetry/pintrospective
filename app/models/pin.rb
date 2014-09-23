@@ -8,4 +8,6 @@ class Pin < ActiveRecord::Base
     through: :board,
     source: :user
   )
+
+  has_one :image, as: :imageable, dependent: :destroy
 end
