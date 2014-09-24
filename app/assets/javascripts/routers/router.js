@@ -10,7 +10,12 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
   },
 
   userShow: function (id) {
+    var user = Pintrospective.Collections.users.getOrFetch(id);
+    var userShow = new Pintrospective.Views.UserShow({
+      model: user
+    });
     
+    this._swapView(userShow);
   },
   
   boardsIndex: function () {

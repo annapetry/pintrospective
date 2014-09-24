@@ -1,0 +1,50 @@
+<div class="container-fluid user-profile">
+
+  <div class="row header-container">
+
+    <div class="index-header">
+      <div class="col-md-2 user-image">
+        <img
+          src="../assets/petry-550-440.jpg"
+          class="img-responsive">
+      </div>
+
+      <div class="col-md-6 user-name">
+        <div class="userName">
+          <h2><%= user.escape('username').capitalize() %></h2>
+        </div>
+        <div class="userDescription">
+          <p><%= user.escape('description') %></p>
+        </div>
+        <div class="userLocation">
+          <span class="glyphicon glyphicon-map-marker"></span>
+          <h5><%= user.escape('location') %></h5>
+        </div>
+      </div>
+
+      <div class="col-md-3 side-note">
+          <h5>More</h5>
+          <h5>Info</h5>
+          <h5>Here</h5>
+          <h5>WHOOP</h5>
+      </div>
+
+    </div>
+  </div>
+
+    <div class="btn-group large-section-divider">
+      <button type="button" class="btn btn-default"></button>
+      <button type="button" class="btn btn-default"></button>
+      <button type="button" class="btn btn-default"></button>
+      <button type="button" id="wide" class="btn btn-default"></button>
+      <button type="button" id="long-btn" class="btn btn-default"></button>
+      <button type="button" id="long-btn" class="btn btn-default"></button>
+    </div>
+</div>
+
+<div class="container index-itms">
+  <div class="row">
+    <!-- <div id="form-wrapper"></div> -->
+    <div id="board-items"></div>
+  </div>
+</div>

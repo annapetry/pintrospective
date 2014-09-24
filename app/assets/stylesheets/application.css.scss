@@ -18,9 +18,11 @@
 // variables
 $white: #fff;
 $background: #e9e9e9;
+$dark-background: #e2e2e2;
 $dark-text: #666;
 $text-box: #faf9f7;
 $logo-red: #cb2027;
+$light-text: #818181;
 
 
 @import "bootstrap-sprockets";
@@ -40,7 +42,7 @@ body {
 a:hover {
   text-decoration: none;
 }
-// navbar styles
+// Navbar styles
 #nav {
   margin: 0;
   width: 100%;
@@ -128,7 +130,7 @@ a:hover {
   font-size: 16px;
   font-weight: 600;
   padding: 0 0 0 6px;
-  color: #818181;
+  color: $light-text;
   margin-left: 30px;
 }
 .search-container {
@@ -153,7 +155,8 @@ a:hover {
   float: left;
   background-color: $background;
 }
-// User Board Index
+
+// User Show Formatting
 .user-image > img {
   border-radius: 6px 0 0 6px;
   min-height: 153px;
@@ -168,6 +171,17 @@ a:hover {
   height: 100%;
   left-margin: 0;
   border-radius: 0 6px 6px 0;
+}
+.user-name {
+  position: relative;
+}
+.userLocation {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 5px;
+  h5 {
+    display: inline-block;
+  }
 }
 .side-note {
   margin-left: 15px;
@@ -211,6 +225,26 @@ a:hover {
 }
 
 // Board Index Formatting
+.board-form {
+  position: relative;
+  cursor: pointer;
+}
+.plus-img{
+  position: absolute;
+  bottom: 50%;
+  margin-left: 119px;
+  img {
+   height: 48px;
+   width: 48px;
+  }
+}
+.add-board-text {
+  display: block;
+  margin-top: 10px;
+  margin-left: -18px;
+  font-weight: 600;
+  color: $light-text;
+}
 .index-items {
   float: left;
   display: inline-block;
@@ -260,12 +294,30 @@ ul {
   font-weight: 600;
   color: $dark-text;
 }
+
+// Board Form Formatting
+.board-form {
+  height: 378px;
+  width: 290px;
+  background-color: $dark-background;
+  margin: 0;
+  border: dashed 2px $light-text;
+  border-radius: 6px;
+}
+.new-board-view {
+  padding-left: 0;
+}
+// Modal
+//this doesn't work
+.form-control {
+  :focus {
+    outline: $dark-background inset 2px;
+  }
+}
+
 // Pin Formatting
 #pin-form {
   height: 284px;
-}
-.add-form {
-  height: 100%;
 }
 .add-plus > i {
   display: block;
