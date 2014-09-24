@@ -5,10 +5,14 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "boardsIndex",
-    'users/show': "userShow",
+    "users/:id": "userShow",
     "boards/:id": "boardShow"
   },
 
+  userShow: function (id) {
+    
+  },
+  
   boardsIndex: function () {
     Pintrospective.Collections.boards.fetch();
     var indexView = new Pintrospective.Views.BoardsIndex({

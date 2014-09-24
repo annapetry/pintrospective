@@ -1,14 +1,47 @@
   <a href="#/boards/<%= board.id %>">
-    <div class="col-md-2">
+    <div class="index-panel">
       <div class="thumbnail">
+        <h3 class="title"><%= board.escape('title') %></h3>
         <img
-          src=""
-          class="img-responsive">
-        <div class="caption">
-          <h3><%= board.escape('title') %></h3>
-          <p>...</p>
-          <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
-        </div>
+          src="../assets/texture.jpg"
+          class="img-responsive"
+          id="board-hero">
+
+          <ul class="small-imgage-set">
+            <li class="sm-img">
+              <img
+                src="../assets/51x51.jpg"
+                class="img-responsive">
+            </li>
+           <li class="sm-img">
+             <img
+               src="../assets/51x51.jpg"
+               class="img-responsive">
+           </li>
+           <li class="sm-img">
+             <img
+               src="../assets/51x51.jpg"
+               class="img-responsive">
+           </li>
+           <li class="sm-img">
+             <img
+               src="../assets/51x51.jpg"
+               class="img-responsive">
+           </li>
+           <li class="sm-img">
+             <img
+               src="../assets/51x51.jpg"
+               class="img-responsive">
+           </li>
+          </ul>
+
+        <a
+          href="#"
+          class="btn btn-default"
+          id="edit-board-btn"
+          role="button">
+          Edit
+        </a>
       </div>
     </div>
   </a>
