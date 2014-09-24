@@ -1,6 +1,22 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
 // variables
-$header-text-color-lite: #c3c3c2;
-$header-text-color-dark: #999;
+$white: #fff;
 $background: #e9e9e9;
 $text-box: #faf9f7;
 $logo-red: #cb2027;
@@ -79,7 +95,8 @@ body {
 .user-info,
 .logo-icon,
 .menu-icon,
-.search-dropdown {
+.search-dropdown,
+.large-section-divider > button {
   background: -webkit-linear-gradient(#fff, #f5f5f5);
   background-color: #f5f5f5;
   border: 1px solid #d4d4d4;
@@ -141,4 +158,75 @@ body {
   display: inline-block;
   float: left;
   background-color: $background;
+}
+// User Board Index
+.user-image > img {
+  border-radius: 6px 0 0 6px;
+  min-height: 153px;
+}
+.user-image {
+  padding-right: 0;
+  height: 100px;
+}
+.user-name,
+.side-note {
+  background-color: $white;
+  height: 100%;
+  left-margin: 0;
+  border-radius: 0 6px 6px 0;
+}
+.side-note {
+  margin-left: 15px;
+  border-radius: 6px;
+  width: 238px;
+}
+.img-responsive,
+.user-name,
+.side-note {
+  box-shadow: 1px 1px 1px #bfbfbf;
+}
+
+.index-header {
+  height: 153px;
+  margin-bottom: 30px;
+  margin-left: 120px;
+
+}
+.header-container {
+  height: 148px;
+  margin-bottom: 15px;
+}
+.large-section-divider {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  margin-left: -5px;
+}
+#wide {
+  width: 742px;
+}
+.large-section-divider > button {
+  width: 91px;
+  height: 45px;
+  color: $background;
+  box-shadow: 1px 1px 1px #bfbfbf;
+}
+#long-btn {
+  width: 112px;
+}
+
+// Pin Formatting
+#pin-form {
+  height: 284px;
+}
+.add-form {
+  height: 100%;
+}
+.add-plus > i {
+  display: block;
+  margin: 0px auto 20px;
+  height: 48px;
+  width: 48px;
+  background: image-url('pinterest-sprites.png') 0 0 no-repeat;
+  background-position: 0px, 0px;
 }

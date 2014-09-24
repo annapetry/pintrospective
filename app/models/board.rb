@@ -8,5 +8,6 @@ class Board < ActiveRecord::Base
   has_many(
     :images,
     through: :pins,
-    source: :image)
+    source: :image
+  )
 end

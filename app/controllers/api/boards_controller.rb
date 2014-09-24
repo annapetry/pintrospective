@@ -18,11 +18,12 @@ module Api
 
     def index
       @boards = current_user.boards
+      @user = current_user
       render json: @boards
     end
 
     def show
-      # @board = Board.includes(:members, lists: :cards).find(params[:id])
+      @board = Board.includes(:user, :pins).find(params[:id])
       @board = Board.find(params[:id])
       render :show
     end

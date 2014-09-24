@@ -5,6 +5,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "boardsIndex",
+    'users/show': "userShow",
     "boards/:id": "boardShow"
   },
 

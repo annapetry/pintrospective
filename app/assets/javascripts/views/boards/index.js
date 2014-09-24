@@ -28,7 +28,9 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
   },
   
   render: function () {
-    var renderedContent = this.template({ boards: this.collection });
+    var renderedContent = this.template({ 
+      boards: this.collection
+    });
     this.$el.html(renderedContent);
     
     this.attachSubviews();

@@ -2,8 +2,8 @@
 <html>
 <head>
   <title>Pintrospective</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= filepicker_js_include_tag %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,13 +11,13 @@
 
 <%= render partial: "layouts/header" %>
 
-<div id="view" class="container">
+<div id="view">
   <%= yield %>
 </div>
 
- <script>
- // filepicker.setKey("<%# Rails.application.config.filepicker_rails.api_key %>")
- </script>
+<script>
+ filepicker.setKey("AHIIwnSp2QTOsC0xg6g96z")
+</script>
 
 </body>
 </html>

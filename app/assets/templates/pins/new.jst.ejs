@@ -1,23 +1,25 @@
-<form role="form" id="new-pin-form" class="form-inline new-pin-form">
-  <div class="form-group new-pin-temp">
-    <input
-      type="text"
-      class="form-control"
-      id="new-pin-form"
-      name="pin[description]"
-      placeholder="Add New Pin">
+<div class="col-md-2">
+  <form role="form" id="new-pin-form" class="form-inline new-pin-form">
+    <div class="form-group">
+      <input
+        type="text"
+        class="form-control"
+        id="new-pin-form"
+        name="pin[description]"
+        placeholder="Add New Pin">
 
-    <input
-      type="filepicker"
-      data-fp-mimetype="image/*"
-      name="image[url]"
-      data-fp-button-text="Choose Image"
-      data-fp-button-class="btn btn-default">
+      <input
+        type="filepicker"
+        data-fp-mimetype="image/*"
+        name="image[url]"
+        data-fp-button-text="Choose Image"
+        data-fp-button-class="btn btn-default">
 
-    <button
-      type="submit"
-      id="new-pin"
-      class="btn btn-default glyphicon glyphicon-plus add">
-    </button>
-  </div>
-</form>
+      <button
+        type="submit"
+        id="new-pin"
+        class="btn btn-default glyphicon glyphicon-plus add">
+      </button>
+    </div>
+  </form>
+</div>

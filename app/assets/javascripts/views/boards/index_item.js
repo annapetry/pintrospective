@@ -5,6 +5,8 @@ Pintrospective.Views.BoardsIndexItem = Backbone.View.extend({
     "click button#remove-board": "removeBoard"
   },
   
+  className: 'col-md-3',
+  
   render: function(){
     var content = this.template({ board: this.model });
     this.$el.html(content);

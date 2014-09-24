@@ -1,8 +1,6 @@
 Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST["boards/show"],
   
-  className: 'col-md-3',
-  
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
     this.listenTo(this.model.pins(), "add", this.addPin);
