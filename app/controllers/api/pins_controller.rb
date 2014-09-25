@@ -41,7 +41,7 @@ module Api
     end
 
     def pin_params
-      params.require(:pin).permit(:description, :board_id, :urlTsT)
+      params.require(:pin).permit(:description, :board_id, :url)
     end
 
   end

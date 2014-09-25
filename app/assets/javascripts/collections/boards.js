@@ -6,6 +6,7 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
   model: Pintrospective.Models.Board,
   
   url: function () {
+    debugger
     return this.user.url() + '/boards';
   },
   
@@ -15,6 +16,7 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
     
     if (!board) {
       board = new Pintrospective.Models.Board({ id: id });
+      board.collection = this;
       board.fetch({
         success: function () {
           boards.add(board);
@@ -27,5 +29,3 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
     return board;
   }
 });
-
-// Pintrospective.Collections.boards = new Pintrospective.Collections.Boards;

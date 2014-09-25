@@ -1,4 +1,4 @@
-json.extract! @board, :id, :title, :description, :user_id, :created_at, :updated_at, :pin_count
+json.extract! @board, :id, :title, :description, :user_id, :created_at, :updated_at
 
 json.pin_count @board.pins.size
 

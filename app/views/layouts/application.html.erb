@@ -13,7 +13,9 @@
 </head>
 <body>
 
-<%= render partial: "layouts/header" %>
+<% if current_user %>
+  <%= render partial: "layouts/header" %>
+<% end %>
 
 <div id="view">
   <%= yield %>
