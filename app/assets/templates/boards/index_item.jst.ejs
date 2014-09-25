@@ -1,4 +1,4 @@
-  <a href="#/boards/<%= board.id %>">
+  <a href="#/users/<%= board.get('user_id') %>/boards/<%= board.id %>">
     <div class="index-panel">
       <div class="thumbnail">
         <h3 class="title"><%= board.escape('title') %></h3>

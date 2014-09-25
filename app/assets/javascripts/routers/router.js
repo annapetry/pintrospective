@@ -5,35 +5,36 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "boardsIndex",
-    "users/:id": "userShow",
-    "boards/:id": "boardShow"
+    "users/:id/boards/:id": "boardShow",
+    "users/:id": "userShow"
   },
 
   userShow: function (id) {
     var user = Pintrospective.Collections.users.getOrFetch(id);
-    // Pintrospective.Collections.boards.fetch(id);
-    debugger
     var userShow = new Pintrospective.Views.UserShow({
       model: user
     });
     
     this._swapView(userShow);
   },
+  //
+  // boardsIndex: function () {
+  //   Pintrospective.Collections.boards.fetch();
+  //   var indexView = new Pintrospective.Views.BoardsIndex({
+  //     collection: Pintrospective.Collections.boards
+  //   });
+  //
+  //   this._swapView(indexView);
+  // },
   
-  boardsIndex: function () {
-    Pintrospective.Collections.boards.fetch();
-    var indexView = new Pintrospective.Views.BoardsIndex({
-      collection: Pintrospective.Collections.boards
-    });
-    
-    this._swapView(indexView);
-  },
-  
-  boardShow: function (id) {
-    var board = Pintrospective.Collections.boards.getOrFetch(id);
+  boardShow: function (user_id, id) {
+    debugger
+    var user = Pintrospective.Collections.users.getOrFetch(user_id);
+    var board = user.boards().getOrFetch(id);
     var showView = new Pintrospective.Views.BoardShow({
       model: board
     });
+    board.fetch();
     
     this._swapView(showView);
   },

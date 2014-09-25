@@ -1,6 +1,9 @@
 Pintrospective.Views.NewBoard = Backbone.View.extend({
   template: JST["boards/new"],
   
+  initialize: function () {
+  },
+  
   events: {
     "submit #new-board-form": "addBoard"
   },
@@ -11,13 +14,13 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
-    
+    this.delegateEvents();
     return this;  
   },
   
   addBoard: function (event) {
     event.preventDefault();
-    
+    debugger
     var formData = $(event.currentTarget).serializeJSON();
     var board = new Pintrospective.Models.Board({
       title: formData.board.title,
