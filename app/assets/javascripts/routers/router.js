@@ -24,7 +24,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     var showView = new Pintrospective.Views.BoardShow({
       model: board
     });
-    board.fetch();
+    // board.fetch();
     
     this._swapView(showView);
   },

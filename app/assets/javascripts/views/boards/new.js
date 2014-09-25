@@ -1,9 +1,6 @@
 Pintrospective.Views.NewBoard = Backbone.View.extend({
   template: JST["boards/new"],
   
-  initialize: function () {
-  },
-  
   events: {
     "submit #new-board-form": "addBoard"
   },
@@ -11,10 +8,8 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   className: 'new-board-view',
   
   render: function () {
-    
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
-    // this.delegateEvents(this.events);
     return this;  
   },
   
@@ -31,8 +26,9 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
       success: function () {
         $('#addBoardModal').modal('toggle');
         setTimeout(function () {
-          this.model.boards().add(board);
-        }, 1);
+          debugger
+          that.model.boards().add(board);
+        }, 2);
       }
     });
   }

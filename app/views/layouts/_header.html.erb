@@ -16,21 +16,23 @@
     </button>
   </div>
 
-  <div class="btn-group header-right">
-    <button
-      type="button"
-      class="btn btn-default username">
-      <span class="glyphicon glyphicon-heart-empty heart"></span>
-      <% if current_user %>
-        <%= current_user.username %>
-      <% end %>
-    </button>
-  <button
-    type="button"
-    class="btn btn-default pin-pin">
-  <img src="../assets/pinterest-pin.png">
-  </button>
-  </div>
+  <a href="#/users/<%= current_user.id %>">
+    <div class="btn-group header-right">
+      <button
+        type="button"
+        class="btn btn-default username">
+        <span class="glyphicon glyphicon-heart-empty heart"></span>
+        <% if current_user %>
+          <%= current_user.username %>
+        <% end %>
+      </button>
+      <button
+        type="button"
+        class="btn btn-default pin-pin">
+      <img src="../assets/pinterest-pin.png">
+      </button>
+    </div>
+  </a>
 
 
 

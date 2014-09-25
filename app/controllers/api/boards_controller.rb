@@ -23,8 +23,18 @@ module Api
     end
 
     def show
-      @board = Board.includes(:pins).find(params[:id])
-      render json: @board
+      # need to return board of requested user
+      user = User.find(params[:user_id])
+      boards = user.boards
+
+      @board = boards.find_by({id: params[:id]})
+
+      # @board = Board.includes(:pins).find(params[:id])
+      if @board
+        render :show
+      else
+        render json: "Pinner does not have that Board", status: :not_foundn
+      end
     end
 
     def update
