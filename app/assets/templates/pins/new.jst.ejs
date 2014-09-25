@@ -6,3 +6,157 @@
     </div>
   </div>
 </div>
+
+<!-- New Pin Modal -->
+<div class="modal fade" id="addPinModal" tabindex="-1" role="dialog" aria-labelledby="addPin" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content new-pin">
+
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="addPin">Add a Pin from</h4>
+        </div>
+
+        <div class="modal-body new-pin">
+          <button
+            class="btn btn-default from-web"
+            data-toggle="modal"
+            data-target="#webPin"
+            data-dismiss="modal">
+            <img src="../assets/pinterest-web.png">
+            <span class="web">The web</span>
+          </button>
+          <button
+            class="btn btn-default from-comp"
+            data-toggle="modal"
+            data-target="#uploadPin"
+            data-dismiss="modal">
+            <img src="../assets/pinterest-upload.png">
+            <span class="comp">Your computer</span>
+          </button>
+        </div> <!-- Close of modal body -->
+
+    </div> <!-- Close of modal content -->
+  </div> <!-- Close of modal dialog -->
+</div> <!-- Close of top-level modal div -->
+
+<!-- Upload Pin Modal -->
+<div class="modal fade" id="uploadPin" tabindex="-1" role="dialog" aria-labelledby="uploadPin" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content upload-pin">
+
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4
+          class="modal-title"
+          id="uploadPin">
+          Upload an image right from your computer!
+        </h4>
+        </div>
+
+        <div class="modal-body">
+            <button class="btn btn-defalut">Upload Button Goes Here</button>
+        </div> <!-- Close of modal body -->
+    </div> <!-- Close of modal content -->
+  </div> <!-- Close of modal dialog -->
+</div> <!-- Close of top-level modal div -->
+
+<!-- Web Pin Modal -->
+<div class="modal fade" id="webPin" tabindex="-1" role="dialog" aria-labelledby="webPin" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content upload-pin">
+
+      <form role="form" id="new-board-form" class="form-horizontal">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4
+          class="modal-title"
+          id="webPin">
+          Add a Pin from a website
+        </h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="col-sm-10">
+              <input
+                type="text"
+                class="form-control"
+                id="pin-url"
+                name="pin[url]"
+                placeholder='http:// ...'>
+            </div>
+            <button
+              type="submit"
+              class="btn btn-default"
+              data-toggle="modal"
+              data-target="#pinInfo"
+              data-dismiss="modal">
+              Next
+            </button>
+          </div> <!-- Close of form group -->
+        </div> <!-- Close of modal body -->
+      </form>
+
+    </div> <!-- Close of modal content -->
+  </div> <!-- Close of modal dialog -->
+</div> <!-- Close of top-level modal div -->
+
+<!-- Pin Info Modal-->
+<div class="modal fade" id="pinInfo" tabindex="-1" role="dialog" aria-labelledby="pinInfo" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form role="form" id="new-pin-form" class="form-horizontal">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="pnInfo">Pick a Board</h4>
+      </div>
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="board" class="col-sm-2 control-label">Board</label>
+            <div class="col-sm-10">
+              <button
+                type="text"
+                class="btn btn-default"
+                id="board">
+                Should be a dropdown of User's boards
+              </button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label
+              for="board-desc"
+              class="col-sm-2 control-label">
+              Description
+            </label>
+          <div class="col-sm-10">
+                <textarea
+                  class="form-control"
+                  id="pin-desc"
+                  name="pin[description]"
+                  placeholder="What's this pin all about?"></textarea>
+              </div>
+        </div>
+
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-default"
+            data-dismiss="modal">
+            Close
+          </button>
+          <a
+            type="submit"
+            id="submit-pin-form"
+            class="btn btn-default"
+            data-dismiss="modal">
+            <img src="../assets/pinterest-pinIt.png">
+          </a>
+        </div>
+      </form>
+
+    </div> <!-- Close of modal content -->
+  </div> <!-- Close of modal dialog -->
+</div> <!-- Close of top-level modal div -->
+

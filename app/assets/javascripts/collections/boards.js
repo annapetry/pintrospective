@@ -6,7 +6,6 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
   model: Pintrospective.Models.Board,
   
   url: function () {
-    debugger
     return this.user.url() + '/boards';
   },
   
