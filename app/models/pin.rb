@@ -1,7 +1,7 @@
 class Pin < ActiveRecord::Base
   validates :board, :description, presence: true
 
-  belongs_to :board
+  belongs_to :board, counter_cache: true
 
   has_one(
     :user,

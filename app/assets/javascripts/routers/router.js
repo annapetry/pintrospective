@@ -11,6 +11,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = Pintrospective.Collections.users.getOrFetch(id);
+    Pintrospective.Collections.boards.fetch();
     var userShow = new Pintrospective.Views.UserShow({
       model: user
     });

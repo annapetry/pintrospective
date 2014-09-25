@@ -33,9 +33,21 @@
   </div>
 
     <div class="btn-group large-section-divider">
-      <button type="button" class="btn btn-default"></button>
-      <button type="button" class="btn btn-default"></button>
-      <button type="button" class="btn btn-default"></button>
+      <button
+        type="button"
+        class="btn btn-default">
+        <p><%= user.get('board_count') %> Boards</p>
+      </button>
+      <button
+        type="button"
+        class="btn btn-default">
+        <p><%= user.get('pin_count') %> Pins</p>
+      </button>
+      <button
+        type="button"
+        class="btn btn-default">
+        <p>No Likes!</p>
+      </button>
       <button type="button" id="wide" class="btn btn-default"></button>
       <button type="button" id="long-btn" class="btn btn-default"></button>
       <button type="button" id="long-btn" class="btn btn-default"></button>
@@ -44,7 +56,6 @@
 
 <div class="container index-itms">
   <div class="row">
-    <!-- <div id="form-wrapper"></div> -->
     <div id="board-items"></div>
   </div>
 </div>

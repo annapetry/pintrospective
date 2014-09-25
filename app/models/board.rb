@@ -1,7 +1,7 @@
 class Board < ActiveRecord::Base
   validates :title, :user, presence: true
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
 
   has_many :pins
 

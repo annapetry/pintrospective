@@ -99,6 +99,10 @@ a:hover {
   border: 1px solid #d4d4d4;
   height: 34px;
 }
+
+.large-section-divider {
+  color: $dark-text;
+}
 .right-icon,
 .menu-icon {
   border-radius: 0 6px 6px 0;
@@ -217,8 +221,9 @@ a:hover {
 .large-section-divider > button {
   width: 91px;
   height: 45px;
-  color: $background;
+  color: $dark-text;
   box-shadow: 1px 1px 1px #bfbfbf;
+  padding-top: 12px;
 }
 #long-btn {
   width: 112px;
