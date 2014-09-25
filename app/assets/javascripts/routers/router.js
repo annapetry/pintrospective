@@ -17,18 +17,8 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     
     this._swapView(userShow);
   },
-  //
-  // boardsIndex: function () {
-  //   Pintrospective.Collections.boards.fetch();
-  //   var indexView = new Pintrospective.Views.BoardsIndex({
-  //     collection: Pintrospective.Collections.boards
-  //   });
-  //
-  //   this._swapView(indexView);
-  // },
   
   boardShow: function (user_id, id) {
-    debugger
     var user = Pintrospective.Collections.users.getOrFetch(user_id);
     var board = user.boards().getOrFetch(id);
     var showView = new Pintrospective.Views.BoardShow({

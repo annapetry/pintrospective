@@ -2,33 +2,38 @@
 <div id="nav-backdrop">
 
 
+  <div class="btn-group header-left">
+    <button
+      type="button"
+      class="btn btn-default pin-logo">
+      <img src="../assets/pinterest-logo.png">
+    </button>
+    <span id="wider"></span>
+    <button
+      type="button"
+      class="btn btn-default pin-menu">
+    <img src="../assets/pinterest-menu.png">
+    </button>
+  </div>
 
-  <div class="left-nav" id="nav-info">
-    <div class="search-container">
-      <div class="dropdown search">
-          <button class="logo-icon btn btn-default"></button>
-          <div class="search-wrapper">
-            <button class="dropdown search-dropdown"></button>
-          </div>
-          <button class="menu-icon btn btn-defalut">
-      </div>
-    </div>
+  <div class="btn-group header-right">
+    <button
+      type="button"
+      class="btn btn-default username">
+      <span class="glyphicon glyphicon-heart-empty heart"></span>
+      <% if current_user %>
+        <%= current_user.username %>
+      <% end %>
+    </button>
+  <button
+    type="button"
+    class="btn btn-default pin-pin">
+  <img src="../assets/pinterest-pin.png">
+  </button>
   </div>
 
 
-  <div class="right-nav">
-    <div class="right-header">
 
-      <button class="right-icon btn btn-default"></button>
-      <button class="user-info btn btn-defalut">
-        <span
-          class="profile-name">
-          <%= current_user.username.capitalize %>
-        </span>
-      </button>
-
-    </div>
-  </div>
 </div>
 </nav>
 

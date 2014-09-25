@@ -14,13 +14,12 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
-    this.delegateEvents();
+    // this.delegateEvents(this.events);
     return this;  
   },
   
   addBoard: function (event) {
     event.preventDefault();
-    debugger
     var formData = $(event.currentTarget).serializeJSON();
     var board = new Pintrospective.Models.Board({
       title: formData.board.title,
@@ -32,7 +31,7 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
       success: function () {
         $('#addBoardModal').modal('toggle');
         setTimeout(function () {
-          Pintrospective.Collections.boards.add(board);
+          this.model.boards().add(board);
         }, 1);
       }
     });

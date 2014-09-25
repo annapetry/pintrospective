@@ -3,7 +3,7 @@ class Board < ActiveRecord::Base
 
   belongs_to :user, counter_cache: true
 
-  has_many :pins
+  has_many :pins, dependent: :destroy
 
   has_many(
     :images,

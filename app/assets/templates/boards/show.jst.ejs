@@ -3,10 +3,32 @@
     class="board-title">
       <%= board.escape('title') %>
   </h1>
-
 </div>
+
+  <div class="btn-group large-section-divider board-show">
+    <span id="wider">
+      <button class="btn btn-danger red-button">
+        Add people to board
+      </button>
+    </span>
+    <button
+      type="button"
+      id="longish-btn"
+      class="btn btn-default pin-count">
+      <p><%= board.get('pins_count') %> Pins</p>
+    </button>
+    <button
+      type="button"
+      id="long-btn"
+      class="btn btn-default">
+      <p>0 Followers</p>
+    </button>
+  </div>
+
 <div id="pin-form" class="row">
   <div id="pins"></div>
 </div>
 
-
+<script>
+  $('.pin-count').addClass('active');
+</script>
