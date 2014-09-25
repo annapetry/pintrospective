@@ -1,5 +1,5 @@
 Pintrospective.Models.Board = Backbone.Model.extend({
-  urlRoot: 'api/boards',
+  urlRoot: 'api/users/:id/boards',
   
   pins: function () {
     if (this._pins) {

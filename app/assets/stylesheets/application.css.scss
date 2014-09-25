@@ -23,6 +23,9 @@ $dark-text: #666;
 $text-box: #faf9f7;
 $logo-red: #cb2027;
 $light-text: #818181;
+$box-shadow: #bfbfbf;
+$btn-outline: #adadad;
+$font: 'Helvetica Neue','Helvetica',arial,sans-serif;
 
 
 @import "bootstrap-sprockets";
@@ -34,7 +37,7 @@ body {
   padding-top: 70px;
   background-color: $background;
   color: $dark-text;
-  font-family: 'Helvetica Neue','Helvetica',arial,sans-serif;;
+  font-family: $font;
 }
 #new-user-form {
   width: 300px;
@@ -47,12 +50,11 @@ a:hover {
   margin: 0;
   width: 100%;
   background-color: #fff;
-  box-shadow: 1px 1px 1px #bfbfbf;
+  box-shadow: 1px 1px 1px $box-shadow;
 }
 .navbar {
   min-height: 55px;
 }
-
 #nav-backdrop {
   padding-top: 10px;
   overflow: hidden;
@@ -94,7 +96,7 @@ a:hover {
 .menu-icon,
 .search-dropdown,
 .large-section-divider > button {
-  background: -webkit-linear-gradient(#fff, #f5f5f5);
+  background: linear-gradient(#f3f3f3, #e5e5e5);
   background-color: #f5f5f5;
   border: 1px solid #d4d4d4;
   height: 34px;
@@ -195,7 +197,7 @@ a:hover {
 .img-responsive,
 .user-name,
 .side-note {
-  box-shadow: 1px 1px 1px #bfbfbf;
+  box-shadow: 1px 1px 1px $box-shadow;
 }
 .side-note {
   padding-top: 10px;
@@ -214,16 +216,28 @@ a:hover {
   margin-bottom: 15px;
   padding-left: 10px;
   margin-left: -5px;
+  :nth-child(3) {
+    box-shadow: 1px 1px 0 $box-shadow;
+  }
 }
 #wide {
   width: 742px;
+  height: 45px;
+  display: inline-block;
+  float: left;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(#f3f3f3, #e5e5e5);
+  box-shadow: 0 1px 0 $box-shadow;
 }
 .large-section-divider > button {
   width: 91px;
   height: 45px;
   color: $dark-text;
-  box-shadow: 1px 1px 1px #bfbfbf;
+  box-shadow: 1px 1px 1px $box-shadow;
   padding-top: 12px;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 0.9em;
 }
 #long-btn {
   width: 112px;
@@ -243,10 +257,10 @@ a:hover {
    width: 48px;
   }
 }
-.add-board-text {
+.create-board-text {
   display: block;
   margin-top: 10px;
-  margin-left: -18px;
+  margin-left: -27px;
   font-weight: 600;
   color: $light-text;
 }
@@ -266,7 +280,7 @@ a:hover {
 .thumbnail {
   width: 100%;
   border-radius: 6px;
-  box-shadow: 1px 1px 1px #bfbfbf;
+  box-shadow: 1px 1px 1px $box-shadow;
   ul {
     margin: 4px 0 8px 0;
   }
@@ -278,6 +292,7 @@ a:hover {
   font-size: 14pt;
   color: $dark-text;
   padding-left: 10px;
+  margin-top: 10px;
 }
 .sm-img {
   display: inline-block;
@@ -298,11 +313,12 @@ ul {
   width: 100%;
   font-weight: 600;
   color: $dark-text;
+  background: linear-gradient(#fff, #f0f0f0);
 }
 
 // Board Form Formatting
 .board-form {
-  height: 378px;
+  height: 368px;
   width: 290px;
   background-color: $dark-background;
   margin: 0;
@@ -319,6 +335,16 @@ ul {
     outline: $dark-background inset 2px;
   }
 }
+
+// Board Show Page
+.board-title {
+  text-align: center;
+  font-size: 47px;
+  font-weight: 600;
+  color: $dark-text;
+}
+
+
 
 // Pin Formatting
 #pin-form {

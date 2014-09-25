@@ -17,15 +17,13 @@ module Api
     end
 
     def index
-      @boards = current_user.boards
-      # can i send in a user, too?
-      @user = current_user
+      user = User.find(params[:user_id])
+      @boards = user.boards
       render json: @boards
     end
 
     def show
       @board = Board.includes(:pins).find(params[:id])
-      # @board = Board.find(params[:id])
       render json: @board
     end
 

@@ -8,8 +8,9 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   createSubviews: function () {
+    this.model.boards().fetch()
     var boardIndex = new Pintrospective.Views.BoardsIndex({
-      collection: Pintrospective.Collections.boards
+      collection: this.model.boards()
     })
     this.addSubview('#board-items', boardIndex);  
   },

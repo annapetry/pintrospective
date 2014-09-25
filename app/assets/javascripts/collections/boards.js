@@ -1,7 +1,13 @@
 Pintrospective.Collections.Boards = Backbone.Collection.extend({
+  initialize: function (models, options) {
+    this.user = options.user;
+  },
+  
   model: Pintrospective.Models.Board,
   
-  url: 'api/boards',
+  url: function () {
+    return this.user.url() + '/boards';
+  },
   
   getOrFetch: function (id) {
     var boards = this;
@@ -22,4 +28,4 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
   }
 });
 
-Pintrospective.Collections.boards = new Pintrospective.Collections.Boards;
+// Pintrospective.Collections.boards = new Pintrospective.Collections.Boards;

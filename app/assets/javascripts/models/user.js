@@ -5,7 +5,9 @@ Pintrospective.Models.User = Backbone.Model.extend({
     if (this._boards) {
       return this._boards;
     } else {
-      this._boards = new Pintrospective.Collections.Boards([], { user: this });
+      this._boards = new Pintrospective.Collections.Boards([], {
+         user: this 
+       });
       return this._boards;
     }
   },
