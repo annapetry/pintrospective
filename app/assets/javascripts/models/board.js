@@ -1,4 +1,6 @@
 Pintrospective.Models.Board = Backbone.Model.extend({
+  // urlRoot: "api/users/" + CURRENT_USER_ID + "/boards",
+  
   pins: function () {
     if (this._pins) {
       return this._pins;

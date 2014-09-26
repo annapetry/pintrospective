@@ -1,6 +1,8 @@
-<div class="panel panel-default">
-  <div class="panel-body">
-    Panel content
+<div class="panel panel-default pin-panel">
+  <div class="panel-body pin-image">
+    <img src="<%= pin.escape('url') %>">
   </div>
-  <div class="panel-footer">Panel footer</div>
+  <div class="panel-footer">
+    <p><%= pin.escape('description')%></p>
+  </div>
 </div>

@@ -23,12 +23,13 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     var that = this;
     
     board.save({}, {
+      url: "api/users/" + CURRENT_USER_ID + "/boards",
       success: function () {
         $('#addBoardModal').modal('toggle');
         setTimeout(function () {
           debugger
           that.model.boards().add(board);
-        }, 2);
+        }, 1);
       }
     });
   }

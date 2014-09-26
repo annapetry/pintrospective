@@ -3,7 +3,6 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   
   initialize: function () {
     this.listenTo(this.model, "sync", this.render);
-    
     this.createSubviews();
   },
   
@@ -16,7 +15,10 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   },
   
   render: function () {
-    var renderedContent = this.template({ board: this.model });
+    var renderedContent = this.template({ 
+      board: this.model,
+      user: CURRENT_USER_ID
+    });
     this.$el.html(renderedContent);
     this.attachSubviews();
     

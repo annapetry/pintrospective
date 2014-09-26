@@ -2,6 +2,11 @@
 <html>
 <head>
   <title>Pintrospective</title>
+  <script>
+    <% if current_user %>
+      CURRENT_USER_ID = <%=current_user.id %>;
+    <% end %>
+  </script>
   <%= filepicker_js_include_tag %>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
@@ -22,6 +27,7 @@
 </div>
 
 <script>
+
  filepicker.setKey("AHIIwnSp2QTOsC0xg6g96z")
 </script>
 

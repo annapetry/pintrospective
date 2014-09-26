@@ -17,7 +17,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   },
   
   addFormView: function () {
-    var formView = new Pintrospective.Views.NewPin({ model: this.model });
+    var formView = new Pintrospective.Views.NewPin({ model: this.model, collection: this.model.pins() });
     this.addSubview('#form-wrapper', formView);
   },
   
@@ -25,6 +25,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     var indexItem = new Pintrospective.Views.PinsIndexItem({ model: pin });
     this.addSubview('#pin-items', indexItem);
     this.listenTo(indexItem, "remove", this.removePin);
+    this.render(); // thought this would remove the grey screen
   },
   
   render: function () {

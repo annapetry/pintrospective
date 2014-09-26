@@ -19,7 +19,8 @@ Pintrospective.Collections.Boards = Backbone.Collection.extend({
       board.fetch({
         success: function () {
           boards.add(board);
-        }
+        }, 
+        url: this.user.url() + '/boards/' + id
       });
     } else {
       board.fetch();
