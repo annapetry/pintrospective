@@ -5,7 +5,7 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
     "click button#remove-pin": "removePin"
   },
   
-  className: 'index-items col-md-3',
+  className: 'index-items',
   
   render: function(){
     var content = this.template({ pin: this.model });

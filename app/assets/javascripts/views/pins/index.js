@@ -6,7 +6,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addPin);
     
     this.createSubviews();
-    this.addFormView();
+    // this.addFormView();
   },
   
   createSubviews: function () {
@@ -18,7 +18,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   
   addFormView: function () {
     var formView = new Pintrospective.Views.NewPin({ model: this.model, collection: this.model.pins() });
-    this.addSubview('#form-wrapper', formView);
+    this.addSubview('#pin-form-wrapper', formView);
   },
   
   addPin: function (pin) {

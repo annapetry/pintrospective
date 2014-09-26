@@ -46,7 +46,6 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
   
   getUrl: function (event) {
     event.preventDefault();
-    debugger
     var formData = $(event.currentTarget).serializeJSON();
     this.image = new Pintrospective.Models.Image({
       url: formData.image.url,

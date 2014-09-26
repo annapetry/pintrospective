@@ -13,7 +13,9 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.min
-//= require jquery.grid-a-licious.js
+//= require jquery.grid-a-licious
+//= require isotope.pkgd
+//= require imagesloaded.pkgd
 //= require underscore
 //= require backbone
 //= require bootstrap
