@@ -6,7 +6,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addPin);
     
     this.createSubviews();
-    // this.addFormView();
+    this.addFormView();
   },
   
   createSubviews: function () {
@@ -18,7 +18,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   
   addFormView: function () {
     var formView = new Pintrospective.Views.NewPin({ model: this.model, collection: this.model.pins() });
-    this.addSubview('#pin-form-wrapper', formView);
+    this.addSubview('#pin-items', formView);
   },
   
   addPin: function (pin) {
@@ -34,6 +34,22 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviews();
+    
+    $('.pin-count').addClass('active');
+
+    // Need to add form view
+
+    var that = this;
+    setTimeout(function(){
+      var $container = that.$el.find('#pin-items').isotope({
+        itemSelector: '.index-items',
+      }); 
+      // layout Isotope again after all images have loaded
+      $container.imagesLoaded( function() {
+        $container.isotope('layout');
+      });
+    }, 0);
+    
     
     return this;
   },

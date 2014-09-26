@@ -6,7 +6,7 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     "submit form#new-pin-info": "addPin"
   },
   
-  classname: 'col-md-2',
+  className: 'index-items',
   
   render: function () {
     var renderedContent = this.template({ pin: this.model });

@@ -4,13 +4,19 @@
       <%= board.escape('title') %>
   </h1>
 </div>
-
   <div class="btn-group large-section-divider board-show">
     <span id="wider">
-      <!-- I want to add a conditional in here to show this button only if the current user is the board's owner -->
+      <!-- I want to add a conditional in here to show this button only if the current user is the board's owner- which i can do!  I have current_user id and the board.get('user_id') available here b/c i passed in the global CURRENT_USER-->
+      <% if (user === board.get('user_id')) { %>
       <button class="btn btn-danger red-button">
         Add people to board
       </button>
+      <% } else { %>
+        <div class="non-current-user">
+          <img src="../assets/petry-550-440.jpg">
+          <p><%= board.get('username') %></p>
+        </div>
+      <% } %>
     </span>
     <button
       type="button"

@@ -2,8 +2,11 @@
   <div class="panel-body pin-image">
     <img src="<%= pin.escape('url') %>">
   </div>
-  <div class="panel-footer">
+  <div class="panel-body">
     <p><%= pin.escape('description')%></p>
+  </div>
+  <div class="panel-footer">
+    <p>Pinned by <%= pin.escape('username') %></p>
   </div>
 </div>
 
