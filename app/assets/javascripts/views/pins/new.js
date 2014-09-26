@@ -6,6 +6,10 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     "submit form#new-pin-info": "addPin"
   },
   
+  initialize: function(options) {
+    this.board = options.board
+  },
+  
   className: 'index-items',
   
   render: function () {
@@ -28,29 +32,38 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     event.preventDefault();
     
     var formData = $(event.currentTarget).serializeJSON();
-    var pin = new Pintrospective.Models.Pin({
+    this.model.set({
       description: formData.pin.description,
-      board_id: this.model.id
+      board_id: this.board.id
     });
-    
-    this.$pinInfoModal.modal('hide');
-    
+
     var that = this;
-    pin.save({}, {
+    this.model.save({}, {
       success: function () {
-        that.collection.add(pin);
-        that.image.save({ imageable_id: pin.id });
+        that.$pinInfoModal.modal('hide');
+        
+          that.$pinInfoModal.one('hidden.bs.modal', function () {
+          that.collection.add(that.model);
+          // that.image.save({ imageable_id: pin.id });
+        });
       }
     });
+    
   },
   
   getUrl: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
-    this.image = new Pintrospective.Models.Image({
-      url: formData.image.url,
-      imageable_type: "Pin"
+    this.model.set({
+      image_attributes: {
+        url: formData.image.url,
+        imageable_type: "Pin"          
+      }
     });
+    
+    // this.image = new Pintrospective.Models.Image({
+ //
+ //    });
        
     var that = this;
     this.$webPinModal.on('hide.bs.modal', function(){

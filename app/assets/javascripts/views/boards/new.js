@@ -27,7 +27,6 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
       success: function () {
         $('#addBoardModal').modal('toggle');
         setTimeout(function () {
-          debugger
           that.model.boards().add(board);
         }, 1);
       }

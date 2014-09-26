@@ -22,6 +22,8 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviews();
     
+    $('.pin-count').addClass('active');
+    
     return this;  
   },
   

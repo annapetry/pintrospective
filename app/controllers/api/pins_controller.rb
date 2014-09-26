@@ -2,12 +2,13 @@ module Api
   class PinsController < ApiController
 
     before_action :require_user
+    wrap_parameters :pin, include: [:board_id, :image_attributes, :description]
 
     def create
       @pin = current_board.pins.new(pin_params)
 
       if @pin.save
-        render json: @pin
+        render partial: 'api/pins/pin', locals: { pin: @pin }
       else
         render json: @pin.errors.full_messages, status: :unprocessable_entity
       end
@@ -41,7 +42,7 @@ module Api
     end
 
     def pin_params
-      params.require(:pin).permit(:description, :board_id, :url)
+      params.require(:pin).permit(:description, :board_id, :image_attributes => [:url, :imageable_id, :imageable_type])
     end
 
   end

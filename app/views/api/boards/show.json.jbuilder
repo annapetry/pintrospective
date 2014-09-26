@@ -4,8 +4,6 @@ json.pin_count @board.pins.size
 json.username @board.user.username
 
 json.pins @board.pins do |pin|
-  json.extract! pin, :id, :description, :board_id, :created_at, :updated_at
-  json.extract! pin.image, :url
-  json.extract! pin.user, :username
+  json.partial! 'api/pins/pin', pin: pin
 end
 
