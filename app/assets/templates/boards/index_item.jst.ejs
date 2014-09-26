@@ -1,40 +1,18 @@
   <a href="#/users/<%= board.get('user_id') %>/boards/<%= board.id %>">
     <div class="index-panel">
-      <div class="thumbnail">
-        <h3 class="title"><%= board.escape('title') %></h3>
-        <img
-          src="../assets/texture.jpg"
-          class="img-responsive"
-          id="board-hero">
-
-          <div class="small-imgage-set row">
-            <div class="sm-img">
-              <img
-                src="../assets/51x51.jpg"
-                class="img-responsive">
-            </div>
-           <div class="sm-img ">
-             <img
-               src="../assets/51x51.jpg"
-               class="img-responsive">
-           </div>
-           <div class="sm-img ">
-             <img
-               src="../assets/51x51.jpg"
-               class="img-responsive">
-           </div>
-           <div class="sm-img ">
-             <img
-               src="../assets/51x51.jpg"
-               class="img-responsive">
-           </div>
-           <div class="sm-img ">
-             <img
-               src="../assets/51x51.jpg"
-               class="img-responsive">
-           </div>
-          </div>
-
+      <div class="panel panel-default board-panel">
+        <div class="board-item-title">
+          <h5><%= board.escape('title') %></h5>
+        </div>
+        <div class="hero-image">
+          <img src="../assets/texture.jpg">
+        </div>
+        <div class="board-small-image-set">
+          <img src="../assets/texture.jpg">
+          <img src="../assets/texture.jpg">
+          <img src="../assets/texture.jpg">
+          <img src="../assets/texture.jpg">
+        </div>
         <a
           href="#"
           class="btn btn-default"

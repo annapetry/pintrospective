@@ -5,7 +5,7 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     "submit #new-board-form": "addBoard"
   },
   
-  className: 'new-board-view',
+  className: 'board-index-items',
   
   render: function () {
     var renderedContent = this.template({ board: this.model });

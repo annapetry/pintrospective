@@ -17,8 +17,10 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
   },
   
   addFormView: function () {
-    var formView = new Pintrospective.Views.NewBoard({ model: this.model });
-    this.addSubview('#form-wrapper', formView);
+    var formView = new Pintrospective.Views.NewBoard({ 
+      model: this.model 
+    });
+    this.addSubview('#board-items', formView);
   },
   
   addBoard: function (board) {
@@ -33,6 +35,19 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviews();
+    
+    $('.board-count').addClass('active');
+    
+    var that = this;
+    setTimeout(function(){
+      var $container = that.$el.find('#board-items').isotope({
+        itemSelector: '.board-index-items',
+      }); 
+      // layout Isotope again after all images have loaded
+      $container.imagesLoaded( function() {
+        $container.isotope('layout');
+      });
+    }, 0);
     
     return this;
   },

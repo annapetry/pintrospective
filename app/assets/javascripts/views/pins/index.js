@@ -2,7 +2,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   template: JST['pins/index'],
   
   initialize: function () {
-    this.listenTo(this.collection, "sync remove", this.render);
+    this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addPin);
     
     this.createSubviews();
@@ -17,7 +17,10 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   },
   
   addFormView: function () {
-    var formView = new Pintrospective.Views.NewPin({ model: this.model, collection: this.model.pins() });
+    var formView = new Pintrospective.Views.NewPin({ 
+      model: this.model, 
+      collection: this.model.pins() 
+    });
     this.addSubview('#pin-items', formView);
   },
   
@@ -25,7 +28,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     var indexItem = new Pintrospective.Views.PinsIndexItem({ model: pin });
     this.addSubview('#pin-items', indexItem);
     this.listenTo(indexItem, "remove", this.removePin);
-    this.render(); // thought this would remove the grey screen
+    // this.render(); // thought this would remove the grey screen
   },
   
   render: function () {
@@ -36,8 +39,6 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     this.attachSubviews();
     
     $('.pin-count').addClass('active');
-
-    // Need to add form view
 
     var that = this;
     setTimeout(function(){
