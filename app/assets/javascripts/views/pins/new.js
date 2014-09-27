@@ -44,7 +44,6 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
         
           that.$pinInfoModal.one('hidden.bs.modal', function () {
           that.collection.add(that.model);
-          // that.image.save({ imageable_id: pin.id });
         });
       }
     });
@@ -60,11 +59,7 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
         imageable_type: "Pin"          
       }
     });
-    
-    // this.image = new Pintrospective.Models.Image({
- //
- //    });
-       
+
     var that = this;
     this.$webPinModal.on('hide.bs.modal', function(){
       that.$pinInfoModal.modal('show');

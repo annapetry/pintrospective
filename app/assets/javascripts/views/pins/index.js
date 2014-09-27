@@ -24,12 +24,12 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
       board: this.model,
       collection: this.model.pins() 
     });
-    this.addSubview('#pin-items', formView);
+    this.addSubviewBefore('#pin-items', formView);
   },
   
   addPin: function (pin) {
     var indexItem = new Pintrospective.Views.PinsIndexItem({ model: pin });
-    this.addSubview('#pin-items', indexItem);
+    this.addSubviewBefore('#pin-items', indexItem);
     this.listenTo(indexItem, "remove", this.removePin);
   },
   
@@ -38,7 +38,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
       pins: this.collection
     });
     this.$el.html(renderedContent);
-    this.attachSubviews();
+    this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');
 

@@ -13,8 +13,10 @@
       </button>
       <% } else { %>
         <div class="non-current-user">
-          <img src="../assets/petry-550-440.jpg">
-          <p><%= board.get('username') %></p>
+          <a href="#/users/<%= board.get('user_id') %>">
+            <img src="../assets/petry-550-440.jpg">
+            <%= board.escape('username') %>
+          </a>
         </div>
       <% } %>
     </span>

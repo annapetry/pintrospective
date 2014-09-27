@@ -12,13 +12,13 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
       model: this.model,
       collection: this.model.boards()
     })
-    this.addSubview('#board-items', boardIndex);  
+    this.addSubviewBefore('#board-items', boardIndex);  
   },
   
   render: function () {
     var renderedContent = this.template({ user: this.model });
     this.$el.html(renderedContent);
-    this.attachSubviews();
+    this.attachSubviewsBefore();
     
     return this;  
   },

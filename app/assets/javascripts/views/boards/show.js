@@ -11,7 +11,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       model: this.model,
       collection: this.model.pins()
     })
-    this.addSubview('#pins', pinIndex);  
+    this.addSubviewBefore('#pins', pinIndex);  
   },
   
   render: function () {
@@ -20,7 +20,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       user: CURRENT_USER_ID
     });
     this.$el.html(renderedContent);
-    this.attachSubviews();
+    this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');
     

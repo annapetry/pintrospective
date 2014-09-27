@@ -20,12 +20,12 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
     var formView = new Pintrospective.Views.NewBoard({ 
       model: this.model 
     });
-    this.addSubview('#board-items', formView);
+    this.addSubviewBefore('#board-items', formView);
   },
   
   addBoard: function (board) {
     var indexItem = new Pintrospective.Views.BoardsIndexItem({ model: board });
-    this.addSubview('#board-items', indexItem);
+    this.addSubviewBefore('#board-items', indexItem);
     this.listenTo(indexItem, "remove", this.removeBoard);
   },
   
@@ -34,7 +34,7 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
       boards: this.collection
     });
     this.$el.html(renderedContent);
-    this.attachSubviews();
+    this.attachSubviewsBefore();
     
     $('.board-count').addClass('active');
     
