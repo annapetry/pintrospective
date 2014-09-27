@@ -21,6 +21,16 @@ class User < ActiveRecord::Base
   # FOLLOWEES => Users or Boards that THIS user follows
   has_many :followees, class_name: "Follow", foreign_key: "user_id"
 
+  has_many :followed_boards
+  has_many :followed_users
+
+
+  # has_many(
+  #   :followed_user_boards,
+  #   through: :followees,
+  #   source: :board
+  # )
+
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)
     user && user.is_password?(password) ? user : nil
