@@ -2,14 +2,14 @@
 
   <div class="row header-container">
 
-    <div class="index-header">
-      <div class="col-md-2 user-image">
+    <div class="index-header col-md-12 col-sm-12">
+      <div class="col-md-2 col-sm-2 user-image">
         <img
           src="../assets/petry-550-440.jpg"
           class="img-responsive">
       </div>
 
-      <div class="col-md-6 user-name">
+      <div class="col-md-5 col-sm-5 user-name">
         <div class="userName">
           <h2><%= user.escape('username').capitalize() %></h2>
         </div>
@@ -22,17 +22,18 @@
         </div>
       </div>
 
-      <div class="col-md-3 side-note">
+      <div class="col-md-3 col-sm-2 side-note">
           <h5>More</h5>
           <h5>Info</h5>
           <h5>Here</h5>
           <h5>WHOOP</h5>
       </div>
 
-    </div>
-  </div>
+    </div> <!-- Close of Index Header-->
+  </div> <!-- Close of header-container -->
 
-    <div class="btn-group large-section-divider">
+  <div class="row">
+    <div class="btn-group large-section-divider col-md-12">
       <button
         type="button"
         class="btn btn-default board-count">
@@ -69,6 +70,7 @@
         class="btn btn-default">
         <p><%= user.get('following_count') %> Following</p>
       </button>
+    </div>
     </div>
 </div>
 

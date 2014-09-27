@@ -4,7 +4,7 @@
   <title>Pintrospective</title>
   <script>
     <% if current_user %>
-      CURRENT_USER_ID = <%=current_user.id %>;
+      CURRENT_USER_ID = <%= current_user.id %>;
     <% end %>
   </script>
 
@@ -21,6 +21,19 @@
 
 <% if current_user %>
   <%= render partial: "layouts/header" %>
+<% end %>
+
+<% if flash[:errors] %>
+  <div class="alert alert-warning alert-dismissible" role="alert">
+     <button
+       type="button"
+       class="close"
+       data-dismiss="alert">
+       <span aria-hidden="true">&times;</span>
+       <span class="sr-only">Close</span>
+     </button>
+    <%= flash[:errors].join("<br>").html_safe %>
+  </div>
 <% end %>
 
 <div id="view">

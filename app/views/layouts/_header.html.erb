@@ -17,34 +17,29 @@
     </button>
   </div>
 
-  <a href="#/users/<%= current_user.id %>">
-    <div class="btn-group header-right">
-      <button
-        type="button"
-        class="btn btn-default username">
-        <img src="../assets/petry-550-440.jpg">
-        <% if current_user %>
-          <p><%= current_user.username %></p>
-        <% end %>
-      </button>
-
-      <button
+  <div class="header-right">
+    <a href="#/users/<%= current_user.id %>">
+      <div class="btn-group right-side">
+        <button
           type="button"
-          class="btn btn-default  pin-pin">
-        <img src="../assets/pinterest-pin.png">
-      </button>
+          class="btn btn-default username">
+          <img src="../assets/petry-550-440.jpg">
+          <% if current_user %>
+            <p><%= current_user.username %></p>
+          <% end %>
+        </button>
 
-    </div> <!-- Close of btn-group header-right-->
-  </a>
+        <button
+            type="button"
+            class="btn btn-default  pin-pin">
+          <img src="../assets/pinterest-pin.png">
+        </button>
+      </div> <!-- Close of btn-group header-right-->
+    </a>
+  </div>
 
 
 
 </div>
 </nav>
 
-<% if flash[:errors] %>
-<div class="alert alert-warning alert-dismissible" role="alert">
-   <button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-<%= flash[:errors].join("<br>").html_safe %>
-</div>
-<% end %>
