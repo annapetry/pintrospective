@@ -49,11 +49,13 @@
         <p>No Likes!</p>
       </button>
       <span id="wide">
-        <button
-        class="btn btn-danger red-button #user-follow-button"
-        id="user-follow-button">
-          Follow User
-        </button>
+        <% if (user.id != current_user) { %>
+          <button
+          class="btn btn-danger red-button #user-follow-button"
+          id="user-follow-button">
+            Follow User
+          </button>
+        <% } %>
       </span>
       <button
         type="button"

@@ -22,7 +22,8 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   
   render: function () {
     var renderedContent = this.template({ 
-      user: this.model
+      user: this.model,
+      current_user: CURRENT_USER_ID
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
