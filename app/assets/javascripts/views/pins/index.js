@@ -45,14 +45,15 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     setTimeout(function(){
       var $container = that.$el.find('#pin-items').isotope({
         itemSelector: '.index-items',
+        stamp: '.stamp'
       }); 
+    
       // layout Isotope again after all images have loaded
       $container.imagesLoaded( function() {
         $container.isotope('layout');
       });
     }, 0);
-    
-    
+        
     return this;
   },
   

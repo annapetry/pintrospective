@@ -43,6 +43,7 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
     setTimeout(function(){
       var $container = that.$el.find('#board-items').isotope({
         itemSelector: '.board-index-items',
+        stamp: '.stamp'
       }); 
       // layout Isotope again after all images have loaded
       $container.imagesLoaded( function() {

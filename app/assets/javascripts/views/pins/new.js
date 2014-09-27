@@ -10,7 +10,9 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     this.board = options.board
   },
   
-  className: 'index-items',
+  // Should I add an ord 
+  
+  className: 'stamp index-items',
   
   render: function () {
     var renderedContent = this.template({ pin: this.model });

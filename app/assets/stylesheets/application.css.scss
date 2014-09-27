@@ -219,7 +219,6 @@ div.board-form {
   cursor: pointer;
   height: 285px;
   width: 100%;
-  position: relative;
 }
 .board-form {
   .plus-pin {
@@ -302,12 +301,17 @@ div.board-form {
 div.board-form,
 div.pin-form {
   height: 285px;
-  width: 100%;
-  position: relative;
+  width: 94%;
   background-color: $dark-background;
   margin: 0;
   border: dashed 2px $light-text;
   border-radius: 6px;
+}
+div.board-form {
+  margin-left: 3%;
+}
+div.pin-form {
+  width: 100%;
 }
 .new-board-view {
   padding-left: 0;
@@ -539,6 +543,12 @@ div.pin {
   float: left;
   width: 20%;
   margin-right: 5px;
+}
+div.board-form,
+div.pin-form-div{
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 // Pin Formatting
 div.container {
