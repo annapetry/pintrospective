@@ -13,7 +13,8 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   createSubviews: function () {
     var pinIndex = new Pintrospective.Views.PinsIndex({
       model: this.model,
-      collection: this.model.pins()
+      collection: this.model.pins(),
+      user: this.model.get('user_id')
     })
     this.addSubviewBefore('#pins', pinIndex);  
   },
