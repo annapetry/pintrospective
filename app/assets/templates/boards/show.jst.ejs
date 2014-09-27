@@ -21,6 +21,9 @@
             <img src="../assets/petry-550-440.jpg">
             <%= board.escape('username') %>
           </a>
+          <button class="btn btn-danger red-button" id="board-follow-button">
+            Follow Board
+          </button>
         </div>
       <% } %>
     </span>
@@ -34,8 +37,8 @@
       type="button"
       id="long-btn"
       class="btn btn-default">
-<!-- TODO get follower count for THIS board -->
-      <p>0 Followers</p>
+<!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
+      <p><%= board.escape('follower_count') %> Followers</p>
     </button>
   </div>
 

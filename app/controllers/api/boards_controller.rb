@@ -23,7 +23,6 @@ module Api
     end
 
     def show
-      # need to return board of requested user
       user = User.find(params[:user_id])
       boards = user.boards
 
