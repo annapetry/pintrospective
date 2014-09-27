@@ -4,3 +4,4 @@ class AddCountCacheColumnsToUsersAndBoards < ActiveRecord::Migration
     add_column :boards, :pins_count, :integer
   end
 end
+

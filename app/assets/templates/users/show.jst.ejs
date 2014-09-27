@@ -53,13 +53,13 @@
         type="button"
         id="long-btn"
         class="btn btn-default">
-        <p>No Followers</p>
+        <p><%= user.get('follower_count') %> Followers</p>
       </button>
       <button
         type="button"
         id="long-btn"
         class="btn btn-default">
-        <p>Not Following</p>
+        <p><%= user.get('following_count') %> Following</p>
       </button>
     </div>
 </div>
