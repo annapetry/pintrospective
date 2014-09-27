@@ -7,7 +7,6 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     
     this.createSubviews();
     
-    // if ()
     this.addFormView();
   },
   

@@ -10,6 +10,8 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   render: function () {
     var renderedContent = this.template({ board: this.model });
     this.$el.html(renderedContent);
+    
+    this.$addBoardModal = this.$('#addBoardModal');
     return this;  
   },
   
@@ -25,10 +27,11 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     board.save({}, {
       url: "api/users/" + CURRENT_USER_ID + "/boards",
       success: function () {
-        $('#addBoardModal').modal('toggle');
-        setTimeout(function () {
+        that.$addBoardModal.modal('hide');
+        
+        that.$addBoardModal.one('hidden.bs.modal', function (){
           that.model.boards().add(board);
-        }, 1);
+        });
       }
     });
   }

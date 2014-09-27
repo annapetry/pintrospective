@@ -10,4 +10,6 @@ class Board < ActiveRecord::Base
     through: :pins,
     source: :image
   )
+
+  default_scope { order(created_at: :asc) }
 end

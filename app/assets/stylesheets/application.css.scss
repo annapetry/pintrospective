@@ -169,7 +169,7 @@ a:hover {
   width: 100%;
   margin-bottom: 15px;
   padding-left: 10px;
-  margin-left: -5px;
+  margin-left: .4%;
   :nth-child(3) {
     box-shadow: 1px 1px 0 $box-shadow;
   }
@@ -312,8 +312,6 @@ div.pin-form {
 .new-board-view {
   padding-left: 0;
 }
-
-// Board Show Page
 .board-title {
   text-align: center;
   font-size: 47px;
@@ -543,6 +541,11 @@ div.pin {
   margin-right: 5px;
 }
 // Pin Formatting
+div.container {
+  margin: 0;
+  width: 100%;
+  margin-left: .4%;
+}
 .pin-image {
   img {
     width: 100%;
