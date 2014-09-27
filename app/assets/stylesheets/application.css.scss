@@ -322,6 +322,14 @@ div.pin-form {
   font-weight: 600;
   color: $darker-text;
   margin-bottom: 35px;
+  margin-bottom: 0;
+}
+.board-description {
+  font-weight: 400;
+  color: $light-text;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
 }
 #longish-button {
   width: 88px;

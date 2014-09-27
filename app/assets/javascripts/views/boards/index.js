@@ -18,10 +18,12 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
   },
   
   addFormView: function () {
-    var formView = new Pintrospective.Views.NewBoard({ 
-      model: this.model 
-    });
-    this.addSubviewBefore('#board-items', formView);
+    if (this.model.id == CURRENT_USER_ID) {
+      var formView = new Pintrospective.Views.NewBoard({ 
+        model: this.model 
+      });
+      this.addSubviewBefore('#board-items', formView);
+    }
   },
   
   addBoard: function (board) {

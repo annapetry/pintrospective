@@ -18,12 +18,15 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   },
   
   addFormView: function () {
-    var formView = new Pintrospective.Views.NewPin({ 
-      model: new Pintrospective.Models.Pin(), 
-      board: this.model,
-      collection: this.model.pins() 
-    });
-    this.addSubviewBefore('#pin-items', formView);
+    debugger
+    if (this.model.id == CURRENT_USER_ID) {
+      var formView = new Pintrospective.Views.NewPin({ 
+        model: new Pintrospective.Models.Pin(), 
+        board: this.model,
+        collection: this.model.pins() 
+      });
+      this.addSubviewBefore('#pin-items', formView);
+    }
   },
   
   addPin: function (pin) {
