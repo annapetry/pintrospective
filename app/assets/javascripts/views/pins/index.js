@@ -17,6 +17,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     });
   },
   
+  // Pass in this.model as the board
   addFormView: function () {
     if (this.user_id == CURRENT_USER_ID) {
       var formView = new Pintrospective.Views.NewPin({ 

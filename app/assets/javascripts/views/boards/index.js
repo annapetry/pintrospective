@@ -2,8 +2,9 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST['boards/index'],
   
   initialize: function () {
-    this.listenTo(this.model.boards(), "sync add remove", this.render);
-    this.listenTo(this.model.boards(), "add", this.addBoard);
+    // collection is boards
+    this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(this.collection, "add", this.addBoard);
     
     this.createSubviews();
     
@@ -17,10 +18,12 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
     });
   },
   
+  // pass this.model as the user
   addFormView: function () {
     if (this.model.id == CURRENT_USER_ID) {
       var formView = new Pintrospective.Views.NewBoard({ 
-        model: this.model 
+        model: new Pintrospective.Models.Board(),
+        collection: this.model.boards()
       });
       this.addSubviewBefore('#board-items', formView);
     }

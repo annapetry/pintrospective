@@ -8,7 +8,7 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   className: 'stamp board-index-items',
   
   render: function () {
-    var renderedContent = this.template({ board: this.model });
+    var renderedContent = this.template();
     this.$el.html(renderedContent);
     
     this.$addBoardModal = this.$('#addBoardModal');
@@ -19,19 +19,20 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   addBoard: function (event) {
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
-    var board = new Pintrospective.Models.Board({
+    this.model.set({
       title: formData.board.title,
       description: formData.board.description
     });
     var that = this;
     
-    board.save({}, {
+    debugger
+    this.model.save({}, {
       url: "api/users/" + CURRENT_USER_ID + "/boards",
       success: function () {
         that.$addBoardModal.modal('hide');
         
         that.$addBoardModal.one('hidden.bs.modal', function (){
-          that.collection.add(board);
+          that.collection.add(that.model);
         });
       }
     });
