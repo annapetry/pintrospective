@@ -52,6 +52,7 @@ a:hover {
 .btn {
   font-size: 0.9em;
 }
+
 // Sing In/Up Formatting
 .large-background-image-container {
   background-image: url(background-lg.jpg);
@@ -626,8 +627,18 @@ div.pin {
 .close span {
   margin-top: 7px;
 }
-.modal-body {
+.pin.modal-body {
+  background-color: $white;
+}
+.pin.modal-footer,
+.web-pin.modal-body {
   background-color: $background;
+}
+div.web-pin {
+  border-radius: 0 0 6px 6px;
+}
+button#next-button {
+  margin-top: 1.4px;
 }
 #submit-pin-form {
   img {

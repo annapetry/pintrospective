@@ -83,7 +83,7 @@
           Add a Pin from a website
         </h4>
         </div>
-        <div class="modal-body pin">
+        <div class="modal-body web-pin">
           <div class="form-group">
             <div class="col-sm-10">
               <input
@@ -95,6 +95,7 @@
             </div>
             <button
               type="submit"
+              id="next-button"
               class="btn btn-default">
               Next
             </button>
@@ -113,38 +114,28 @@
 
       <form role="form" id="new-pin-info" class="form-horizontal">
         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="pnInfo">Pick a Board</h4>
-      </div>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="pnInfo">Pinformation</h4>
+        </div>
 
         <div class="modal-body pin">
-          <div class="form-group">
-            <label for="board" class="col-sm-2 control-label">Board</label>
-            <div class="col-sm-10">
-              <button
-                type="text"
-                class="btn btn-default"
-                id="board">
-                Should be a dropdown of User's boards
-              </button>
-            </div>
-          </div>
           <div class="form-group">
             <label
               for="board-desc"
               class="col-sm-2 control-label">
               Description
             </label>
-          <div class="col-sm-10">
-            <textarea
-              class="form-control"
-              id="pin-desc"
-              name="pin[description]"
-              placeholder="What's this pin all about?"></textarea>
+            <div class="col-sm-10">
+              <textarea
+                class="form-control"
+                id="pin-desc"
+                name="pin[description]"
+                placeholder="What's this pin all about?"></textarea>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer">
+        <div class="modal-footer pin">
           <button
             type="button"
             class="btn btn-default"
