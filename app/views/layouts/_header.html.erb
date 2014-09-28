@@ -23,7 +23,7 @@
         <button
           type="button"
           class="btn btn-default username">
-          <img src="../assets/petry-550-440.jpg">
+          <img src="<%= current_user.image.url %>">
           <% if current_user %>
             <p><%= current_user.username %></p>
           <% end %>

@@ -1,5 +1,6 @@
 json.extract! @user, :username, :description, :location, :id, :created_at, :updated_at
 
+json.url @user.image.url
 json.board_count @user.boards.size
 json.pin_count @user.pins.size
 json.follower_count @user.followers.size
