@@ -13,11 +13,11 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.serializejson.min
-//= require jquery.grid-a-licious
 //= require isotope.pkgd
 //= require imagesloaded.pkgd
 //= require underscore
 //= require backbone
+//= require backbone.stickit
 //= require bootstrap
 //= require pintrospective
 //= require_tree ../templates

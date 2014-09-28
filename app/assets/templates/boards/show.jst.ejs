@@ -31,12 +31,12 @@
       type="button"
       id="longish-btn"
       class="btn btn-default pin-count">
-      <p><%= board.get('pin_count') %> Pins</p>
+      <p pin-count-p><%= board.get('pin_count') %> Pins</p>
     </button>
     <button
       type="button"
       id="long-btn"
-      class="btn btn-default">
+      class="btn btn-default follower_count">
 <!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
       <p><%= board.escape('follower_count') %> Followers</p>
     </button>

@@ -10,6 +10,11 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     "click button#board-follow-button": "followBoard"
   },
   
+  // bindings: {
+  //   '.pin-count-p': 'pin_count',
+  //   '.follower-count': 'follower_count'
+  // },
+  //
   createSubviews: function () {
     var pinIndex = new Pintrospective.Views.PinsIndex({
       model: this.model,
@@ -28,6 +33,8 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');
+    
+    // this.stickit();
     
     return this;  
   },
