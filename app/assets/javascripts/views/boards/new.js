@@ -31,7 +31,7 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
         that.$addBoardModal.modal('hide');
         
         that.$addBoardModal.one('hidden.bs.modal', function (){
-          that.model.boards().add(board);
+          that.collection.add(board);
         });
       }
     });

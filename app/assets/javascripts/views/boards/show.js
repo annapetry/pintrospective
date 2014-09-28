@@ -2,19 +2,16 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST["boards/show"],
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.createSubviews();
   },
   
   events: {
-    "click button#board-follow-button": "followBoard"
+    "click button#board-follow-button": "followBoard",
+    "submit form#edit-board-form": "editBoard",
+    "click button#delete-board": "removeBoard"
   },
-  
-  // bindings: {
-  //   '.pin-count-p': 'pin_count',
-  //   '.follower-count': 'follower_count'
-  // },
-  //
+
   createSubviews: function () {
     var pinIndex = new Pintrospective.Views.PinsIndex({
       model: this.model,
@@ -33,10 +30,41 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');
-    
+    this.$editBoardModal = this.$('#editBoardModal');
     // this.stickit();
     
     return this;  
+  },
+  
+  editBoard: function (event) {
+    event.preventDefault();
+    var cat;
+    var formData = $(event.currentTarget).serializeJSON();
+    
+    if (formData.board.category == "What kind of board is it?") {
+      cat = "Other";
+    } else {
+      cat = formData.board.category;
+    }
+    
+    var that = this;
+    
+    this.model.set({
+      title: formData.board.title,
+      description: formData.board.description,
+      category: cat
+    });
+    
+    this.model.save({}, {
+        url: "api/users/" + CURRENT_USER_ID + "/boards/" + this.model.id,
+        success: function () {
+          that.$editBoardModal.modal('hide');
+          that.$editBoardModal.one('hidden.bs.modal', function (){
+            that.model.boards().add(that.model);
+          });
+        }
+    });
+    
   },
   
   followBoard: function (event) {
@@ -46,6 +74,15 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       followable_type: 'Board'
     });
     followee_board.save({});
+  },
+  
+  removeBoard: function (event) {
+    debugger
+    event.preventDefault();
+    this.model.destroy();
+    
+    
+    window.location.hash = '';
   },
   
   removePin: function (pinSubView) {

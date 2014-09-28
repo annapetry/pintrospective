@@ -39,7 +39,7 @@ module Api
     def update
       @board = current_user.boards.find(params[:id])
 
-      if @baord.update_attributes(board_params)
+      if @board.update_attributes(board_params)
         render json: @board
       else
         render json: @board.errors.full_messages, status: :unprocessable_entity
@@ -49,7 +49,7 @@ module Api
     private
 
     def board_params
-      params.require(:board).permit(:title, :description)
+      params.require(:board).permit(:title, :description, :category)
     end
   end
 end

@@ -7,7 +7,7 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
   },
   
   initialize: function(options) {
-    this.board = options.board
+    this.board = options.board;
   },
   
   // Should I add an ord 
