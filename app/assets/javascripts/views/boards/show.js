@@ -81,7 +81,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.$deleteBoardModal.modal('hide');
     this.$deleteBoardModal.one('hidden.bs.modal', function (){
       that.model.destroy();        
-      window.location.hash = '';  
+      window.location.hash = "/users/" + CURRENT_USER_ID;  
       setTimeout(function () {
         window.location.reload();        
       }, 1);    

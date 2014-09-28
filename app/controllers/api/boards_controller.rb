@@ -32,7 +32,7 @@ module Api
       if @board
         render :show
       else
-        render json: "Pinner does not have that Board", status: :not_foundn
+        render json: "Pinner does not have that Board", status: :not_found
       end
     end
 

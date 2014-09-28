@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140928181341) do
+ActiveRecord::Schema.define(version: 20140928213447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140928181341) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pins_count",    default: 0
-    t.integer  "follows_count"
+    t.integer  "follows_count", default: 0
     t.string   "category"
   end
 
@@ -67,7 +67,7 @@ ActiveRecord::Schema.define(version: 20140928181341) do
     t.string   "description"
     t.string   "location"
     t.integer  "boards_count",    default: 0
-    t.integer  "follows_count"
+    t.integer  "follows_count",   default: 0
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
