@@ -31,6 +31,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     
     $('.pin-count').addClass('active');
     this.$editBoardModal = this.$('#editBoardModal');
+    this.$deleteBoardModal = this.$('#deleteBoardModal');
     // this.stickit();
     
     return this;  
@@ -40,27 +41,24 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var cat;
     var formData = $(event.currentTarget).serializeJSON();
-    
     if (formData.board.category == "What kind of board is it?") {
       cat = "Other";
     } else {
       cat = formData.board.category;
     }
-    
-    var that = this;
-    
     this.model.set({
       title: formData.board.title,
       description: formData.board.description,
       category: cat
     });
+    var that = this;
     
     this.model.save({}, {
         url: "api/users/" + CURRENT_USER_ID + "/boards/" + this.model.id,
         success: function () {
           that.$editBoardModal.modal('hide');
           that.$editBoardModal.one('hidden.bs.modal', function (){
-            that.model.boards().add(that.model);
+            that.collection.add(that.model);
           });
         }
     });
@@ -77,12 +75,18 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   },
   
   removeBoard: function (event) {
-    debugger
     event.preventDefault();
-    this.model.destroy();
+    var that = this;
     
+    this.$deleteBoardModal.modal('hide');
+    this.$deleteBoardModal.one('hidden.bs.modal', function (){
+      that.model.destroy();        
+      window.location.hash = '';  
+      setTimeout(function () {
+        window.location.reload();        
+      }, 1);    
+    });
     
-    window.location.hash = '';
   },
   
   removePin: function (pinSubView) {

@@ -5,7 +5,7 @@
           <h5><%= board.escape('title') %></h5>
         </div>
 
-        <% if (board.get('pins_urls')) { %>
+        <% if (board.get('pin_urls')) { %>
           <div class="hero-image">
             <% if (board.get('pin_urls')[0]) { %>
               <img src="<%= board.get('pin_urls')[0].url %>">

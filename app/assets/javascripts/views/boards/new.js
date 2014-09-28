@@ -25,7 +25,6 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
     });
     var that = this;
     
-    debugger
     this.model.save({}, {
       url: "api/users/" + CURRENT_USER_ID + "/boards",
       success: function () {
