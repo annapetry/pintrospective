@@ -271,6 +271,9 @@ div.board-form {
   color: $dark-text;
   padding-left: 10px;
   margin-top: 10px;
+  h5 {
+    margin-bottom: 2%;
+  }
 }
 .hero-image {
   padding: 2%;
@@ -287,10 +290,12 @@ div.board-form {
   img {
     width: 22%;
     border-radius: 6px;
+    height: 51px;
   }
 }
 #edit-board-btn {
   width: 95%;
+  margin-top: 2.5%;
   margin-left: 2.5%;
   font-weight: 600;
   color: $dark-text;

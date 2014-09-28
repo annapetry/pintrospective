@@ -5,13 +5,15 @@
           <h5><%= board.escape('title') %></h5>
         </div>
         <div class="hero-image">
-          <img src="../assets/texture.jpg">
+          <% if (board.pins) { %>
+          <img src="<%= board.get('pin_urls')[0].url %>">
+          <% } %>
         </div>
         <div class="board-small-image-set">
-          <img src="../assets/texture.jpg">
-          <img src="../assets/texture.jpg">
-          <img src="../assets/texture.jpg">
-          <img src="../assets/texture.jpg">
+          <img src="<%= board.get('pin_urls')[1].url %>">
+          <img src="<%= board.get('pin_urls')[2].url %>">
+          <img src="<%= board.get('pin_urls')[3].url %>">
+          <img src="<%= board.get('pin_urls')[4].url %>">
         </div>
         <a
           href="#"
