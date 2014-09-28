@@ -247,6 +247,16 @@ div.board-form {
   font-weight: 600;
   color: $light-text;
 }
+.modal-body.add-board-body {
+  background: $white;
+}
+.add-board-footer {
+  background: $background;
+  border-radius: 0 0 6px 6px;
+}
+#submit-board-form {
+  margin: 0;
+}
 
 // Board Index Formatting
 .index-itms {

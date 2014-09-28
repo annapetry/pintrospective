@@ -15,11 +15,11 @@
 
       <form role="form" id="new-board-form" class="form-horizontal">
         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="addBoard">Create a Board</h4>
-      </div>
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+          <h4 class="modal-title" id="addBoard">Create a Board</h4>
+        </div> <!-- Close of modal header-->
 
-        <div class="modal-body">
+        <div class="modal-body add-board-body">
           <div class="form-group">
             <label for="board-title" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
@@ -37,16 +37,40 @@
               class="col-sm-2 control-label">
               Description
             </label>
-          <div class="col-sm-10">
-                <textarea
-                  class="form-control"
-                  id="board-desc"
-                  name="board[description]"
-                  placeholder="What's your board about?"></textarea>
-              </div>
-        </div>
+            <div class="col-sm-10">
+              <textarea
+                class="form-control"
+                id="board-desc"
+                name="board[description]"
+                placeholder="What's your board about?"></textarea>
+            </div>
+          </div> <!-- Close of form group-->
 
-        <div class="modal-footer">
+          <div class="form-group">
+            <label
+              for="board-cat"
+              class="col-sm-2 control-label">
+              Category
+            </label>
+            <div class="col-sm-10">
+              <select
+                class="form-control"
+                name="board[category]"
+                id="board-cat">
+                <option>What kind of board is it?</option>
+                <option>Avante Garde</option>
+                <option>Impressionism</option>
+                <option>Post Modern</option>
+                <option>Classical</option>
+                <option>Cubism</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+
+        </div> <!-- Close of modal body -->
+
+        <div class="modal-footer add-board-footer">
           <button
             type="button"
             class="btn btn-default"
@@ -56,10 +80,10 @@
           <button
             type="submit"
             id="submit-board-form"
-            class="btn btn-primary">
+            class="btn btn-danger red-button">
             Create Board
           </button>
-        </div>
+        </div> <!-- Close of modal footer-->
       </form>
 
     </div> <!-- Close of modal content -->

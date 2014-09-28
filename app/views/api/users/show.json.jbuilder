@@ -1,4 +1,4 @@
-json.extract! @user, :username, :description, :location, :id, :created_at, :updated_at
+json.extract! @user, :username, :description, :location, :id
 
 json.url @user.image.url
 json.board_count @user.boards.size

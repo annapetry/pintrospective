@@ -18,10 +18,17 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   
   addBoard: function (event) {
     event.preventDefault();
+    var cat;
+    if (formData.board.category == "What kind of board is it?") {
+      cat = "Other";
+    } else {
+      cat = formData.board.category;
+    }
     var formData = $(event.currentTarget).serializeJSON();
     this.model.set({
       title: formData.board.title,
-      description: formData.board.description
+      description: formData.board.description,
+      category: cat
     });
     var that = this;
     
