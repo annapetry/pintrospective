@@ -4,17 +4,38 @@
         <div class="board-item-title">
           <h5><%= board.escape('title') %></h5>
         </div>
-        <div class="hero-image">
-          <% if (board.pins) { %>
-          <img src="<%= board.get('pin_urls')[0].url %>">
-          <% } %>
-        </div>
-        <div class="board-small-image-set">
-          <img src="<%= board.get('pin_urls')[1].url %>">
-          <img src="<%= board.get('pin_urls')[2].url %>">
-          <img src="<%= board.get('pin_urls')[3].url %>">
-          <img src="<%= board.get('pin_urls')[4].url %>">
-        </div>
+          <div class="hero-image">
+            <% if (board.get('pin_urls')[0]) { %>
+              <img src="<%= board.get('pin_urls')[0].url %>">
+            <% } else { %>
+              <img src="../assets/default-lg.jpg">
+            <% } %>
+          </div>
+
+          <div class="board-small-image-set">
+            <% if (board.get('pin_urls')[1]) { %>
+              <img src="<%= board.get('pin_urls')[1].url %>">
+            <% } else { %>
+              <img src="../assets/default.png">
+            <% } %>
+            <% if (board.get('pin_urls')[2]) { %>
+              <img src="<%= board.get('pin_urls')[2].url %>">
+            <% } else { %>
+              <img src="../assets/default.png">
+            <% } %>
+            <% if (board.get('pin_urls')[3]) { %>
+              <img src="<%= board.get('pin_urls')[3].url %>">
+            <% } else { %>
+              <img src="../assets/default.png">
+            <% } %>
+            <% if (board.get('pin_urls')[4]) { %>
+              <img src="<%= board.get('pin_urls')[4].url %>">
+            <% } else { %>
+              <img src="../assets/default.png">
+            <% } %>
+          </div>
+
+
         <a
           href="#"
           class="btn btn-default"
