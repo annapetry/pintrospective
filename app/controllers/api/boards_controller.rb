@@ -26,9 +26,9 @@ module Api
       user = User.find(params[:user_id])
       boards = user.boards
 
-      @board = boards.find_by({id: params[:id]})
+      # @board = boards.find_by({id: params[:id]})
 
-      # @board = Board.includes(:pins).find(params[:id])
+      @board = boards.includes(:pins).find(params[:id])
       if @board
         render :show
       else

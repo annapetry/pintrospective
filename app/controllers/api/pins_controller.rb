@@ -5,41 +5,12 @@ module Api
     wrap_parameters :pin, include: [:board_id, :image_attributes, :description]
 
     def index
-      sql = ["
-        SELECT DISTINCT
-          boards.id
-        FROM
-          boards
-        JOIN
-          follows
-        ON (
-            (boards.id = follows.followable_id
-              AND
-             follows.followable_type = :board
-            ) OR (
-             boards.user_id = follows.followable_id
-              AND
-             follows.followable_type = :user
-            )
-           )
-        WHERE
-          follows.user_id = :user_id", {
-            :board => 'Board',
-            :user => 'User',
-            :user_id  => current_user.id
-          }
-      ]
+      @pins = []
 
-      followed_board_ids = Board.find_by_sql(sql);
+      @pins << current_user.pins_of_boards_they_follow
+      @pins << current_user.pins_of_users_they_follow
 
-      # @pins = []
-      # followed_board_ids.each do |board_id|
-      #   @pins << Board.find(board_id).pins
-      # end
-
-      @pins = current_user.followed_pins
-
-      render json: @pins
+      render :index
     end
 
     def create
