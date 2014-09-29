@@ -784,6 +784,7 @@ div.pin-panel,
 .pin-image {
   img {
     border-radius: 6px 6px 0 0;
+    cursor: zoom-in;
   }
   border-radius: 6px;
   margin-bottom: 0;
@@ -831,9 +832,29 @@ div.index-items {
 }
 .pinContent {
   position: absolute;
-  top: 0;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
+  .panel-body p {
+    text-align: left;
+  }
+  .modal-footer {
+    p {
+      text-align: left;
+      margin-top: 5px;
+    }
+    #user-img {
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      float: left;
+      margin-right: 15px;
+    }
+  }
+  #pinner-id {
+    color: $dark-text;
+    cursor: pointer;
+  }
 }
 #pinZoom {
   .modal-dialog {

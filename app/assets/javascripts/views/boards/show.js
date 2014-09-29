@@ -57,7 +57,6 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   
   
   followBoard: function (event) {
-    debugger
     event.preventDefault();
     var followee_board = new Pintrospective.Models.Follow({
       followable_id: this.model.id, 

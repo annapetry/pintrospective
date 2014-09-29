@@ -1,10 +1,5 @@
 <div
-  class="panel panel-default pin-panel"
-  data-toggle="modal"
-  data-target="#pinZoom"
-  data-img-url="<%= pin.escape('url') %>"
-  data-pin-desc="<%= pin.escape('description')%>"
-  data-pinner="<%= pin.escape('username') %>">
+  class="panel panel-default pin-panel">
     <div class="panel-body pin-image">
       <img src="<%= pin.escape('url') %>">
     </div>
@@ -22,38 +17,19 @@
 <div class="modal fade" id="pinZoom">
   <!-- <div class="modal-dialog modal-lg"> -->
     <div class="modal-content pinContent">
-      <!-- <div class="modal-header">
-        <button
-          type="button"
-          class="close"
-          data-dismiss="modal">
-          <span aria-hidden="true">&times;</span>
-          <span class="sr-only">Close</span>
-        </button>
-      </div> -->
       <div class="modal-body pinLg">
-        <img src="<%= pin.escape('url') %>">
+        <img id="pin-img" src="<%= pin.escape('url') %>">
       </div>
       <div class="panel-body">
         <p id="desc"><%= pin.escape('description')%></p>
       </div>
-      <div class="modal-footer">
-        <p id="pinner">Pinned by <%= pin.escape('username') %></p>
+      <div id="pinner-id" class="modal-footer">
+        <img id="user-img" src="<%= pin.escape('pinner_img')%>">
+        <p id="pinner"><%= pin.escape('username') %></p>
       </div>
     </div> <!-- Close of modal-content -->
   <!-- </div> --> <!-- Close of modal-dialog -->
 </div> <!-- Close of modal -->
 
-
-<script>
-  $('.pin-panel').click(function (e) {
-      $('#pinZoom img').attr({
-        'src': $(this).attr('data-img-url')
-      });
-      $('#pinZoom #desc').text($(this).attr('data-pin-desc'));
-      $('#pinner').text('Pinned by ' + $(this).attr('data-pinner'));
-  });
-
-</script>
 
 

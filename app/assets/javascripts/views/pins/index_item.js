@@ -2,7 +2,9 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   template: JST['pins/index_item'],
   
   events: {
-    "click button#remove-pin": "removePin"
+    "click button#remove-pin": "removePin",
+    "click .pin-panel": 'showModal',
+    "click #pinner-id": 'hideModal'
   },
   
   className: 'index-items',
@@ -19,4 +21,16 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
     
     this.trigger("remove", this);
   },
+  
+  showModal: function () {
+    this.$('.modal').modal();
+  },
+  
+  hideModal: function () {
+    this.$('.modal').modal('hide');
+    var that = this;
+    this.$('.modal').one('hidden.bs.modal', function () {
+      window.location.hash = "/users/" + that.model.get('pinner_id');  
+    });
+  }
 });
