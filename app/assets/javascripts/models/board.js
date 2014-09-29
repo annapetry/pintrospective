@@ -1,5 +1,4 @@
 Pintrospective.Models.Board = Backbone.Model.extend({
-  // urlRoot: "api/users/" + CURRENT_USER_ID + "/boards",
   
   pins: function () {
     if (this._pins) {
@@ -9,26 +8,38 @@ Pintrospective.Models.Board = Backbone.Model.extend({
       return this._pins;
     }
   },
-  //
-  // followers: function () {
-  //   if (this._followers) {
-  //     return this._followers;
-  //   } else {
-  //     this._followers = new Pintrospective.Collections.Followers([], {
-  //       board: this
-  //     });
-  //     return this._followers;
-  //   }
-  // },
+
+  followers: function () {
+    if (this._followers) {
+      return this._followers;
+    } else {
+      this._followers = new Pintrospective.Collections.Follows([], {
+        board: this
+      });
+      return this._followers;
+    }
+  },
   
   parse: function (response) {
     if (response.pins) {
       this.pins().set(response.pins, { parse: true });
       delete response.pins;
-    // } else if (response.followers) {
-//       this.followers().set(response.followers { parse: true });
-//       delete response.followers;
+    }
+    if (response.followers) {
+      this.followers().set(response.followers, { parse: true });
+      delete response.followers;
     }
     return response;
+  },
+  
+  followed: function (current_user, board) {
+    var result = false;
+    board.followers().forEach(function (follower) {
+      if (follower.get('user_id') == current_user) {
+        console.log("in true");
+        result = true;
+      }
+    });
+    return result;
   }
 });

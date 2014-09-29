@@ -26,8 +26,10 @@
             <img src="<%= board.escape('url') %>">
             <p><%= board.escape('username') %></p>
           </a>
-          <button class="btn btn-danger red-button" id="board-follow-button">
-            Follow Board
+          <button
+            class="btn btn-danger red-button"
+            id="board-follow-button"
+            data-follow-state="<%= followed ? "followed" : "unfollowed" %>">
           </button>
         </div>
       <% } %>

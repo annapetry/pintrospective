@@ -18,9 +18,5 @@ Pintrospective.Models.User = Backbone.Model.extend({
       delete response.boards;
     }
     return response;
-  },
-
-  // updateCount: function () {
-  //   this.set("board_count", this.boards().length);
-  // }
+  }
 });
