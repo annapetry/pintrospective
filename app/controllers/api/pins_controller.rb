@@ -7,8 +7,8 @@ module Api
     def index
       @pins = []
 
-      @pins << current_user.pins_of_boards_they_follow
-      @pins << current_user.pins_of_users_they_follow
+      @pins += current_user.pins_of_boards_they_follow
+      @pins += current_user.pins_of_users_they_follow
 
       render :index
     end
