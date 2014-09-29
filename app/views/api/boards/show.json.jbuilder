@@ -10,7 +10,9 @@ json.pins @board.pins do |pin|
   json.partial! 'api/pins/pin', pin: pin
 end
 
-json.followers @board.followers do |follower|
+json.followers @board.followers.where({ user_id: current_user.id }) do |follower|
   json.extract! follower, :user_id
 end
+
+
 
