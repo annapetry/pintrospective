@@ -2,13 +2,14 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   template: JST["users/show"],
 
   initialize: function () {
-    this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model, "sync change", this.render);
     this.createSubviews();  
   },
   
   events: {
     "click button.follow-user": "followUser",
-    "click button.unfollow-user": "unfollowUser"
+    "click button.unfollow-user": "unfollowUser",
+    "submit form#edit-user-form": "editUser",
   },
 
   createSubviews: function () {
@@ -27,7 +28,8 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
-    $('#edit-user').popover({
+    this.$editUserModal = this.$('#editUserModal');
+    $('#edit-user-profile').popover({
       html: true,
       placement: 'bottom'
     });
@@ -70,6 +72,25 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     debugger
     
 
+  },
+  
+  editUser: function (event) {
+    event.preventDefault();
+    var formData = $(event.currentTarget).serializeJSON();
+    this.$editUserModal.modal('hide');
+  
+    var that = this;
+    this.$editUserModal.one('hidden.bs.modal', function (){
+      that.model.set({
+        username: formData.user.username,
+        description: formData.user.description,
+        location: formData.user.location
+      });
+      
+      // need to update image added
+    
+      that.model.save();
+    });
   },
   
   removeBoard: function (boardSubView) {

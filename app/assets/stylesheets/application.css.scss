@@ -145,6 +145,44 @@ a:hover {
 .user-name {
   position: relative;
 }
+.userName {
+  h2 {
+    display: inline-block;
+  }
+  #edit-user-profile {
+    float: right;
+    margin-top: 20px;
+    width: 46px;
+    height: 33px;
+    padding-right: 3px;
+    padding-left: 3px;
+    background: linear-gradient(#f3f3f3, #e5e5e5);
+    box-shadow: 1px 1px 1px $box-shadow;
+    img {
+      width: 29px;
+      height: 19px;
+    }
+  }
+}
+#edit-user-profile:focus {
+  outline-width: 0;
+}
+.popover-content {
+  width: 150px;
+  text-align: center;
+  a {
+    width: 100%;
+  }
+}
+.popover:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+.popover {
+  a {
+    color: $dark-text;
+  }
+}
 .userLocation {
   position: absolute;
   bottom: 0;
@@ -169,7 +207,7 @@ a:hover {
 .index-header {
   height: 153px;
   margin-bottom: 30px;
-  margin-left: 8%;
+  margin-left: 9%;
 }
 .header-container {
   height: 148px;
@@ -180,6 +218,7 @@ a:hover {
   margin-bottom: 15px;
   padding-left: 10px;
   margin-left: .4%;
+  margin-top: -1%;
   :nth-child(3) {
     box-shadow: 1px 1px 0 $box-shadow;
   }
@@ -577,7 +616,6 @@ button.pin-pin img{
   font-weight: 600;
   padding: 4px 0 0 6px;
   color: $light-text;
-//  margin-left: 30px;
   width: 193px;
   background: linear-gradient(#fff, #eee);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
@@ -754,4 +792,8 @@ div.index-items {
   margin: 0 auto;
 }
 
+// User Edit Form
+#submit-user-edit-form {
+  margin-top: 0;
+}
 
