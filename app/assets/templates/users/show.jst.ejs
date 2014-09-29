@@ -71,9 +71,9 @@
       <span id="wide">
         <% if (user.id != current_user) { %>
           <button
-          class="btn btn-danger red-button #user-follow-button"
-          id="user-follow-button">
-            Follow User
+            class="btn btn-danger red-button"
+            id="user-follow-button"
+            data-follow-state="<%= (user.followers().length) > 0 ? "followed" : "unfollowed" %>">
           </button>
         <% } %>
       </span>

@@ -7,8 +7,8 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
   
   events: {
-    "click button.follow-user": "followUser",
-    "click button.unfollow-user": "unfollowUser",
+    "click button.unfollowed": "followUser",
+    "click button.followed": "unfollowUser",
     "submit form#edit-user-form": "editUser",
   },
 
@@ -29,17 +29,36 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
     this.$editUserModal = this.$('#editUserModal');
+    
     $('#edit-user-profile').popover({
       html: true,
       placement: 'bottom'
     });
     
+    this.$followToggle = this.$('#user-follow-button');
+    this.addToggle();
+    
     return this;  
   },
   
+  addToggle: function () {
+    this.followState = this.$followToggle.data('follow-state');
+    if (this.followState == "followed") {
+      this.$followToggle.addClass('followed');
+      this.$followToggle.prop("disabled", false);
+      this.$followToggle.html("Unfollow User");
+      
+    } else if (this.followState == "unfollowed") {
+      this.$followToggle.addClass('unfollowed');
+      this.$followToggle.prop("disabled", false);
+      this.$followToggle.html("Follow User");
+    }
+  },
+  
+  
   followUser: function (event) {
+    debugger
     event.preventDefault();
-
     var followee_user = new Pintrospective.Models.Follow({
       followable_id: this.model.id, 
       followable_type: 'User'
@@ -47,31 +66,31 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     var that = this;
     followee_user.save({}, {
       success: function () {
-        // THIS DOES NOT PERSIST
-        var $button = that.$el.find('#user-follow-button');
-        $button.removeClass('follow-user');
-        $button.addClass('unfollow-user');
-        $button.text("Unfollow User");
-        
-          that.model.boards().each(function (board) {
-          // setTimeout(function (){
-            var followee_board = new Pintrospective.Models.Follow({
-              followable_id: board.id,
-              followable_type: 'Board'
-            });
-            followee_board.save();
-          // }, 1);
-        });
+        that.model.followers().add(followee_user);
+        that.$followToggle.data("follow-state", 'followed');
+        that.$followToggle.removeClass('unfollowed');
+        that.$followToggle.addClass('followed');
+        that.addToggle();
       }
     });
-    
   },
   
   unfollowUser: function (event) {
     event.preventDefault();
-    debugger
-    
-
+    if (this.model.followers().length > 0) {
+      var follow = this.model.followers().first();
+      
+      var that = this;
+      
+      follow.destroy({
+        success: function () {
+          that.$followToggle.data("follow-state", 'unfollowed');
+          that.$followToggle.addClass('unfollowed');
+          that.$followToggle.removeClass('followed');
+          that.addToggle();
+        }
+      });
+    }
   },
   
   editUser: function (event) {
