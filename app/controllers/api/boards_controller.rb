@@ -45,10 +45,6 @@ module Api
         render json: @board.errors.full_messages, status: :unprocessable_entity
       end
     end
-    
-    def unfollow
-      
-    end
 
     private
 

@@ -818,3 +818,23 @@ div.index-items {
   margin-top: 0;
 }
 
+// Pin Zoom View
+.pinLg {
+  padding: 0;
+  display: inline-block;
+  img {
+    border-radius: 6px 6px 0 0;
+  }
+}
+.pinContent {
+  display: inline-block;
+  margin-left: 30%;
+}
+#pinZoom {
+  .modal-dialog {
+    width: 0;
+  }
+  .modal-lg {
+    width: 0;
+  }
+}
