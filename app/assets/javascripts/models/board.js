@@ -10,7 +10,6 @@ Pintrospective.Models.Board = Backbone.Model.extend({
   },
 
   followers: function () {
-    debugger
     if (this._followers) {
       return this._followers;
     } else {

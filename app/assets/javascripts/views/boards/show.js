@@ -56,33 +56,6 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     }
   },
   
-  editBoard: function (event) {
-    event.preventDefault();
-    var cat;
-    var formData = $(event.currentTarget).serializeJSON();
-    if (formData.board.category == "What kind of board is it?") {
-      cat = "Other";
-    } else {
-      cat = formData.board.category;
-    }
-    this.model.set({
-      title: formData.board.title,
-      description: formData.board.description,
-      category: cat
-    });
-    var that = this;
-    
-    this.model.save({}, {
-        url: "api/users/" + CURRENT_USER_ID + "/boards/" + this.model.id,
-        success: function () {
-          that.$editBoardModal.modal('hide');
-          that.$editBoardModal.one('hidden.bs.modal', function (){
-            that.collection.add(that.model);
-          });
-        }
-    });
-    
-  },
   
   followBoard: function (event) {
     debugger
@@ -119,6 +92,32 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     });
   },
   
+  
+  editBoard: function (event) {
+    event.preventDefault();
+    var cat;
+    var formData = $(event.currentTarget).serializeJSON();
+    if (formData.board.category == "What kind of board is it?") {
+      cat = "Other";
+    } else {
+      cat = formData.board.category;
+    }
+    this.$editBoardModal.modal('hide');
+  
+    var that = this;
+    this.$editBoardModal.one('hidden.bs.modal', function (){
+      that.model.set({
+        title: formData.board.title,
+        description: formData.board.description,
+        category: cat
+      });
+    
+      that.model.save({}, {
+        url: "api/users/" + CURRENT_USER_ID + "/boards/" + that.model.id
+      }
+    )});
+  },
+
   removeBoard: function (event) {
     event.preventDefault();
     var that = this;
