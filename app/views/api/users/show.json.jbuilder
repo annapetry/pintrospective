@@ -6,6 +6,9 @@ json.pin_count @user.pins.size
 json.follower_count @user.followers.size
 json.following_count @user.users_they_follow.size
 
+json.followers @user.followers.where({ followable_id: current_user.id }) do |follower|
+  json.extract! follower, :id
+end
 
 json.boards @user.boards do |board|
   json.extract! board, :id, :title, :user_id, :category

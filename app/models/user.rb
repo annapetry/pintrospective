@@ -17,7 +17,11 @@ class User < ActiveRecord::Base
     source: :pins
   )
 
-  has_many :followers, class_name: "Follow", foreign_key: "followable_id"
+  has_many(
+    :followers,
+    class_name: "Follow",
+    foreign_key: "followable_id"
+  )
 
   has_many(
     :follows,
