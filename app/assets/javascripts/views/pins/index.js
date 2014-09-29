@@ -3,8 +3,8 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   
   initialize: function (options) {
     this.user_id = options.user;
-    this.listenTo(this.model.pins(), "sync add remove", this.render);
-    this.listenTo(this.model.pins(), "add", this.addPin);
+    this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(this.collection, "add", this.addPin);
     
     this.createSubviews();
     this.addFormView();
@@ -16,14 +16,14 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
       that.addPin(pin);
     });
   },
-  
+ 
   // Pass in this.model as the board
   addFormView: function () {
     if (this.user_id == CURRENT_USER_ID) {
-      var formView = new Pintrospective.Views.NewPin({ 
-        model: new Pintrospective.Models.Pin(), 
+      var formView = new Pintrospective.Views.NewPin({
+        model: new Pintrospective.Models.Pin(),
         board: this.model,
-        collection: this.model.pins() 
+        collection: this.model.pins()
       });
       this.addSubviewBefore('#pin-items', formView);
     }

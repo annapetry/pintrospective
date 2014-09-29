@@ -1,10 +1,11 @@
 Pintrospective.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.pinCollection = new Pintrospective.Collections.Pins;
   },
 
   routes: {
-    "": "boardsIndex",
+    "": "pinsIndex",
     "users/:id/boards/:id": "boardShow",
     "users/:id": "userShow"
   },
@@ -18,6 +19,16 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     this._swapView(userShow);
   },
   
+  pinsIndex: function () {
+    var user = Pintrospective.Collections.users.getOrFetch(CURRENT_USER_ID);
+    var pinIndex = new Pintrospective.Views.PinsIndex({
+      collection: this.pinCollection,
+      user: CURRENT_USER_ID
+    });
+
+    this._swapView(pinIndex);
+  },
+
   boardShow: function (user_id, id) {
     var user = Pintrospective.Collections.users.getOrFetch(user_id);
     var board = user.boards().getOrFetch(id);

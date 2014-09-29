@@ -16,13 +16,44 @@ class User < ActiveRecord::Base
     source: :pins
   )
 
-  # FOLLOWERS => Users that follow THIS User
   has_many :followers, class_name: "Follow", foreign_key: "followable_id"
-  # FOLLOWEES => Users or Boards that THIS user follows
-  has_many :followees, class_name: "Follow", foreign_key: "user_id"
 
-  has_many :followed_boards
-  has_many :followed_users
+  has_many(
+    :follows,
+    class_name: "Follow",
+    foreign_key: "user_id"
+  )
+
+  has_many(
+    :users_they_follow,
+    through: :follows,
+    source: :followable,
+    source_type: 'User'
+  )
+
+  has_many(
+    :boards_they_follow,
+    through: :follows,
+    source: :followable,
+    source_type: 'Board'
+  )
+
+  has_many(
+    :boards_they_follow_through_users,
+    through: :users_they_follow,
+    source: :boards
+  )
+
+  has_many(
+    :pins_of_boards_they_follow,
+    through: :boards_they_follow,
+    source: :pins)
+
+  has_many(
+    :pins_of_users_they_follow,
+    through: :users_they_follow,
+    source: :pins)
+
 
 
   # has_many(
