@@ -27,6 +27,10 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
+    $('#edit-user').popover({
+      html: true,
+      placement: 'bottom'
+    });
     
     return this;  
   },

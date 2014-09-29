@@ -1,7 +1,6 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav">
 <div id="nav-backdrop">
 
-
   <div class="btn-group header-left">
     <a
       href="/"
@@ -18,28 +17,38 @@
   </div>
 
   <div class="header-right">
-    <a href="#/users/<%= current_user.id %>">
-      <div class="btn-group right-side">
-        <button
+      <div class="right-side">
+        <a
+          href="#/users/<%= current_user.id %>"
           type="button"
           class="btn btn-default username">
           <img src="<%= current_user.image.url %>">
           <% if current_user %>
-            <p><%= current_user.username %></p>
+          <p><%= current_user.username %></p>
           <% end %>
-        </button>
+        </a>
 
-        <button
+        <div class="btn-group">
+          <ul
+            class="dropdown-menu dropdown dropdown-menu-right"
+            role="menu"
+            aria-labelledby="#log-out">
+            <p role="presentation">
+              <%= link_to 'Log Out', session_url, :method => :delete %>
+            </p>
+          </ul>
+
+          <button
+            class="btn btn-default dropdown-toggle"
             type="button"
-            class="btn btn-default  pin-pin">
-          <img src="../assets/pinterest-pin.png">
-        </button>
+            id="log-out"
+            data-toggle="dropdown">
+            <img src="../assets/pinterest-pin.png">
+          </button>
+          </div>
+
       </div> <!-- Close of btn-group header-right-->
-    </a>
   </div>
-
-
-
 </div>
 </nav>
 
