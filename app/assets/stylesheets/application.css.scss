@@ -259,6 +259,27 @@ a:hover {
   margin-left: 41.5%;
 }
 
+// User Profile Modal
+#user-img {
+  img {
+    width: 75px;
+    height: 75px;
+    margin-left: 15px;
+    border-radius: 6px;
+  }
+}
+label#about-you {
+  padding-left: 0;
+}
+.user-photo {
+  float: right;
+  margin-right: 260px;
+  margin-top: -50px;
+  background: linear-gradient(#f3f3f3, #e5e5e5);
+  box-shadow: 0 1px 0 $box-shadow;
+}
+
+
 // Board Form Formatting
 #board-form-wrapper {
   display: block;
