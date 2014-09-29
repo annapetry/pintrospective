@@ -29,7 +29,7 @@
           <button
             class="btn btn-danger red-button"
             id="board-follow-button"
-            data-follow-state="<%= followed ? "followed" : "unfollowed" %>">
+            data-follow-state="<%= (board.followers().length) > 0 ? "followed" : "unfollowed" %>">
           </button>
         </div>
       <% } %>

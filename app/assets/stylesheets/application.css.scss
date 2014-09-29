@@ -44,10 +44,10 @@ body {
   font-family: $font;
 }
 :focus {
-  outline: -webkit-focus-ring-color auto 2px;
+  outline: none;
   outline-color: -webkit-focus-ring-color;
   outline-style: auto;
-  outline-width: 2px;
+  outline-width: 0;
 }
 #new-user-form {
   width: 300px;
@@ -449,6 +449,9 @@ div.pin-form {
   text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
   font-size: 0.9em;
   margin-bottom: 10px;
+}
+.btn-danger.red-button:focus{
+  outline: none;
 }
 .edit-board-button {
   background-color: #f7f7f7;

@@ -30,16 +30,5 @@ Pintrospective.Models.Board = Backbone.Model.extend({
       delete response.followers;
     }
     return response;
-  },
-  
-  followed: function (current_user, board) {
-    var result = false;
-    board.followers().forEach(function (follower) {
-      if (follower.get('user_id') == current_user) {
-        console.log("in true");
-        result = true;
-      }
-    });
-    return result;
   }
 });

@@ -3,7 +3,7 @@ module Api
     before_action :require_user
 
     def create
-      @follow = current_user.followees.new(follow_params)
+      @follow = current_user.follows.new(follow_params)
 
       if @follow.save
         render json: @follow
@@ -13,9 +13,7 @@ module Api
     end
 
     def destroy
-      @follow = current_user.followees.find_by(
-        followable_id: params[:followable_id]
-      )
+      @follow = current_user.follows.find(params[:id])
       @follow.destroy!
       render json: {}
     end
@@ -23,7 +21,7 @@ module Api
     private
 
     def follow_params
-      params.require(:follow).permit(:user_id, :followable_type, :followable_id)
+      params.require(:follow).permit(:id, :user_id, :followable_type, :followable_id)
     end
 
   end

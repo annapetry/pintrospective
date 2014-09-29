@@ -6,13 +6,14 @@ json.pin_count @board.pins.size
 json.username @board.user.username
 json.follower_count @board.followers.size
 
+json.followers @board.followers.where({ user_id: current_user.id }) do |follower|
+  json.extract! follower, :id
+end
+
 json.pins @board.pins do |pin|
   json.partial! 'api/pins/pin', pin: pin
 end
 
-json.followers @board.followers.where({ user_id: current_user.id }) do |follower|
-  json.extract! follower, :user_id
-end
 
 
 

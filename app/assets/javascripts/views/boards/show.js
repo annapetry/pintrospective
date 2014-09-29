@@ -23,17 +23,15 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   },
   
   render: function () {
-    var follows = this.model.followed(CURRENT_USER_ID, this.model);
-    
     var renderedContent = this.template({ 
       board: this.model,
-      user: CURRENT_USER_ID,
-      followed: follows
+      user: CURRENT_USER_ID
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');
+    
     this.$editBoardModal = this.$('#editBoardModal');
     this.$deleteBoardModal = this.$('#deleteBoardModal');
     this.$followToggle = this.$('#board-follow-button');
@@ -49,6 +47,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       this.$followToggle.addClass('followed');
       this.$followToggle.prop("disabled", false);
       this.$followToggle.html("Unfollow Board");
+      
     } else if (this.followState == "unfollowed") {
       this.$followToggle.addClass('unfollowed');
       this.$followToggle.prop("disabled", false);
@@ -64,32 +63,34 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       followable_id: this.model.id, 
       followable_type: 'Board'
     });
+    var that = this;
     followee_board.save({}, {
       success: function () {
-        this.$followToggle.data("follow-state", 'followed');
-        this.$followToggle.removeClass('unfollowed');
-        this.$followToggle.addClass('followed');
-        this.addToggle();
+        that.model.followers().add(followee_board);
+        that.$followToggle.data("follow-state", 'followed');
+        that.$followToggle.removeClass('unfollowed');
+        that.$followToggle.addClass('followed');
+        that.addToggle();
       }
     });
   },
   
   unfollowBoard: function (event) {
     event.preventDefault();
-    
-    var followee_board = new Pintrospective.Models.Follow({
-      followable_id: this.model.id,
-      followable_type: 'Board'
-    });
-
-    followee_board.delete({}, {
-      success: function () {
-        this.$followToggle.data("follow-state", 'unfollowed');
-        this.$followToggle.addClass('unfollowed');
-        this.$followToggle.removeClass('followed');
-        this.addToggle();
-      }
-    });
+    if (this.model.followers().length > 0) {
+      var follow = this.model.followers().first();
+      
+      var that = this;
+      
+      follow.destroy({
+        success: function () {
+          that.$followToggle.data("follow-state", 'unfollowed');
+          that.$followToggle.addClass('unfollowed');
+          that.$followToggle.removeClass('followed');
+          that.addToggle();
+        }
+      });
+    }
   },
   
   
