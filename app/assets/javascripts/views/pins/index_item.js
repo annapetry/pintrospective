@@ -2,11 +2,11 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   template: JST['pins/index_item'],
   
   initialize: function () {
-    this.listenTo(this.model, "sync remove", this.render)
+    this.listenTo(this.model, "sync", this.render)
   },
   
   events: {
-    "click button#delete-pin": "deletePin",
+    "click button#delete-pin": "removePin",
     "click .pin-panel": 'showImageModal',
     "click #pinner-id": 'hideImageModal',
     "click .edit-pin-btn": 'showEditPinModal',
@@ -18,7 +18,7 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   
   render: function(){
     var content = this.template({ pin: this.model });
-    this.$el.prepend(content);
+    this.$el.html(content);
     this.$editPinModal = this.$('#editPinModal');
     this.$pinZoomModal = this.$('#pinZoom');
     this.$deletePinModal = this.$('#deletePinModal');
@@ -28,9 +28,13 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   
   removePin: function (event) {
     event.preventDefault();
-    this.model.destroy(); 
-    
-    this.trigger("remove", this);
+    var that = this;
+     
+    this.$deletePinModal.modal('hide');
+    this.$deletePinModal.one('hidden.bs.modal', function (){
+      that.model.destroy();   
+      that.trigger("remove", that);         
+    });
   },
   
   showEditPinModal: function () {
@@ -68,13 +72,11 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
       that.model.set({
         description: formData.pin.description
       });
-    
-      that.model.save()
+      that.model.save();
     });
   },
 
   deletePin: function (event) {
-    debugger
     event.preventDefault();
     var that = this;
     

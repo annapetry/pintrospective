@@ -2,10 +2,11 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   template: JST['pins/index'],
   
   initialize: function (options) {
-    this.user_id = options.user;
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addPin);
-    
+    if (this.model) {
+      this.listenTo(this.model, "change:user_id", this.addFormView)
+    }
     this.createSubviews();
     this.addFormView();
   },
@@ -19,7 +20,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
  
   // Pass in this.model as the board
   addFormView: function () {
-    if (this.user_id == CURRENT_USER_ID) {
+    if (this.model && this.model.get('user_id') == CURRENT_USER_ID) {
       var formView = new Pintrospective.Views.NewPin({
         model: new Pintrospective.Models.Pin(),
         board: this.model,
@@ -46,12 +47,12 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
     $('.pin-count').addClass('active');
 
     var that = this;
+    
     setTimeout(function(){
       var $container = that.$el.find('#pin-items').isotope({
         itemSelector: '.index-items',
         stamp: '.stamp'
       }); 
-    
       // layout Isotope again after all images have loaded
       $container.imagesLoaded( function() {
         $container.isotope('layout');
