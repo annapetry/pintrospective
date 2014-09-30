@@ -1,57 +1,3 @@
-<div id="board-show-title">
-  <h1
-    class="board-title">
-      <%= board.escape('title') %>
-  </h1>
-  <h4
-    class="board-description">
-      <%= board.escape('description') %>
-  </h4>
-</div>
-  <div class="btn-group large-section-divider board-show">
-    <span id="wider">
-      <% if (user == board.get('user_id')) { %>
-        <button
-          data-toggle="modal"
-          data-target="#editBoardModal"
-          class="edit-board-button red-button">
-          Edit Board
-        </button>
-      <% } else { %>
-        <div class="non-current-user">
-          <a href="#/users/<%= board.get('user_id') %>">
-            <img src="<%= board.escape('url') %>">
-            <p><%= board.escape('username') %></p>
-          </a>
-          <button
-            class="btn btn-danger red-button"
-            id="board-follow-button"
-            data-follow-state="<%= (board.followers().length) > 0 ? "followed" : "unfollowed" %>">
-          </button>
-        </div>
-      <% } %>
-    </span>
-    <button
-      type="button"
-      id="longish-btn"
-      class="btn btn-default pin-count">
-      <p pin-count-p><%= board.get('pin_count') %> Pins</p>
-    </button>
-    <button
-      type="button"
-      id="long-btn"
-      class="btn btn-default follower_count">
-<!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
-      <p><%= board.escape('follower_count') %> Followers</p>
-    </button>
-  </div>
-
-
-<div class="container">
-    <div id="pins"></div>
-</div>
-
-
 <!-- Edit Board Modal -->
 <div class="modal fade" id="editBoardModal" tabindex="-1" role="dialog" aria-labelledby="editBoard" aria-hidden="true">
   <div class="modal-dialog">
@@ -183,8 +129,3 @@
     </div> <!-- Close of modal content -->
   </div> <!-- Close of modal dialog -->
 </div> <!-- Close of top-level modal div -->
-
-
-
-
-
