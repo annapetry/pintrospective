@@ -31,7 +31,9 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
   },
   
   addPin: function (pin) {
-    var indexItem = new Pintrospective.Views.PinsIndexItem({ model: pin });
+    var indexItem = new Pintrospective.Views.PinsIndexItem({ 
+      model: pin
+    });
     this.addSubviewBefore('#pin-items', indexItem);
     this.listenTo(indexItem, "remove", this.removePin);
   },

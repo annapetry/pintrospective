@@ -74,15 +74,5 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
       });
       that.model.save();
     });
-  },
-
-  deletePin: function (event) {
-    event.preventDefault();
-    var that = this;
-    
-    this.$deletePinModal.modal('hide');
-    this.$deletePinModal.one('hidden.bs.modal', function (){
-      that.model.destroy();            
-    });
   }
 });
