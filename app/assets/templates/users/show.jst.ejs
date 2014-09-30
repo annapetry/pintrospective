@@ -133,12 +133,12 @@
             <div id="user-img">
               <img src="<%= user.escape('url') %>">
             </div>
-            <button
-              data-toggle="modal"
-              data-target="#changePhotoModal"
-              class="btn btn-default user-photo">
-              Change Picture
-            </button>
+            <input
+              type="filepicker"
+              data-fp-mimetype="image/*"
+              name="image[url]"
+              data-fp-button-text="Change Picture"
+              data-fp-button-class="btn btn-default upload-img">
           </div>
           <div class="form-group">
             <label
@@ -191,27 +191,4 @@
     </div> <!-- Close of modal content -->
   </div> <!-- Close of modal dialog -->
 </div> <!-- Close of top-level modal div -->
-
-
-<!-- Change photo modal -->
-<div class="modal fade" id="changePhotoModal" tabindex="-1" role="dialog" aria-labelledby="uploadPin" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content upload-pin">
-
-        <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4
-          class="modal-title"
-          id="uploadPin">
-          </h4>
-          Chang your picture
-        </div>
-
-        <div class="modal-body pin">
-            <button class="btn btn-danger red-button">Choose File</button>
-        </div> <!-- Close of modal body -->
-    </div> <!-- Close of modal content -->
-  </div> <!-- Close of modal dialog -->
-</div> <!-- Close of top-level modal div -->
-
 

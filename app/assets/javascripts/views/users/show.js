@@ -21,6 +21,11 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.addSubviewBefore('#board-items', boardIndex);  
   },
   
+  createSubview: function () {
+    var $filePickerInput = this.$('input[type=filepicker]');
+    filepicker.constructWidget($filePickerInput[0]);
+  },
+  
   render: function () {
     var renderedContent = this.template({ 
       user: this.model,
@@ -28,13 +33,15 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
-    this.$editUserModal = this.$('#editUserModal');
+    
+    // this.createSubview();
     
     $('#edit-user-profile').popover({
       html: true,
       placement: 'bottom'
     });
     
+    this.$editUserModal = this.$('#editUserModal');
     this.$followToggle = this.$('#user-follow-button');
     this.addToggle();
     
@@ -93,6 +100,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
   
   editUser: function (event) {
+    debugger
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     this.$editUserModal.modal('hide');
@@ -105,7 +113,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
         location: formData.user.location
       });
       
-      // need to update image added
+    var image_id = that.model.get('image_id');  
     
       that.model.save();
     });
