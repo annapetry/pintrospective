@@ -11,5 +11,6 @@ Rails.application.routes.draw do
     resources :pins,   except: [:edit, :new]
     resources :images, only: [:create, :destroy]
     resources :follows, only: [:create, :destroy]
+    get 'search/:category', to: 'boards#search'
   end
 end

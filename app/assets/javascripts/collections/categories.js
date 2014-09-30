@@ -1,28 +1,26 @@
-Pintrospective.Collections.Boards = Backbone.Collection.extend({
+Pintrospective.Collections.Categories = Backbone.Collection.extend({
   initialize: function (models, options) {
-    this.user = options.user
+    this.category = options.category;
   },
   
   model: Pintrospective.Models.Board,
   
   url: function () {
-    if (this.user) {
-      return this.user.url() + '/boards';
-    }
+    return '/search/' + this.category;
   },
   
-  getOrFetch: function (id) {
+  getOrFetch: function (category) {
     var boards = this;
-    var board = this.get(id);
+    var board = this.get('category');
     
     if (!board) {
-      board = new Pintrospective.Models.Board({ id: id });
+      board = new Pintrospective.Models.Board({ category: category });
       board.collection = this;
       board.fetch({
         success: function () {
           boards.add(board);
         }, 
-        url: this.user.url() + '/boards/' + id
+        url: '/boards' + this.category
       });
     } else {
       board.fetch();

@@ -47,7 +47,8 @@ module Api
     def search
       @boards = Board.where('category = ?', params[:category])
 
-      render :categoryShow
+      # render json: @boards
+      render :index
     end
 
     private

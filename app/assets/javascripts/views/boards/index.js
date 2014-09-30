@@ -1,14 +1,16 @@
 Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
   template: JST['boards/index'],
   
-  initialize: function () {
+  initialize: function (options) {
     // collection is boards
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addBoard);
     
     this.createSubviews();
     
-    this.addFormView();
+    if (options.addForm) {
+      this.addFormView();
+    }
   },
   
   createSubviews: function () {
@@ -38,7 +40,6 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
       boards: this.collection
     });
     this.$el.html(renderedContent);
-    this.addFormView();
     this.attachSubviewsBefore();
     
     $('.board-count').addClass('active');

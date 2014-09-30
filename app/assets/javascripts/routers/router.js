@@ -6,8 +6,9 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   routes: {
     "": "pinsIndex",
-    "users/:id/boards/:id": "boardShow",
-    "users/:id": "userShow"
+    "users/:user_id/boards/:id": "boardShow",
+    "users/:id": "userShow",
+    "search/:category": "boardSearch"
   },
 
   userShow: function (id) {
@@ -36,6 +37,17 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     });
     
     this._swapView(showView);
+  },
+  
+  boardSearch: function (category) {
+    var boards = new Pintrospective.Collections.Boards([],{});
+    boards.url = '/api/search/' + category
+    boards.fetch();
+    var categoryView = new Pintrospective.Views.BoardsIndex({
+      collection: boards
+    });
+    
+    this._swapView(categoryView);
   },
   
   _swapView: function (view) {

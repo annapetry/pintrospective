@@ -16,7 +16,8 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.model.boards().fetch()
     var boardIndex = new Pintrospective.Views.BoardsIndex({
       model: this.model,
-      collection: this.model.boards()
+      collection: this.model.boards(),
+      addForm: true
     })
     this.addSubviewBefore('#board-items', boardIndex);  
   },
@@ -100,7 +101,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
   
   editUser: function (event) {
-    debugger
     event.preventDefault();
     var formData = $(event.currentTarget).serializeJSON();
     this.$editUserModal.modal('hide');
@@ -115,7 +115,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
           url: formData.image.url         
         }
       });
-      debugger
     var image_id = that.model.get('image_id');  
     
       that.model.save();
