@@ -819,13 +819,16 @@ div.index-items {
   display: inline-block;
   img {
     border-radius: 6px 6px 0 0;
+    padding: 35px;
+    background: $background;
   }
 }
 .pinContent {
   position: absolute;
-  top: 50px;
+  top: 30px;
   left: 50%;
   transform: translateX(-50%);
+  margin-bottom: 30px;
   .panel-body p {
     text-align: left;
   }
