@@ -10,7 +10,7 @@
 </div>
   <div class="btn-group large-section-divider board-show">
     <span id="wider">
-      <% if (user == board.get('user_id')) { %>
+      <% if (current_user == board.get('user_id')) { %>
         <button
           data-toggle="modal"
           data-target="#editBoardModal"

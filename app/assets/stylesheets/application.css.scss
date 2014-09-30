@@ -848,6 +848,8 @@ div.index-items {
 .pinner {
   text-align: left;
   margin-top: 5px;
+  display: inline-block;
+  float: left;
 }
 .pin-user-img,
 img.pin-user,
@@ -865,4 +867,8 @@ img.pin-user,
   .modal-lg {
     width: 0;
   }
+}
+.edit-pin-btn {
+  margin-bottom: 0;
+  margin-top: 0;
 }

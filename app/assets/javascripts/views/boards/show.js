@@ -25,7 +25,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template({ 
       board: this.model,
-      user: CURRENT_USER_ID
+      current_user: CURRENT_USER_ID
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
@@ -90,8 +90,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
         }
       });
     }
-  },
-  
+  },  
   
   editBoard: function (event) {
     event.preventDefault();
@@ -131,11 +130,6 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       }, 1);    
     });
     
-  },
-  
-  removePin: function (pinSubView) {
-    this.removeSubview('#pins', pinSubView);
   }
-
 });
 
