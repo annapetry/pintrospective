@@ -11,9 +11,26 @@
     <span id="wider"></span>
     <button
       type="button"
-      class="btn btn-default pin-menu">
+      class="btn btn-default pin-menu dropdown-toggle"
+      id="category-list"
+      data-toggle="dropdown">
     <img src="../assets/pinterest-menu.png">
     </button>
+    <ul
+      class="dropdown-menu dropdown-menu-right cats"
+      role="menu"
+      aria-labelledby="#category-list">
+      <% GlobalConstants::CATEGORIES.each do |cat| %>
+        <li role="presentation">
+          <a
+            role="menuitem"
+            tabindex="-1"
+            href="#/search/<%= cat %>">
+            <%= cat %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
   </div>
 
   <div class="header-right">
@@ -33,9 +50,9 @@
             class="dropdown-menu dropdown dropdown-menu-right"
             role="menu"
             aria-labelledby="#log-out">
-            <p role="presentation">
+            <li role="presentation">
               <%= link_to 'Log Out', session_url, :method => :delete %>
-            </p>
+            </li>
           </ul>
 
           <button

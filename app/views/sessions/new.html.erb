@@ -9,40 +9,41 @@
 
 
 <div class="large-background-image-container">
+  <div class="filter">
+    <div class="sign-in-box centered">
 
-  <div class="sign-in-box centered">
-
-    <div class="sign-in-form centered">
-      <form role="form" action="<%= session_url %>" method="POST">
-          <%= auth_token %>
+      <div class="sign-in-form centered">
+        <form role="form" action="<%= session_url %>" method="POST">
+            <%= auth_token %>
 
 
-         <div class="form-group">
+           <div class="form-group">
+               <input
+                 type="text"
+                 class="form-control"
+                 name="user[username]"
+                 placeholder="Username">
+           </div>
+
+           <div class="form-group">
              <input
-               type="text"
+               type="password"
                class="form-control"
-               name="user[username]"
-               placeholder="Username">
-         </div>
+               name="user[password]"
+               placeholder="Password">
+           </div>
 
-         <div class="form-group">
-           <input
-             type="password"
-             class="form-control"
-             name="user[password]"
-             placeholder="Password">
-         </div>
+           <div class="form-group">
+               <button
+                 type="submit"
+                 class="btn btn-default red-button">
+                 Sign in
+               </button>
+               <a class="btn btn-default">Guest Pinner</a>
+           </div>
 
-         <div class="form-group">
-             <button
-               type="submit"
-               class="btn btn-default red-button">
-               Sign in
-             </button>
-             <a class="btn btn-default">Guest Pinner</a>
-         </div>
-
-      </form>
-    </div> <!-- Close of sing-in-form div-->
-  </div> <!-- Close of sign-in-box -->
+        </form>
+      </div> <!-- Close of sing-in-form div-->
+    </div> <!-- Close of sign-in-box -->
+  </div>
 </div>

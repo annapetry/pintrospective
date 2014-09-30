@@ -37,6 +37,10 @@ $darker-text: #404040;
 @import "font-awesome";
 
 // general styles
+html {
+  height: 100%;
+  width: 100%;
+}
 body {
   padding-top: 70px;
   background-color: $background;
@@ -62,8 +66,12 @@ a:hover {
 // Sing In/Up Formatting
 .large-background-image-container {
   background-image: url(background-lg.jpg);
+  background-size: cover;
   height: 100%;
   width: 100%;
+  position: absolute;
+  top : 0;
+  background-repeat: no-repeat;
 }
 .sign-in-box {
   background: none;
@@ -567,11 +575,19 @@ button.pin-menu {
   width: 46px;
   padding: 0;
   background: linear-gradient(#fff, #eee);
+  border-radius: 0 6px 6px 0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.07);
 }
 button.pin-pin img{
   height: 22px;
   width: 22px;
+}
+.dropdown-menu.dropdown-menu-right.cats {
+  margin-right: -50px;
+  padding-left: 0;
+}
+.dropdown-menu-right.cats:hover {
+  background: $white;
 }
 .header-left,
 .header-right {
@@ -657,6 +673,16 @@ button.pin-pin img{
 }
 #log-out {
   margin-left: -7px;
+}
+.open ul {
+  padding-left: 30px;
+  padding-bottom: 0;
+  li a {
+    color: $light-text;
+  }
+  li a:hover {
+    color: $dark-text;
+  }
 }
 
 // Add Pin Modal Formatting

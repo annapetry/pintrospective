@@ -58,12 +58,9 @@
                 name="board[category]"
                 id="board-cat">
                 <option>What kind of board is it?</option>
-                <option>Avante Garde</option>
-                <option>Impressionism</option>
-                <option>Post Modern</option>
-                <option>Classical</option>
-                <option>Cubism</option>
-                <option>Other</option>
+                <% cats.forEach( function (cat) { %>
+                  <option><%= cat %></option>
+                <% })%>
               </select>
             </div>
           </div>

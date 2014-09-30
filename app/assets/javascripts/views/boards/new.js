@@ -8,7 +8,9 @@ Pintrospective.Views.NewBoard = Backbone.View.extend({
   className: 'stamp board-index-items',
   
   render: function () {
-    var renderedContent = this.template();
+    var renderedContent = this.template({
+      cats: CATEGORIES
+    });
     this.$el.html(renderedContent);
     
     this.$addBoardModal = this.$('#addBoardModal');
