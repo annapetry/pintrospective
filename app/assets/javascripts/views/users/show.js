@@ -57,7 +57,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   
   
   followUser: function (event) {
-    debugger
     event.preventDefault();
     var followee_user = new Pintrospective.Models.Follow({
       followable_id: this.model.id, 

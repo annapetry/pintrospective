@@ -40,6 +40,7 @@ Pintrospective.Views.PinsIndex = Backbone.CompositeView.extend({
       pins: this.collection
     });
     this.$el.html(renderedContent);
+    this.addFormView();
     this.attachSubviewsBefore();
     
     $('.pin-count').addClass('active');

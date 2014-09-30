@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   validates :username, :password_digest, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
   validates :username, uniqueness: true
-  validates_uniqueness_of :user_id, scope: [:followable_id, :followable_type]
+  # validates_uniqueness_of :user_id, scope: [:followable_id, :followable_type]
 
   after_initialize :ensure_session_token
 

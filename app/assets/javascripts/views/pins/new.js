@@ -38,18 +38,17 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
       description: formData.pin.description,
       board_id: this.board.id
     });
-
-    var that = this;
-    this.model.save({}, {
-      success: function () {
-        that.$pinInfoModal.modal('hide');
-        
-          that.$pinInfoModal.one('hidden.bs.modal', function () {
-          that.collection.add(that.model);
-        });
-      }
-    });
     
+    this.$pinInfoModal.modal('hide');
+    
+    var that = this;
+    this.$pinInfoModal.one('hidden.bs.modal', function () {
+      that.model.save({}, {
+        success: function () {        
+          that.collection.add(that.model);
+        }
+      });
+    });
   },
   
   getUrl: function (event) {
@@ -63,7 +62,7 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     });
 
     var that = this;
-    this.$webPinModal.on('hide.bs.modal', function(){
+    this.$webPinModal.on('hide.bs.modal', function() {
       that.$pinInfoModal.modal('show');
     })
     this.$webPinModal.modal('hide');

@@ -782,7 +782,7 @@ span.add-pin-text {
 }
 div.pin-panel,
 .pin-image {
-  img {
+  .focal-img {
     border-radius: 6px 6px 0 0;
     cursor: zoom-in;
   }
@@ -816,6 +816,9 @@ div.index-items {
 .pinLg {
   margin: 0 auto;
 }
+#thumb-panel-footer {
+  padding-top: 9px;
+}
 
 // User Edit Form
 #submit-user-edit-form {
@@ -838,23 +841,24 @@ div.index-items {
   .panel-body p {
     text-align: left;
   }
-  .modal-footer {
-    p {
-      text-align: left;
-      margin-top: 5px;
-    }
-    #user-img {
-      height: 30px;
-      width: 30px;
-      border-radius: 50%;
-      float: left;
-      margin-right: 15px;
-    }
-  }
-  #pinner-id {
-    color: $dark-text;
-    cursor: pointer;
-  }
+}
+.pinner-id p,
+.pinner-id {
+  color: $dark-text;
+  cursor: pointer;
+}
+.pinner {
+  text-align: left;
+  margin-top: 5px;
+}
+.pin-user-img,
+img.pin-user,
+.pin-user-thumnb {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
 }
 #pinZoom {
   .modal-dialog {

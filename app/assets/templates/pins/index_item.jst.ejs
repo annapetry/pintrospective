@@ -1,14 +1,15 @@
 <div
   class="panel panel-default pin-panel">
     <div class="panel-body pin-image">
-      <img src="<%= pin.escape('url') %>">
+      <img class="focal-img" src="<%= pin.escape('url') %>">
     </div>
     <div
       class="panel-body pin-desc">
       <p><%= pin.escape('description')%></p>
     </div>
-    <div class="panel-footer">
-      <p>Pinned by <%= pin.escape('username') %></p>
+    <div class="panel-footer" id="thumb-panel-footer">
+      <img class="pin-user " src="<%= pin.escape('pinner_img')%>">
+      <p class="pinner">Pinned by <%= pin.escape('username') %></p>
     </div>
 </div>
 
@@ -23,9 +24,9 @@
       <div class="panel-body">
         <p id="desc"><%= pin.escape('description')%></p>
       </div>
-      <div id="pinner-id" class="modal-footer">
-        <img id="user-img" src="<%= pin.escape('pinner_img')%>">
-        <p id="pinner"><%= pin.escape('username') %></p>
+      <div id="pinner-id" class="pinner-id modal-footer">
+        <img class="pin-user-img" src="<%= pin.escape('pinner_img')%>">
+        <p class="pinner"><%= pin.escape('username') %></p>
       </div>
     </div> <!-- Close of modal-content -->
   <!-- </div> --> <!-- Close of modal-dialog -->

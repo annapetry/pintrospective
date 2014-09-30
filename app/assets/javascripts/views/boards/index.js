@@ -40,6 +40,7 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
       boards: this.collection
     });
     this.$el.html(renderedContent);
+    this.addFormView();
     this.attachSubviewsBefore();
     
     $('.board-count').addClass('active');
