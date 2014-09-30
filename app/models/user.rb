@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
 
   has_many :boards, dependent: :destroy
   has_one :image, as: :imageable, dependent: :destroy
+  accepts_nested_attributes_for :image
 
   has_many(
     :pins,

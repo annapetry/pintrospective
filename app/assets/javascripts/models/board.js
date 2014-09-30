@@ -1,5 +1,4 @@
 Pintrospective.Models.Board = Backbone.Model.extend({
-  
   pins: function () {
     if (this._pins) {
       return this._pins;

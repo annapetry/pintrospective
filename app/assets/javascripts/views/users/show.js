@@ -110,9 +110,12 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
       that.model.set({
         username: formData.user.username,
         description: formData.user.description,
-        location: formData.user.location
+        location: formData.user.location,
+        image_attributes: {
+          url: formData.image.url         
+        }
       });
-      
+      debugger
     var image_id = that.model.get('image_id');  
     
       that.model.save();

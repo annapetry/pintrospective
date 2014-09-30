@@ -26,8 +26,6 @@ module Api
       user = User.find(params[:user_id])
       boards = user.boards
 
-      # @board = boards.find_by({id: params[:id]})
-
       @board = boards.includes(:pins).find(params[:id])
       if @board
         render :show
@@ -44,6 +42,12 @@ module Api
       else
         render json: @board.errors.full_messages, status: :unprocessable_entity
       end
+    end
+
+    def search
+      @boards = Board.where('category = ?', params[:category])
+
+      render :categoryShow
     end
 
     private

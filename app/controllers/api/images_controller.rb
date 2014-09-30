@@ -12,6 +12,17 @@ module Api
       end
     end
 
+    def update
+      @image = Image.find(params[:id])
+      @image.update_attributes(image_params)
+
+      if @image.save
+        render json: @image
+      else
+        render json: @image.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
     def destroy
       @image = Image.find(params[:id])
       @image.destroy
