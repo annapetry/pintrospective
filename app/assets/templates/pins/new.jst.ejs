@@ -53,17 +53,22 @@
           Upload an image right from your computer!
         </h4>
         </div>
-
         <div class="modal-body pin">
-            <button class="btn btn-default">Upload Button Goes Here</button>
+          <form id="uploadPin">
+            <input
+              type="filepicker"
+              data-fp-mimetype="image/*"
+              name="image[url]"
+              data-fp-button-text="Choose Image"
+              data-fp-button-class="btn btn-danger red-button upload-btn">
+
             <button
               type="submit"
               class="btn btn-default"
-              data-toggle="modal"
-              data-target="#pinInfo"
-              data-dismiss="modal">
+              id="next-btn">
               Next
             </button>
+          </form>
         </div> <!-- Close of modal body -->
     </div> <!-- Close of modal content -->
   </div> <!-- Close of modal dialog -->
@@ -80,7 +85,7 @@
         <h4
           class="modal-title"
           id="webPin">
-          Add a Pin from a website
+          Add a Pin from a URL
         </h4>
         </div>
         <div class="modal-body web-pin">

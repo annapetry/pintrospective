@@ -3,7 +3,8 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
   
   events: {
     "submit form#new-pin-form": "getUrl",
-    "submit form#new-pin-info": "addPin"
+    "submit form#new-pin-info": "addPin",
+    "submit form#uploadPin": "getUrl"
   },
   
   initialize: function(options) {
@@ -21,14 +22,15 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     this.$uploadPinModal = this.$('#uploadPinModal');
     this.$webPinModal = this.$('#webPinModal');
     this.$pinInfoModal = this.$('#pinInfoModal');
+    this.createSubview();
 
     return this;
   },
   
-  // createSubview: function () {
-  //   var $filePickerInput = this.$('input[type=filepicker]');
-  //   filepicker.constructWidget($filePickerInput[0]);
-  // },
+  createSubview: function () {
+    var $filePickerInput = this.$('input[type=filepicker]');
+    filepicker.constructWidget($filePickerInput[0]);
+  },
   
   addPin: function (event) {
     event.preventDefault();
@@ -62,9 +64,16 @@ Pintrospective.Views.NewPin = Backbone.View.extend({
     });
 
     var that = this;
+    
+    this.$uploadPinModal.on('hide.bs.modal', function() {
+      that.$pinInfoModal.modal('show');
+    });
+    
     this.$webPinModal.on('hide.bs.modal', function() {
       that.$pinInfoModal.modal('show');
     })
+    
+    this.$uploadPinModal.modal('hide');
     this.$webPinModal.modal('hide');
   }
 });
