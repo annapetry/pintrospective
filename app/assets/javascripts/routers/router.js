@@ -11,8 +11,8 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     "users/:id/following": "followingIndex",
     "users/:id/pins": "userPinsIndex",
     "users/:id": "userShow",
-    "boards/:id/followers": "boardFollowers",
-    "search/:category": "boardSearch"
+    "search/:category": "boardSearch",
+    ":user_id/:board_id/followers": "boardFollowers"
     
   },
 
@@ -43,11 +43,17 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
   boardShow: function (user_id, id) {
     var user = Pintrospective.Collections.users.getOrFetch(user_id);
     var board = user.boards().getOrFetch(id);
-    var showView = new Pintrospective.Views.BoardShow({
-      model: board
-    });
     
-    this._swapView(showView);
+    var pins = board.pins();
+
+    var boardShow = new Pintrospective.Views.BoardShow({
+      model: board,
+      collection: pins,
+      subview: Pintrospective.Views.PinsIndex,
+      htmlEl: '#pins'
+    });
+
+    this._swapView(boardShow);
   },
   
   boardSearch: function (category) {
@@ -74,7 +80,6 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
       htmlEl: '#user-items'
     });
     this._swapView(userShow);
-
   },
   
   followingIndex: function (id) {
@@ -108,15 +113,18 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     this._swapView(userShow);
   },
   
-  boardFollowers: function (id) {
-    var users = new Pintrospective.Collections.Users([],{});
-    users.url = '/api/boards/' + id + '/followers'
-    users.fetch();
-    var followersView = new Pintrospective.Views.UsersIndex({
-      collection: users
+  boardFollowers: function (user_id, board_id) {
+    var user = Pintrospective.Collections.users.getOrFetch(user_id);
+    var board = user.boards().getOrFetch(board_id);
+
+    var boardShow = new Pintrospective.Views.BoardShow({
+      model: board,
+      collection: board.followers(),
+      subview: Pintrospective.Views.UsersIndex,
+      htmlEl: '#user-items'
     });
-    
-    this._swapView(followersView);
+
+    this._swapView(boardShow); 
   },
   
   _swapView: function (view) {

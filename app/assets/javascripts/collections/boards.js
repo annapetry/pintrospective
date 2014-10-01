@@ -1,6 +1,8 @@
 Pintrospective.Collections.Boards = Backbone.Collection.extend({
   initialize: function (models, options) {
-    this.user = options.user
+    if (options) {
+      this.user = options.user      
+    }
   },
   
   model: Pintrospective.Models.Board,

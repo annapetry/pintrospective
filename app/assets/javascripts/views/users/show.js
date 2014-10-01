@@ -12,7 +12,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   events: {
     "click button.unfollowed": "followUser",
     "click button.followed": "unfollowUser",
-    "submit form#edit-user-form": "editUser",
+    "submit form#edit-user-form": "editUser"
   },
 
   createSubviews: function () {

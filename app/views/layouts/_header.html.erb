@@ -20,6 +20,13 @@
       class="dropdown-menu dropdown-menu-right cats"
       role="menu"
       aria-labelledby="#category-list">
+      <li role="presentation">
+        <a
+          role="menuitem"
+          tabindex="-1">
+          Filter By:
+        </a>
+      </li>
       <% GlobalConstants::CATEGORIES.each do |cat| %>
         <li role="presentation">
           <a

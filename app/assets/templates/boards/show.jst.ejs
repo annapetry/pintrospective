@@ -38,7 +38,7 @@
       <p pin-count-p><%= board.get('pin_count') %> Pins</p>
     </button>
     <a
-      href="/#/boards/<%= board.get('id') %>/followers"
+      href="/#/<%= board.get('user_id') %>/<%= board.get('id') %>/followers"
       type="button"
       id="long-btn"
       class="btn btn-default follower_count">
@@ -50,6 +50,7 @@
 
 <div class="container">
     <div id="pins"></div>
+    <div id="user-items"></div>
 </div>
 
 

@@ -1,7 +1,9 @@
 Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   template: JST["boards/show"],
 
-  initialize: function () {
+  initialize: function (options) {
+    this.subview = options.subview;
+    this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync change", this.render);
     this.createSubviews();
   },
@@ -14,11 +16,19 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   },
 
   createSubviews: function () {
-      this.pinIndex = new Pintrospective.Views.PinsIndex({
+    var view = new this.subview({
       model: this.model,
-      collection: this.model.pins()
-    })
-    this.addSubviewBefore('#pins', this.pinIndex);  
+      collection: this.collection,
+      // addForm: true
+    });
+    this.addSubviewBefore(this.htmlEl, view);
+
+
+    //   this.pinIndex = new Pintrospective.Views.PinsIndex({
+    //   model: this.model,
+    //   collection: this.model.pins()
+    // })
+    // this.addSubviewBefore('#pins', this.pinIndex);
   },
   
   render: function () {
@@ -27,6 +37,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       current_user: CURRENT_USER_ID,
       cats: CATEGORIES
     });
+    
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
     
