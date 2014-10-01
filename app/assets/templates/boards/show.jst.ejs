@@ -31,17 +31,17 @@
         </div>
       <% } %>
     </span>
-    <button
+    <a
+      href="/#/users/<%= board.get('user_id') %>/boards/<%= board.get('id') %>"
       type="button"
       id="longish-btn"
       class="btn btn-default pin-count">
       <p pin-count-p><%= board.get('pin_count') %> Pins</p>
-    </button>
+    </a>
     <a
       href="/#/<%= board.get('user_id') %>/<%= board.get('id') %>/followers"
       type="button"
-      id="long-btn"
-      class="btn btn-default follower_count">
+      class="btn btn-default follower_count long-btn">
 <!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
       <p><%= board.escape('follower_count') %> Followers</p>
     </a>

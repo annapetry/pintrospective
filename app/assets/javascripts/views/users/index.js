@@ -12,11 +12,12 @@ Pintrospective.Views.UsersIndex = Backbone.CompositeView.extend({
   createSubviews: function () {
     var that = this;
     this.collection.each(function (user) {
-      that.addUser(board);
+      that.addUser(user);
     });
   },
   
   addUser: function (user) {
+    debugger
     var indexItem = new Pintrospective.Views.UsersIndexItem({ model: user });
     this.addSubviewBefore('#user-items', indexItem);
     this.listenTo(indexItem, "remove", this.removeUser);

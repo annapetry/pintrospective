@@ -32,7 +32,7 @@ module Api
    end
 
    def boardFollowers
-     board = Board.find(params[:id])
+     board = Board.find(params[:board_id])
      @users = board.followers
      render :index
    end

@@ -273,12 +273,12 @@ button.edit-board-button.red-button:hover {
 #wider {
 //  width: 742px;
   width: 59%;
-  height: 45px;
+  height: 44px;
   display: inline-block;
   float: left;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   background: linear-gradient(#f3f3f3, #e5e5e5);
-  box-shadow: 0 1px 0 $box-shadow;
+  box-shadow: 1px 1px 1px 1px $box-shadow;
 }
 .large-section-divider > button,
 .large-section-divider > a {
@@ -473,14 +473,15 @@ div.pin-form {
   margin-top: 10px;
   margin-bottom: 30px;
 }
-#longish-button {
+#longish-btn {
   width: 88px;
+  height: 45px;
+  box-shadow: 1px 1px 0 #bfbfbf;
 }
 #wider {
   width: 1035px;
   border-radius: 6px 0 0 6px;
   border-left: $btn-outline;
-  box-shadow: 1px 1px 1px 1px $box-shadow;
 }
 .board-show {
   margin-left: 10px;

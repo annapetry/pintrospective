@@ -5,14 +5,14 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.subview = options.subview;
     this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync", this.render);
-    debugger
     this.createSubviews();  
   },
   
   events: {
     "click button.unfollowed": "followUser",
     "click button.followed": "unfollowUser",
-    "submit form#edit-user-form": "editUser"
+    "submit form#edit-user-form": "editUser",
+    "click .large-section-divider a": "addActive"
   },
 
   createSubviews: function () {
@@ -125,6 +125,12 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   
   removeBoard: function (boardSubView) {
     this.removeSubview('#board-items', boardSubView);
+  },
+  
+  addActive: function (event) {
+    debugger
+    $('large-section-divider a').removeClass('active');
+    $(event.currentTarget).addClass('active');
   }
 
 });

@@ -13,7 +13,6 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     "users/:id": "userShow",
     "search/:category": "boardSearch",
     ":user_id/:board_id/followers": "boardFollowers"
-    
   },
 
   userShow: function (id) {
@@ -116,10 +115,17 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
   boardFollowers: function (user_id, board_id) {
     var user = Pintrospective.Collections.users.getOrFetch(user_id);
     var board = user.boards().getOrFetch(board_id);
-
+    // var followers =
+    // debugger
+    // var user = Pintrospective.Collections.users.getOrFetch(id);
+    var users = new Pintrospective.Collections.Users([],{});
+    users.url = '/api/' + user_id + '/' + board_id + '/followers'
+    users.fetch();
+    
+    
     var boardShow = new Pintrospective.Views.BoardShow({
       model: board,
-      collection: board.followers(),
+      collection: users,
       subview: Pintrospective.Views.UsersIndex,
       htmlEl: '#user-items'
     });

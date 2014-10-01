@@ -19,16 +19,9 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     var view = new this.subview({
       model: this.model,
       collection: this.collection,
-      // addForm: true
+      addForm: true
     });
     this.addSubviewBefore(this.htmlEl, view);
-
-
-    //   this.pinIndex = new Pintrospective.Views.PinsIndex({
-    //   model: this.model,
-    //   collection: this.model.pins()
-    // })
-    // this.addSubviewBefore('#pins', this.pinIndex);
   },
   
   render: function () {
@@ -40,9 +33,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
-    
-    $('.pin-count').addClass('active');
-    
+        
     this.$editBoardModal = this.$('#editBoardModal');
     this.$deleteBoardModal = this.$('#deleteBoardModal');
     this.$followToggle = this.$('#board-follow-button');
