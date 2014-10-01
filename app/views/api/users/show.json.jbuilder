@@ -16,3 +16,10 @@ json.followers @user.follows_from_user do |follower|
   json.extract! follower, :id
 end
 
+json.boards @user.boards do |board|
+  json.extract! board, :id, :title, :user_id, :category
+
+  json.pin_urls board.pins do |pin|
+    json.url pin.image.url
+  end
+end
