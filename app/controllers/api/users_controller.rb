@@ -19,6 +19,18 @@ module Api
      end
    end
 
+   def followers
+     user = User.find(params[:id])
+     @users = user.followers
+     render :index
+   end
+
+   def following
+     user = User.find(params[:id])
+     @users = user.users_they_follow
+     render :index
+   end
+
    private
 
    def user_params

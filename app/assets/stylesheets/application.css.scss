@@ -279,7 +279,8 @@ button.edit-board-button.red-button:hover {
   background: linear-gradient(#f3f3f3, #e5e5e5);
   box-shadow: 0 1px 0 $box-shadow;
 }
-.large-section-divider > button {
+.large-section-divider > button,
+.large-section-divider > a {
   background: linear-gradient(#f3f3f3, #e5e5e5);
   width: 91px;
   height: 45px;
@@ -379,12 +380,14 @@ div.board-form {
 .index-itms {
   width: 100%;
 }
-.board-panel {
+.board-panel,
+.user-panel {
   padding-bottom: 5px;
   border-radius: 6px;
   min-height: 245px;
 }
-.board-index-items {
+.board-index-items,
+.user-index-items {
   padding: 0 7px;
   margin-bottom: 14px;
   width: 20%;
@@ -397,7 +400,8 @@ div.board-form {
   text-overflow: ellipsis;
   position: relative;
 }
-.board-item-title {
+.board-item-title,
+.user-item-title {
   font-size: 14pt;
   color: $dark-text;
   padding-left: 10px;
@@ -944,3 +948,38 @@ img.pin-user,
   margin-bottom: 0;
   margin-top: 0;
 }
+
+// Followers / Following Formatting
+
+.boards-count,
+.pins-count {
+  display: inline-block;
+  background: $background;
+  color: $dark-text;
+  width: 40%;
+  height: 30px;
+  border-radius: 6px;
+  text-align: center;
+  padding-top: 5px;
+  outline: $btn-outline;
+}
+.boards-count {
+  margin-left: 15px;
+}
+.pins-count {
+  float: right;
+  margin-right: 15px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

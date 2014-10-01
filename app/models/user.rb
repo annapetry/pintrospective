@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
   )
 
   has_many(
-    :followers,
+    :follows_from_user,
     class_name: "Follow",
     foreign_key: "followable_id"
   )
@@ -28,6 +28,12 @@ class User < ActiveRecord::Base
     :follows,
     class_name: "Follow",
     foreign_key: "user_id"
+  )
+
+  has_many(
+    :followers,
+    through: :follows_from_user,
+    source: :user
   )
 
   has_many(
@@ -53,20 +59,14 @@ class User < ActiveRecord::Base
   has_many(
     :pins_of_boards_they_follow,
     through: :boards_they_follow,
-    source: :pins)
+    source: :pins
+  )
 
   has_many(
     :pins_of_users_they_follow,
     through: :users_they_follow,
-    source: :pins)
-
-
-
-  # has_many(
-  #   :followed_user_boards,
-  #   through: :followees,
-  #   source: :board
-  # )
+    source: :pins
+  )
 
   def self.find_by_credentials(username, password)
     user = User.find_by_username(username)

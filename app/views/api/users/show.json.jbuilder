@@ -7,7 +7,7 @@ json.follower_count @user.followers.size
 json.following_count @user.users_they_follow.size
 json.image_id @user.image.id
 
-json.followers @user.followers.where({ followable_id: current_user.id }) do |follower|
+json.followers @user.follows_from_user.where({ followable_id: current_user.id }) do |follower|
   json.extract! follower, :id
 end
 

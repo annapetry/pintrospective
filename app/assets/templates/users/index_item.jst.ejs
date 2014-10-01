@@ -1,0 +1,21 @@
+<a href="#/users/<%= user.get('id') %>"
+  <div class="index-panel">
+    <div class="panel panel-default user-panel">
+      <div class="user-item-title">
+        <h5><%= user.escape('username') %></h5>
+      </div>
+
+      <div class="hero-image">
+        <img src="<%= user.get('url') %>">
+      </div>
+      <div class="follows">
+        <div class="boards-count">
+          <p id="board-count"><%= user.get('board_count') %> Boards</p>
+        </div>
+        <div class="pins-count">
+          <p id="pin-count"><%= user.get('pin_count') %> Pins</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

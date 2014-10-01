@@ -77,18 +77,20 @@
           </button>
         <% } %>
       </span>
-      <button
+      <a
+        href="/#/users/<%= user.id %>/followers"
         type="button"
         id="long-btn"
         class="btn btn-default">
         <p><%= user.get('follower_count') %> Followers</p>
-      </button>
-      <button
+      </a>
+      <a
+        href="/#/users/<%= user.id %>/following"
         type="button"
         id="long-btn"
         class="btn btn-default">
         <p><%= user.get('following_count') %> Following</p>
-      </button>
+      </a>
     </div>
     </div>
 </div>
