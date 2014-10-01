@@ -9,6 +9,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     "users/:user_id/boards/:id": "boardShow",
     "users/:id/followers": "followersIndex",
     "users/:id/following": "followingIndex",
+    "users/:id/pins": "userPinsIndex",
     "users/:id": "userShow",
     "search/:category": "boardSearch"
     
@@ -73,6 +74,17 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     });
     
     this._swapView(followingView);
+  },
+  
+  userPinsIndex: function (id) {
+    var pins = new Pintrospective.Collections.Pins([],{});
+    pins.url = '/api/users/' + id + '/pins'
+    pins.fetch();
+    var pinsView = new Pintrospective.Views.PinsIndex({
+      collection: pins
+    });
+    
+    this._swapView(pinsView);
   },
   
   _swapView: function (view) {

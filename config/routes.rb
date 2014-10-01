@@ -14,5 +14,6 @@ Rails.application.routes.draw do
     get 'search/:category', to: 'boards#search'
     get 'users/:id/followers', to: 'users#followers'
     get 'users/:id/following', to: 'users#following'
+    get 'users/:id/pins', to: 'pins#userPins'
   end
 end

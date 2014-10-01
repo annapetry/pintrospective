@@ -39,6 +39,12 @@ module Api
       end
     end
 
+    def userPins
+      user = User.find(params[:id])
+      @pins = user.pins
+      render :index
+    end
+
     private
 
     def current_board
