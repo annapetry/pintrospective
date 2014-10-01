@@ -5,7 +5,7 @@ Pintrospective.Views.BoardsIndex = Backbone.CompositeView.extend({
     // collection is boards
     this.listenTo(this.collection, "sync add remove", this.render);
     this.listenTo(this.collection, "add", this.addBoard);
-    
+
     this.createSubviews();
     
     if (options.addForm) {

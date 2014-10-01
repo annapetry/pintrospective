@@ -2,7 +2,10 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   template: JST["users/show"],
 
   initialize: function (options) {
+    this.subview = options.subview;
+    this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync", this.render);
+    debugger
     this.createSubviews();  
   },
   
@@ -13,13 +16,12 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   createSubviews: function () {
-    this.model.boards().fetch();
-    var boardIndex = new Pintrospective.Views.BoardsIndex({
+    var view = new this.subview({
       model: this.model,
-      collection: this.model.boards(),
+      collection: this.collection,
       addForm: true
     });
-    this.addSubviewBefore('#board-items', boardIndex);
+    this.addSubviewBefore(this.htmlEl, view);
   },
   
   createSubview: function () {

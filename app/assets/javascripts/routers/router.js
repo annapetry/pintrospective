@@ -18,8 +18,14 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = Pintrospective.Collections.users.getOrFetch(id);
+    var boards = user.boards();
+    boards.fetch();
+    
     var userShow = new Pintrospective.Views.UserShow({
-      model: user
+      model: user,
+      collection: boards,
+      subview: Pintrospective.Views.BoardsIndex,
+      htmlEl: '#board-items'
     });
     
     this._swapView(userShow);
@@ -59,6 +65,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     var users = new Pintrospective.Collections.Users([],{});
     users.url = '/api/users/' + id + '/followers'
     users.fetch();
+    
     var followerView = new Pintrospective.Views.UsersIndex({
       collection: users
     });
@@ -78,13 +85,25 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
   },
   
   userPinsIndex: function (id) {
+    var user = Pintrospective.Collections.users.getOrFetch(id);
+    
     var pins = new Pintrospective.Collections.Pins([],{});
     pins.url = '/api/users/' + id + '/pins'
     pins.fetch();
+    
+    // var userShow = new Pintrospective.Views.UserShow({
+    //   model: user,
+    //   collection: pins,
+    //   subview: Pintrospective.Views.PinsIndex,
+    //   htmlEl: '#pin-items'
+    // });
+    //
+    
+
     var pinsView = new Pintrospective.Views.PinsIndex({
       collection: pins
     });
-    
+
     this._swapView(pinsView);
   },
   
