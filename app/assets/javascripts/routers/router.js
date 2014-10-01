@@ -59,11 +59,15 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     var users = new Pintrospective.Collections.Users([],{});
     users.url = '/api/users/' + id + '/followers'
     users.fetch();
-    var followerView = new Pintrospective.Views.UsersIndex({
+    // var followerView = new Pintrospective.Views.UsersIndex({
+    //   collection: users
+    // });
+    
+    var userShow = new Pintrospective.Views.UserShow({
       collection: users
     });
     
-    this._swapView(followerView);
+    this._swapView(userShow);
   },
   
   followingIndex: function (id) {

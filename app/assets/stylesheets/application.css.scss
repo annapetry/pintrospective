@@ -975,7 +975,26 @@ img.pin-user,
   margin-right: 15px;
 }
 
-
+// Following Users SideBar
+.tiny-follower {
+  font-weight: 500;
+  p {
+    color: $light-text;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  p {
+    letter-spacing: 1px;
+    display: inline-block;
+    padding-left: 10px;
+    color: $light-text;
+    font-size: 0.9em;
+  }
+}
 
 
 
