@@ -29,12 +29,13 @@
           <img class="pin-user-img" src="<%= pin.escape('pinner_img')%>">
           <p class="pinner"><%= pin.escape('username') %></p>
         </div>
-        <button
-          data-dismiss="modal"
-          class="btn btn-danger red-button edit-pin-btn">
-          Edit Pin
-        </button>
-
+        <% if (pin.escape('pinner_id') == current_user ) { %>
+          <button
+            data-dismiss="modal"
+            class="btn btn-danger red-button edit-pin-btn">
+            Edit Pin
+          </button>
+        <% } %>
       </div>
     </div> <!-- Close of modal-content -->
   <!-- </div> --> <!-- Close of modal-dialog -->

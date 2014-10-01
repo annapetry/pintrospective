@@ -74,6 +74,7 @@ a:hover {
   padding-left: 21%;
   font-family: brandFont;
   font-size: 4em;
+  color: #db4a44;
 }
 .large-background-image-container {
   background-image: url(background-dali.jpg);
@@ -104,9 +105,16 @@ a:hover {
     height: 38px;
     width: 100%;
   }
-  button:first-child {
+  #sign-in {
     display: block;
     margin-bottom: 5px;
+    background-image: -webkit-linear-gradient(#dc4b47, #f46c56);
+    background-image: linear-gradient(#dc4b47, #f46c56);
+    margin-bottom: 0;
+  }
+  #demo {
+    background-image: -webkit-linear-gradient(#f46c56, #f7b470);
+    background-image: linear-gradient(#f46c56, #f7b470);
   }
   .form-group {
     margin-bottom: 5px;
@@ -118,7 +126,14 @@ a:hover {
     }
   }
 }
-
+#tag-line {
+  position: absolute;
+  bottom: 12%;
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  color: #db4a44;
+}
 button.btn.btn-danger.red-button:hover,
 button.edit-board-button.red-button:hover {
   background-image: -webkit-linear-gradient(#e63d45, #c11a22);
@@ -375,7 +390,7 @@ div.board-form {
   width: 20%;
   float: left;
   border-radius: 6px;
-  min-height: 245px;
+  height: 320px;
 }
 .index-panel {
   width: 100%;

@@ -26,3 +26,13 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+
+$(document).ready(function (){
+  $("#demo").click(function (event) {
+    event.preventDefault();
+    $("#usernameField").val("PlusUltra Petry");
+    $("#passwordField").val("annapetry");
+    $('#sign-in').click();
+  });
+});

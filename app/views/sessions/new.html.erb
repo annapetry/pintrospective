@@ -7,10 +7,10 @@
         <form role="form" action="<%= session_url %>" method="POST">
             <%= auth_token %>
 
-
            <div class="form-group">
                <input
                  type="text"
+                 id="usernameField"
                  class="form-control"
                  name="user[username]"
                  placeholder="Username">
@@ -19,6 +19,7 @@
            <div class="form-group">
              <input
                type="password"
+               id="passwordField"
                class="form-control"
                name="user[password]"
                placeholder="Password">
@@ -27,6 +28,7 @@
            <div class="form-group">
                <button
                  type="submit"
+                 id="sign-in"
                  class="btn btn-danger red-button">
                  Sign in
                </button>
@@ -38,5 +40,8 @@
            </div>
         </form>
       </div> <!-- Close of sing-in-form div-->
+      <div id="tag-line">
+        A Pinterest Inspired Art Restrospective
+      </div>
     </div> <!-- Close of sign-in-box -->
 </div>

@@ -24,7 +24,8 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
   render: function () {
     var renderedContent = this.template({ 
       board: this.model,
-      current_user: CURRENT_USER_ID
+      current_user: CURRENT_USER_ID,
+      cats: CATEGORIES
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();

@@ -17,7 +17,10 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   className: 'index-items',
   
   render: function(){
-    var content = this.template({ pin: this.model });
+    var content = this.template({ 
+      pin: this.model,
+      current_user: CURRENT_USER_ID
+    });
     this.$el.html(content);
     this.$editPinModal = this.$('#editPinModal');
     this.$pinZoomModal = this.$('#pinZoom');
