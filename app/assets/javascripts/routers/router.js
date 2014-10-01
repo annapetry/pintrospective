@@ -62,26 +62,34 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
   },
   
   followersIndex: function (id) {
+    var user = Pintrospective.Collections.users.getOrFetch(id);
     var users = new Pintrospective.Collections.Users([],{});
     users.url = '/api/users/' + id + '/followers'
     users.fetch();
-    
-    var followerView = new Pintrospective.Views.UsersIndex({
-      collection: users
+      
+    var userShow = new Pintrospective.Views.UserShow({
+      model: user,
+      collection: users,
+      subview: Pintrospective.Views.UsersIndex,
+      htmlEl: '#user-items'
     });
-    
-    this._swapView(followerView);
+    this._swapView(userShow);
+
   },
   
   followingIndex: function (id) {
+    var user = Pintrospective.Collections.users.getOrFetch(id);
     var users = new Pintrospective.Collections.Users([],{});
     users.url = '/api/users/' + id + '/following'
     users.fetch();
-    var followingView = new Pintrospective.Views.UsersIndex({
-      collection: users
-    });
     
-    this._swapView(followingView);
+    var userShow = new Pintrospective.Views.UserShow({
+      model: user,
+      collection: users,
+      subview: Pintrospective.Views.UsersIndex,
+      htmlEl: '#user-items'
+    });
+    this._swapView(userShow);
   },
   
   userPinsIndex: function (id) {
@@ -90,21 +98,14 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     var pins = new Pintrospective.Collections.Pins([],{});
     pins.url = '/api/users/' + id + '/pins'
     pins.fetch();
-    
-    // var userShow = new Pintrospective.Views.UserShow({
-    //   model: user,
-    //   collection: pins,
-    //   subview: Pintrospective.Views.PinsIndex,
-    //   htmlEl: '#pin-items'
-    // });
-    //
-    
 
-    var pinsView = new Pintrospective.Views.PinsIndex({
-      collection: pins
+    var userShow = new Pintrospective.Views.UserShow({
+      model: user,
+      collection: pins,
+      subview: Pintrospective.Views.PinsIndex,
+      htmlEl: '#pin-items'
     });
-
-    this._swapView(pinsView);
+    this._swapView(userShow);
   },
   
   boardFollowers: function (id) {

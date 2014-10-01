@@ -19,7 +19,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     var view = new this.subview({
       model: this.model,
       collection: this.collection,
-      addForm: true
+      // addForm: true
     });
     this.addSubviewBefore(this.htmlEl, view);
   },
