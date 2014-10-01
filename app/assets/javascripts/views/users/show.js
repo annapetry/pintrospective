@@ -8,6 +8,10 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.createSubviews();  
   },
   
+  bindings: {
+    '#board-count': 'boards_count'
+  },
+  
   events: {
     "click button.unfollowed": "followUser",
     "click button.followed": "unfollowUser",
@@ -47,6 +51,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.$editUserModal = this.$('#editUserModal');
     this.$followToggle = this.$('#user-follow-button');
     this.addToggle();
+    this.stickit();
     
     return this;  
   },
@@ -130,8 +135,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   addActive: function (event) {
     debugger
     $('large-section-divider a').removeClass('active');
-    $(event.currentTarget).addClass('active');
+    $(event.currentTarget).addClass('active');      
   }
-
 });
 

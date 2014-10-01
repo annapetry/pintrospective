@@ -28,6 +28,9 @@ Pintrospective.Models.Board = Backbone.Model.extend({
       this.followers().set(response.followers, { parse: true });
       delete response.followers;
     }
+    if (response.pin_urls) {
+      response.pin_urls = _.compact(response.pin_urls);      
+    }
     return response;
   }
 });

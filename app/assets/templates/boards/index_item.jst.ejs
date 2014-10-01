@@ -14,26 +14,14 @@
           <% } %>
         </div>
         <div class="board-small-image-set">
-          <% if (board.get('pin_urls')[1]) { %>
-            <img src="<%= board.get('pin_urls')[1].url %>">
-          <% } else { %>
-            <img src="../assets/default.png">
-          <% } %>
-          <% if (board.get('pin_urls')[2]) { %>
-            <img src="<%= board.get('pin_urls')[2].url %>">
-          <% } else { %>
-            <img src="../assets/default.png">
-          <% } %>
-          <% if (board.get('pin_urls')[3]) { %>
-            <img src="<%= board.get('pin_urls')[3].url %>">
-          <% } else { %>
-            <img src="../assets/default.png">
-          <% } %>
-          <% if (board.get('pin_urls')[4]) { %>
-            <img src="<%= board.get('pin_urls')[4].url %>">
-          <% } else { %>
-            <img src="../assets/default.png">
-          <% } %>
+          <% _.times(4, function (x) { %>
+            <% x++ %>
+             <% if (board.get('pin_urls')[x]) { %>
+              <img src="<%= board.get('pin_urls')[x].url %>">
+            <% } else { %>
+              <img src="../assets/default.png">
+            <% } %>
+          <% }) %>
         </div>
 
       <% } else { %>

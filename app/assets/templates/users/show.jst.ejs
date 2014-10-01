@@ -53,8 +53,9 @@
       <a
         href="/#/users/<%= user.id %>"
         type="button"
-        class="btn btn-default board-count">
-        <p><%= user.get('board_count') %> Boards</p>
+        class="btn btn-default">
+        <p id="board-count"></p>
+        <!-- <p>Boards</p> -->
       </a>
       <a
         href="/#/users/<%= user.id %>/pins"

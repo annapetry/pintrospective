@@ -17,7 +17,7 @@ Pintrospective.Views.UsersIndex = Backbone.CompositeView.extend({
   },
   
   addUser: function (user) {
-    debugger
+
     var indexItem = new Pintrospective.Views.UsersIndexItem({ model: user });
     this.addSubviewBefore('#user-items', indexItem);
     this.listenTo(indexItem, "remove", this.removeUser);

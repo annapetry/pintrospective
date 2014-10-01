@@ -17,6 +17,7 @@
 //= require imagesloaded.pkgd
 //= require underscore
 //= require backbone
+//= require backbone.stickit.min
 //= require bootstrap
 //= require pintrospective
 //= require_tree ../templates

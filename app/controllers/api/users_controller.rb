@@ -4,7 +4,7 @@ module Api
     wrap_parameters :user, include: [:username, :location, :description, :image_attributes]
 
    def show
-     @user = User.includes(:boards).find(params[:id])
+     @user = User.includes(:users_they_follow, [:pins => :image, :boards => :pins]).find(params[:id])
      render :show
    end
 
