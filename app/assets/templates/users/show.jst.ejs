@@ -53,9 +53,9 @@
       <a
         href="/#/users/<%= user.id %>"
         type="button"
+        id="board_count"
         class="btn btn-default">
-        <p id="board-count"></p>
-        <!-- <p>Boards</p> -->
+        <p><%= user.get('boards_count') %> Boards</p>
       </a>
       <a
         href="/#/users/<%= user.id %>/pins"
@@ -102,6 +102,11 @@
     <div id="user-items"></div>
   </div>
 </div>
+
+
+
+
+
 
 
 <!-- Edit User Modal -->

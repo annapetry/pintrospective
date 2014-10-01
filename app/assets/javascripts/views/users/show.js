@@ -2,21 +2,23 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   template: JST["users/show"],
 
   initialize: function (options) {
+    debugger
     this.subview = options.subview;
     this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync", this.render);
     this.createSubviews();  
-  },
-  
-  bindings: {
-    '#board-count': 'boards_count'
+ 
+    this.$('.large-section-divider a').removeClass('active');
+    
+    var frag = '/#/' + Backbone.history.fragment;
+    
+    this.$("a[href='frag']").addClass('active');
   },
   
   events: {
     "click button.unfollowed": "followUser",
     "click button.followed": "unfollowUser",
-    "submit form#edit-user-form": "editUser",
-    "click .large-section-divider a": "addActive"
+    "submit form#edit-user-form": "editUser"
   },
 
   createSubviews: function () {
@@ -47,7 +49,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
       html: true,
       placement: 'bottom'
     });
-    
+
     this.$editUserModal = this.$('#editUserModal');
     this.$followToggle = this.$('#user-follow-button');
     this.addToggle();

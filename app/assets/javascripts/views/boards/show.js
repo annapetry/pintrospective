@@ -31,6 +31,15 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       cats: CATEGORIES
     });
     
+    
+    var frag = Backbone.history.fragment;
+    
+    if ( frag =~ /users\/\d+\/boards/ ) {
+      $('.pin-count').addClass('active');
+    } else {
+      $('.follower_count').addClass('active');
+    }
+    
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
         
