@@ -31,6 +31,12 @@ module Api
      render :index
    end
 
+   def boardFollowers
+     board = Board.find(params[:id])
+     @users = board.followers
+     render :index
+   end
+
    private
 
    def user_params

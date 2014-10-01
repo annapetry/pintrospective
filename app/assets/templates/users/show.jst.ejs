@@ -53,16 +53,18 @@
 
   <div class="row">
     <div class="btn-group large-section-divider col-md-12">
-      <button
+      <a
+        href="/#/users/<%= user.id %>"
         type="button"
         class="btn btn-default board-count">
         <p><%= user.get('board_count') %> Boards</p>
-      </button>
-      <button
+      </a>
+      <a
+        href="/#/users/<%= user.id %>/pins"
         type="button"
         class="btn btn-default">
         <p><%= user.get('pin_count') %> Pins</p>
-      </button>
+      </a>
       <button
         type="button"
         class="btn btn-default">
@@ -80,15 +82,15 @@
       <a
         href="/#/users/<%= user.id %>/followers"
         type="button"
-        id="long-btn"
-        class="btn btn-default">
+        id="follower-count"
+        class="btn btn-default long-btn">
         <p><%= user.get('follower_count') %> Followers</p>
       </a>
       <a
         href="/#/users/<%= user.id %>/following"
         type="button"
-        id="long-btn"
-        class="btn btn-default">
+        id="following-count"
+        class="btn btn-default long-btn">
         <p><%= user.get('following_count') %> Following</p>
       </a>
     </div>
@@ -115,17 +117,6 @@
       </div> <!-- Close modal header -->
 
         <div class="modal-body edit-board-form-body">
-          <div class="form-group">
-            <label for="board-title" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-              <input
-                type="text"
-                class="form-control"
-                id="username"
-                name="user[username]"
-                value="<%= user.escape('username') %>">
-            </div>
-          </div>
           <div class="form-group">
             <label
               for="user-image"

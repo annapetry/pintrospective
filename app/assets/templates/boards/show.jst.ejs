@@ -37,13 +37,14 @@
       class="btn btn-default pin-count">
       <p pin-count-p><%= board.get('pin_count') %> Pins</p>
     </button>
-    <button
+    <a
+      href="/#/boards/<%= board.get('id') %>/followers"
       type="button"
       id="long-btn"
       class="btn btn-default follower_count">
 <!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
       <p><%= board.escape('follower_count') %> Followers</p>
-    </button>
+    </a>
   </div>
 
 
@@ -87,7 +88,7 @@
                   class="form-control"
                   id="board-desc"
                   name="board[description]"
-                  placeholder="What's your board about?"></textarea>
+                  placeholder="What's your board about?"><%= board.escape('description') %></textarea>
             </div>
           </div>
 

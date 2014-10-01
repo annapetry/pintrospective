@@ -11,7 +11,13 @@ class Board < ActiveRecord::Base
     source: :image
   )
 
-  has_many :followers, class_name: "Follow", foreign_key: "followable_id"
+  has_many :follows, class_name: "Follow", foreign_key: "followable_id"
+
+  has_many(
+    :followers,
+    through: :follows,
+    source: :user
+  )
 
   default_scope { order(created_at: :asc) }
 end

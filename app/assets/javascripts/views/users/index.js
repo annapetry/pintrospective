@@ -3,7 +3,7 @@ Pintrospective.Views.UsersIndex = Backbone.CompositeView.extend({
   
   initialize: function (options) {
     // collection is users
-    this.listenTo(this.collection, "sync add remove", this.render);
+    this.listenTo(this.collection, "sync add", this.render);
     this.listenTo(this.collection, "add", this.addUser);
     
     this.createSubviews();
@@ -41,9 +41,5 @@ Pintrospective.Views.UsersIndex = Backbone.CompositeView.extend({
     }, 0);
     
     return this;
-  },
-  
-  removeUser: function (userSubView) {
-    this.removeSubview('#user-items', userSubView);
   }
 });

@@ -104,6 +104,7 @@ a:hover {
   a {
     height: 38px;
     width: 100%;
+    font-size: 1.1em;
   }
   #sign-in {
     display: block;
@@ -298,7 +299,7 @@ button.edit-board-button.red-button:hover {
     color: #333;
     height: 46px;
 }
-#long-btn {
+a.long-btn {
   width: 112px;
 }
 #user-follow-button {
@@ -947,6 +948,9 @@ img.pin-user,
 .edit-pin-btn {
   margin-bottom: 0;
   margin-top: 0;
+}
+#cancel {
+  margin-top: 5px;
 }
 
 // Followers / Following Formatting
