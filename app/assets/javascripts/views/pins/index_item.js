@@ -12,7 +12,7 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
     "click .edit-pin-btn": 'showEditPinModal',
     "click #close-modal": 'hideEditPinModal',
     "submit form#edit-pin-form": "editPin",
-    "click div#thumb-panel-footer": "redirectUser"
+    "click div.thumb-panel-footer": "redirectUser"
   },
   
   className: 'index-items',
@@ -81,6 +81,6 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   },
   
   redirectUser: function () {
-    window.location.hash = "/users/" + this.model.get('pinner_id');  
+    window.location.hash = "/users/" + this.model.get('pinner_id') + "/boards/" + this.model.get('board_id');  
   }
 });

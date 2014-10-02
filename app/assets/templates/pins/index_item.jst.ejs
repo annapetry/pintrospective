@@ -7,9 +7,12 @@
       class="panel-body pin-desc">
       <p><%= pin.escape('description')%></p>
     </div>
-    <div class="panel-footer" id="thumb-panel-footer">
+    <div class="panel-footer thumb-panel-footer">
       <img class="pin-user " src="<%= pin.escape('pinner_img')%>">
-      <p class="pinner"><%= pin.escape('username') %></p>
+      <div class="user-board">
+        <p class="pinner"><%= pin.escape('username') %></p>
+        <p class="pin-board"><%= pin.escape('title') %></p>
+      </div>
     </div>
 </div>
 
@@ -25,9 +28,12 @@
         <p id="desc"><%= pin.escape('description')%></p>
       </div>
       <div class="modal-footer">
-        <div id="pinner-id" class="pinner-id">
-          <img class="pin-user-img" src="<%= pin.escape('pinner_img')%>">
-          <p class="pinner"><%= pin.escape('username') %></p>
+        <div id="pinner-id">
+            <img class="pin-user-img" src="<%= pin.escape('pinner_img')%>">
+          <div id="pinner-id" class="pinner-id">
+            <p class="pinner"><%= pin.escape('username') %></p>
+            <p class="pin-board"><%= pin.escape('title') %></p>
+          </div>
         </div>
         <% if (pin.escape('pinner_id') == current_user ) { %>
           <button

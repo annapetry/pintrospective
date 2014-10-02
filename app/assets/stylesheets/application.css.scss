@@ -927,9 +927,27 @@ div.index-items {
 .pinLg {
   margin: 0 auto;
 }
-#thumb-panel-footer {
-  padding-top: 9px;
+.thumb-panel-footer {
   cursor: pointer;
+  .pinner {
+    margin-top: 0;
+  }
+  .pin-user {
+    margin-top: 3px;
+  }
+}
+.pin-panel {
+  .panel-footer {
+    padding: 6px 0 4px 15px;
+  }
+}
+.user-board {
+  float: left;
+}
+.pin-board {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: $light-text;
 }
 
 // User Edit Form
@@ -983,10 +1001,28 @@ img.pin-user,
   .modal-lg {
     width: 0;
   }
+  .modal-footer {
+    padding: 0;
+    padding: 6px 15px 4px 15px;
+  }
+}
+#pinner-id {
+  float: left;
+  img {
+    height: 40px;
+    width: 40px;
+    margin-top: 4px;
+  }
+  p.pinner {
+    margin: 5px 0 0 0;
+  }
+  p.pin-board {
+    font-size: 0.9em;
+  }
 }
 .edit-pin-btn {
   margin-bottom: 0;
-  margin-top: 0;
+  margin-top: 9px;
 }
 #cancel {
   margin-top: 5px;
