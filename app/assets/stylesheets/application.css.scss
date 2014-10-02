@@ -113,11 +113,13 @@ div#aboutMe {
 #brand-up {
   padding-top: 40px;
   padding-left: 16%;
-//  padding-left: 21%;
   font-family: brandFont2;
   font-size: 4em;
   color: $brand;
   z-index: 100;
+}
+.btn:focus {
+  outline: none;
 }
 .large-background-image-container {
   background-image: url(background-block.jpg);
@@ -204,8 +206,8 @@ div#aboutMe {
 
 button.btn.btn-danger.red-button:hover,
 button.edit-board-button.red-button:hover {
-  background-image: -webkit-linear-gradient(#e63d45, #c11a22);
-  background-image: linear-gradient(#e63d45, #c11a22);
+  background-image: -webkit-linear-gradient(#e3262e, #ab171e);
+  background-image: linear-gradient(#e3262e, #ab171e);
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border: 1px solid #920c12;
 }
@@ -567,8 +569,8 @@ div.pin-form {
   margin: 6px 0 0 10px;
   padding-left: 15px;
   padding-right: 15px;
-  background-image: -webkit-linear-gradient(#e3262e, #ab171e);
-  background-image: linear-gradient(#e3262e, #ab171e);
+  background-image: -webkit-linear-gradient(#e3262e, #db4a44);
+  background-image: linear-gradient(#db4a44, #ab171e);
   background-color: #ab171e;
   border-bottom-color: #820a0f;
   border-left-color: #9a1015;
