@@ -13,5 +13,6 @@ class Pin < ActiveRecord::Base
 
   accepts_nested_attributes_for :image
 
-  default_scope { order(created_at: :asc) }
+  # default_scope { order(created_at: :asc) }
+  default_scope { order(id: :asc) }
 end

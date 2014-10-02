@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001203846) do
+ActiveRecord::Schema.define(version: 20141002171251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20141001203846) do
   end
 
   add_index "boards", ["category"], name: "index_boards_on_category", using: :btree
+  add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
 
   create_table "follows", force: true do |t|
     t.integer  "user_id",         null: false
@@ -38,6 +39,9 @@ ActiveRecord::Schema.define(version: 20141001203846) do
     t.datetime "updated_at"
   end
 
+  add_index "follows", ["followable_id", "followable_id"], name: "index_follows_on_followable_id_and_followable_id", using: :btree
+  add_index "follows", ["followable_id", "followable_type"], name: "index_follows_on_followable_id_and_followable_type", using: :btree
+  add_index "follows", ["followable_id", "user_id"], name: "index_follows_on_followable_id_and_user_id", using: :btree
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "images", force: true do |t|
@@ -48,6 +52,7 @@ ActiveRecord::Schema.define(version: 20141001203846) do
     t.datetime "updated_at"
   end
 
+  add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
   add_index "images", ["url"], name: "index_images_on_url", using: :btree
 
   create_table "pins", force: true do |t|
