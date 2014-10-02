@@ -29,5 +29,11 @@ class Board < ActiveRecord::Base
     source: :user
   )
 
+  has_many(
+    :followers_through_user,
+    through: :user,
+    source: :followers
+  )
+
   default_scope { order(created_at: :asc) }
 end

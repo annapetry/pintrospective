@@ -32,7 +32,7 @@
 $(document).ready(function (){
   $("#demo").click(function (event) {
     event.preventDefault();
-    $("#usernameField").val("PlusUltra Petry");
+    $("#usernameField").val("Petry");
     $("#passwordField").val("annapetry");
     $('#sign-in').click();
   });

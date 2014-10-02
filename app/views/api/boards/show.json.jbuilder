@@ -4,7 +4,7 @@ json.category @board.category
 json.url @board.user.image.url
 json.pin_count @board.pins.size
 json.username @board.user.username
-json.follower_count @board.followers.size
+json.follower_count (@board.followers.count + @board.followers_through_user.count)
 
 json.followers @board.follows.where({ user_id: current_user.id }) do |follower|
   json.extract! follower, :id

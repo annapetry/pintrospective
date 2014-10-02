@@ -40,6 +40,10 @@ $darker-text: #404040;
     font-family: brandFont;
     src: url(vnhltfap.ttf);
 }
+@font-face {
+  font-family: brandFont2;
+  src: url(geometria-light.ttf);
+}
 
 // general styles
 html {
@@ -69,11 +73,20 @@ a:hover {
 }
 
 // Sing In/Up Formatting
+.log-page {
+  float: right;
+  margin: 15px 15px 0 0;
+  width: 90px;
+  a {
+    color: $dark-text;
+  }
+}
 #brand,
 #brand-up {
   padding-top: 30px;
-  padding-left: 21%;
-  font-family: brandFont;
+  padding-left: 16%;
+//  padding-left: 21%;
+  font-family: brandFont2;
   font-size: 4em;
   color: #db4a44;
   z-index: 100;
