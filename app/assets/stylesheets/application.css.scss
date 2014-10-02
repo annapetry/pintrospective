@@ -489,7 +489,8 @@ div.pin-form {
 .new-board-view {
   padding-left: 0;
 }
-.board-title {
+.board-title,
+.cat-title {
   text-align: center;
   font-size: 47px;
   font-weight: 600;
@@ -623,6 +624,11 @@ div.pin-form {
       margin-top: 0;
     }
   }
+}
+
+// Pins Search View
+.cat-title {
+  margin-bottom: 40px;
 }
 
 // Header Cont.

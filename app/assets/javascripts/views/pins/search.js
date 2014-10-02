@@ -1,16 +1,17 @@
-Pintrospective.Views.BoardSearch = Backbone.CompositeView.extend({
-  template: JST["boards/search"],
+Pintrospective.Views.PinsSearch = Backbone.CompositeView.extend({
+  template: JST["pins/search"],
   
-  inititalize: function(options) {
+  initialize: function (options) {
     this.category = options.category;
+    this.createSubviews();  
   },
-
+  
   createSubviews: function () {
-    var categoryView = new Pintrospective.Views.BoardsIndex({
-      collection: boards
+    var categoryView = new Pintrospective.Views.PinsIndex({
+      collection: this.collection
     });
     
-    this.addSubviewBefore('#boards', categoryView);
+    this.addSubviewBefore('#pins', categoryView);
   },
   
   render: function () {

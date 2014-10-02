@@ -6,8 +6,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync", this.render);
     this.createSubviews();  
-
-
   },
 
   events: {
