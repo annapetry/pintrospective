@@ -1,7 +1,13 @@
 class Board < ActiveRecord::Base
   validates :title, :user, presence: true
 
-  belongs_to :user, counter_cache: true
+  belongs_to(
+    :user,
+    class_name: 'User',
+    foreign_key: :user_id,
+    primary_key: :id,
+    counter_cache: true
+  )
 
   has_many :pins, dependent: :destroy
 

@@ -45,6 +45,17 @@ module Api
       render :index
     end
 
+    def search
+      boards = Board.where('category = ?', params[:category])
+      @pins = [];
+
+      boards.each do |board|
+        @pins += board.pins
+      end
+
+      render :index
+    end
+
     private
 
     def current_board
