@@ -93,6 +93,16 @@ class User < ActiveRecord::Base
     self.session_token ||= generate_session_token
   end
 
+  def current_follow(user_id)
+    follow = self.follows_from_user.find_by(:user_id => user_id)
+
+    if follow
+      return follow.id
+    else
+      return nil
+    end
+  end
+
   private
 
   def generate_session_token

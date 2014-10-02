@@ -73,7 +73,7 @@
           <button
             class="btn btn-danger red-button"
             id="user-follow-button"
-            data-follow-state="<%= (user.followers().length) > 0 ? "followed" : "unfollowed" %>">
+            data-follow-state="<%= (user.get('current_follow') > 0) ? "followed" : "unfollowed" %>">
           </button>
         <% } %>
       </span>

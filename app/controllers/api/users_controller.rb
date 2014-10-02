@@ -34,6 +34,7 @@ module Api
    def boardFollowers
      board = Board.find(params[:board_id])
      @users = board.followers
+     @users += board.followers_through_user
      render :index
    end
 

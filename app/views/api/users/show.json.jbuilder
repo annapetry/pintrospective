@@ -18,9 +18,7 @@ json.following @user.users_they_follow do |followee|
   end
 end
 
-json.followers @user.follows_from_user do |follower|
-  json.extract! follower, :id
-end
+json.current_follow @user.current_follow(current_user.id)
 
 json.boards @user.boards do |board|
   json.extract! board, :id, :title, :user_id, :category

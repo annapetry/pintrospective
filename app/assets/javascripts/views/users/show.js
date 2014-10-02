@@ -36,7 +36,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     });
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
-
     this.createSubview();
 
     $('#edit-user-profile').popover({
@@ -53,8 +52,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.$("a[href='" + frag + "']").addClass('active');
 
     this.followerBox();
-
-    this.stickit();
 
     return this;  
   },
@@ -112,20 +109,16 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
 
   unfollowUser: function (event) {
     event.preventDefault();
-    if (this.model.followers().length > 0) {
-      var follow = this.model.followers().first();
-
-      var that = this;
-
-      follow.destroy({
-        success: function () {
-          that.$followToggle.data("follow-state", 'unfollowed');
-          that.$followToggle.addClass('unfollowed');
-          that.$followToggle.removeClass('followed');
-          that.addToggle();
-        }
-      });
-    }
+    var follow = new Pintrospective.Models.Follow({ id: this.model.get('current_follow')});
+    var that = this;
+    follow.destroy({
+      success: function () {
+        that.$followToggle.data("follow-state", 'unfollowed');
+        that.$followToggle.addClass('unfollowed');
+        that.$followToggle.removeClass('followed');
+        that.addToggle();
+      }
+    });
   },
 
   editUser: function (event) {
