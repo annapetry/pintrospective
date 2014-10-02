@@ -42,16 +42,15 @@
 
   <div class="header-right">
       <div class="right-side">
-        <a
-          href="#/users/<%= current_user.id %>"
-          type="button"
-          class="btn btn-default username">
-          <img src="<%= current_user.image.url %>">
-          <% if current_user %>
-          <p><%= current_user.username %></p>
-          <% end %>
-        </a>
-
+          <a
+            href="#/users/<%= current_user.id %>"
+            type="button"
+            class="btn btn-default username">
+            <img src="<%= current_user.image.url %>">
+            <% if current_user %>
+            <p><%= current_user.username %></p>
+            <% end %>
+          </a>
         <div class="btn-group">
           <ul
             class="dropdown-menu dropdown dropdown-menu-right"
