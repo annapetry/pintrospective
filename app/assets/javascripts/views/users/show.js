@@ -60,18 +60,20 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     var that = this;
     if (that.model.get('following')) { 
       _.times(3, function (x) { 
+        debugger
         if (that.model.get('following')[x]) { 
           var $a = $('<a class="tiny-follower"></a>')
           var $img = $('<img>');
           var $p = $('<p></p>');
-          $img.attr('src', that.model.get('following')[0].url);
-          $a.attr('href', '/#/users/' + that.model.get('following')[0].id);
-          $p.text(that.model.get('following')[0].username);
+          $img.attr('src', that.model.get('following')[x].url);
+          $a.attr('href', '/#/users/' + that.model.get('following')[x].id);
+          $p.text(that.model.get('following')[x].username);
           
           $a.append($img);
           $a.append($p);
           that.$('.side-note').append($a);
-    }})}
+        }
+    })}
   },
 
   addToggle: function () {
