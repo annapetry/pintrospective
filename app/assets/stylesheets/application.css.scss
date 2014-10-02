@@ -252,6 +252,9 @@ button.edit-board-button.red-button:hover {
   padding-right: 0;
   height: 100%;
 }
+div#showImage {
+  width: 200px;
+}
 .user-name,
 .side-note {
   background-color: $white;
@@ -298,6 +301,7 @@ button.edit-board-button.red-button:hover {
 .popover {
   a {
     color: $dark-text;
+    padding: 10px;
   }
 }
 .userLocation {

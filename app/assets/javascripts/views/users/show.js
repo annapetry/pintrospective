@@ -134,7 +134,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     var formData = $(event.currentTarget).serializeJSON();
     this.$editUserModal.modal('hide');
     
-    var img = (formData.image.url == true) ? formData.image.url : this.model.escape('url');
+    var img = (formData.image.url) ? formData.image.url : this.model.escape('url');
 
     var that = this;
     this.$editUserModal.one('hidden.bs.modal', function (){
