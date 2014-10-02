@@ -71,7 +71,18 @@ a:hover {
 .btn {
   font-size: 0.9em;
 }
+// About Me
+#aboutMe {
+  position: relative;
 
+}
+#petry-img {
+  border-radius: 50%;
+  display: inline-block;
+}
+#aboutP {
+   display: inline-block;
+}
 // Sing In/Up Formatting
 .log-page {
   float: right;
