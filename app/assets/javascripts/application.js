@@ -32,8 +32,8 @@
 $(document).ready(function (){
   $("#demo").click(function (event) {
     event.preventDefault();
-    $("#usernameField").val("Petry");
-    $("#passwordField").val("annapetry");
+    $("#usernameField").val("FridaKhalo");
+    $("#passwordField").val("fridakhalo");
     $('#sign-in').click();
   });
 });
