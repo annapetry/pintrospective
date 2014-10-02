@@ -69,34 +69,38 @@ a:hover {
 }
 
 // Sing In/Up Formatting
-#brand {
+#brand,
+#brand-up {
   padding-top: 30px;
   padding-left: 21%;
   font-family: brandFont;
   font-size: 4em;
   color: #db4a44;
+  z-index: 100;
 }
 .large-background-image-container {
-  background-image: url(background-dali.jpg);
+  background-image: url(background-block.jpg);
   background-size: cover;
   height: 100%;
   width: 100%;
   position: absolute;
   top : 0;
   background-repeat: no-repeat;
+  z-index: 0;
 }
-.sign-in-box {
-  background: none;
+.sign-in-box,
+.sign-up-box {
   border-radius: 6px;
   width: 45%;
   height: 450px;
   background-size: cover;
-  background-image: url(gray.jpg);
+  background: #fff;
   opacity: 0.9;
 }
 .sign-in-form {
   width: 50%;
   height: 200px;
+  z-index: 0;
   padding-top: 30px;
   input,
   button,
@@ -105,16 +109,14 @@ a:hover {
     width: 100%;
     font-size: 1.1em;
   }
-  #sign-in {
+  #sign-in,
+  #demo,
+  #submit-new-user-form {
     display: block;
     margin-bottom: 5px;
-    background-image: -webkit-linear-gradient(#dc4b47, #f46c56);
-    background-image: linear-gradient(#dc4b47, #f46c56);
+    background-image: -webkit-linear-gradient(#e3262e, #db4a44);
+    background-image: linear-gradient(#db4a44, #ab171e);
     margin-bottom: 0;
-  }
-  #demo {
-    background-image: -webkit-linear-gradient(#f46c56, #f7b470);
-    background-image: linear-gradient(#f46c56, #f7b470);
   }
   .form-group {
     margin-bottom: 5px;
@@ -126,7 +128,28 @@ a:hover {
     }
   }
 }
-#tag-line {
+.sign-up-form {
+  form {
+    width: 80%;
+    padding-top: 30px;
+  }
+  .new-user-image {
+    width: 100%;
+    margin: 0;
+  }
+  .sign-up-btns {
+    width: 49.5%;
+  }
+  #submit-new-user-form {
+    margin: 0;
+  }
+}
+.sign-up-box {
+  height: 550px;
+}
+
+#tag-line,
+#tag-line-up {
   position: absolute;
   bottom: 12%;
   font-size: 1.5em;
@@ -134,6 +157,10 @@ a:hover {
   text-align: center;
   color: #db4a44;
 }
+#tag-line-up {
+  bottom: 8%;
+}
+
 button.btn.btn-danger.red-button:hover,
 button.edit-board-button.red-button:hover {
   background-image: -webkit-linear-gradient(#e63d45, #c11a22);
@@ -141,6 +168,10 @@ button.edit-board-button.red-button:hover {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
   border: 1px solid #920c12;
 }
+.sign-up-form {
+  width: 100%;
+}
+
 
 .centered {
   position: fixed;

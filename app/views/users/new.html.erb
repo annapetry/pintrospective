@@ -1,7 +1,71 @@
-<h2>Sign Up</h2>
+<div class="large-background-image-container">
+    <div class="sign-up-box centered">
+      <div id='brand-up'>
+        Pintrospective
+      </div>
+      <div class="sign-up-form centered">
+        <form class="centered" role="form" action="<%= users_url %>" method="POST">
+            <%= auth_token %>
 
-<%=
-  render "partials/new",
-  action: users_url,
-  button: "Sign Up"
-%>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="username"
+                name="user[username]"
+                placeholder="What should we call you?">
+            </div>
+
+            <div class="form-group">
+              <input
+                type="password"
+                class="form-control"
+                id="password"
+                name="user[password]"
+                placeholder="Choose a password">
+            </div>
+
+            <div class="form-group">
+              <input
+                type="filepicker"
+                data-fp-mimetype="image/*"
+                name="image[url]"
+                data-fp-button-text="Add a Photo"
+                data-fp-button-class="btn btn-default upload-img new-user-image">
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-control"
+                id="user-desc"
+                placeholder="Share a little..."
+                name="user[description]"
+                placeholder="Tell us a little about you?"></textarea>
+            </div>
+            <div class="form-group">
+              <input
+                type="text"
+                class="form-control"
+                id="user-location"
+                name="user[location]"
+                placeholder="Where are you?">
+            </div>
+
+
+            <button
+              type="button"
+              class="btn btn-default sign-up-btns">
+              Cancel
+            </button>
+            <button
+              type="submit"
+              id="submit-new-user-form"
+              class="btn btn-danger red-button sign-up-btns">
+              Save Profile
+            </button>
+        </form>
+      </div> <!-- Close of sing-in-form div-->
+      <div id="tag-line-up">
+        A Pinterest Inspired Art Retrospective
+      </div>
+    </div> <!-- Close of sign-in-box -->
+</div>
