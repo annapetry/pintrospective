@@ -17,10 +17,11 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   createSubviews: function () {
+    var form = (CURRENT_USER_ID == this.model.id) ? true : false;
     var view = new this.subview({
       model: this.model,
       collection: this.collection,
-      // addForm: true
+      addForm: form
     });
     this.addSubviewBefore(this.htmlEl, view);
   },

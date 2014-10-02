@@ -19,7 +19,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     var view = new this.subview({
       model: this.model,
       collection: this.collection,
-      addForm: true
+      // addForm: form
     });
     this.addSubviewBefore(this.htmlEl, view);
   },
@@ -30,16 +30,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
       current_user: CURRENT_USER_ID,
       cats: CATEGORIES
     });
-    
-    
-    var frag = Backbone.history.fragment;
-    
-    if ( frag =~ /users\/\d+\/boards/ ) {
-      $('.pin-count').addClass('active');
-    } else {
-      $('.follower_count').addClass('active');
-    }
-    
+  
     this.$el.html(renderedContent);
     this.attachSubviewsBefore();
         
@@ -47,7 +38,11 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.$deleteBoardModal = this.$('#deleteBoardModal');
     this.$followToggle = this.$('#board-follow-button');
     this.addToggle();
-    // this.stickit();
+    
+    this.$('.large-section-divider a').removeClass('active');
+    var frag = '/#/' + Backbone.history.fragment;
+    this.$("a[href='" + frag + "']").addClass('active');
+    
     
     return this;  
   },
