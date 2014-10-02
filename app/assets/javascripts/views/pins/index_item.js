@@ -7,11 +7,12 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   
   events: {
     "click button#delete-pin": "removePin",
-    "click .pin-panel": 'showImageModal',
+    "click img.focal-img": 'showImageModal',
     "click #pinner-id": 'hideImageModal',
     "click .edit-pin-btn": 'showEditPinModal',
     "click #close-modal": 'hideEditPinModal',
-    "submit form#edit-pin-form": "editPin"
+    "submit form#edit-pin-form": "editPin",
+    "click div#thumb-panel-footer": "redirectUser"
   },
   
   className: 'index-items',
@@ -77,5 +78,9 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
       });
       that.model.save();
     });
+  },
+  
+  redirectUser: function () {
+    window.location.hash = "/users/" + this.model.get('pinner_id');  
   }
 });

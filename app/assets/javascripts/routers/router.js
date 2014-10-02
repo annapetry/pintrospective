@@ -67,18 +67,7 @@ Pintrospective.Routers.Router = Backbone.Router.extend({
     this._swapView(categoryView);
   },
   
-  pinSearch: function (category) {
-    // var pins = new Pintrospective.Collections.Pins([],{});
-    // pins.url = '/api/search/' + category;
-    // pins.fetch();
-    //
-    // var categoryView = new Pintrospective.Views.PinsIndex({
-    //   collection: pins,
-    //   category: category
-    // });
-    //
-    // this._swapView(categoryView);
-    
+  pinSearch: function (category) {    
     var pins = new Pintrospective.Collections.Pins([],{});
     pins.url = '/api/search/' + category;
     pins.fetch(); 
