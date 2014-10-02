@@ -30,6 +30,7 @@ $box-shadow: #bfbfbf;
 $btn-outline: #cecece;
 $font: 'Helvetica Neue','Helvetica',arial,sans-serif;
 $darker-text: #404040;
+$brand: #db4a44;
 
 
 @import "bootstrap-sprockets";
@@ -72,13 +73,29 @@ a:hover {
   font-size: 0.9em;
 }
 // About Me
-#aboutMe {
-  position: relative;
-
-}
-#petry-img {
-  border-radius: 50%;
-  display: inline-block;
+div#aboutMe {
+  color: $light-text;
+  .modal-content {
+    width: 100%;
+  }
+  .modal-dialog {
+    width: 23.6%;
+  }
+  img {
+    padding: 0;
+  }
+  div#about-me {
+    width: 50%;
+    padding: 15px 10px;
+  }
+  p {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  span {
+    font-weight: 500;
+    color: $dark-text;
+  }
 }
 #aboutP {
    display: inline-block;
@@ -99,7 +116,7 @@ a:hover {
 //  padding-left: 21%;
   font-family: brandFont2;
   font-size: 4em;
-  color: #db4a44;
+  color: $brand;
   z-index: 100;
 }
 .large-background-image-container {
@@ -179,7 +196,7 @@ a:hover {
   font-size: 1.5em;
   width: 100%;
   text-align: center;
-  color: #db4a44;
+  color: $brand;
 }
 #tag-line-up {
   bottom: 8%;
@@ -728,20 +745,33 @@ button.pin-pin img{
     float: left;
   }
 }
-.dropdown-menu-right:hover {
-  background: #f2f2f2;
-}
 .dropdown-menu-right {
   p {
     text-align: center;
-    padding-top: 2px;
+    padding-top: 3px;
     padding-bottom: 2px;
     margin-bottom: 0;
     cursor: pointer;
+    width: 100%;
     a {
+      padding: 0;
       color: $dark-text;
       font-size: 1.1em;
+      width: 100%;
     }
+    a:hover,
+    li:hover {
+      border-radius: 6px;
+    }
+  }
+}
+ul.dropdown-menu.log-about {
+  padding:0;
+  li > a {
+    padding: 0;
+    padding-top: 7px;
+    text-align: center;
+    cursor: pointer;
   }
 }
 .username {
@@ -943,10 +973,6 @@ div.index-items {
   width: 20%;
   float: left;
   border-radius: 6px;
-}
-
-.pinContent {
-  position: relative;
 }
 .pinLg {
   margin: 0 auto;

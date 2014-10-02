@@ -53,17 +53,19 @@
           </a>
         <div class="btn-group">
           <ul
-            class="dropdown-menu dropdown dropdown-menu-right"
+            class="dropdown-menu dropdown dropdown-menu-right log-about"
             role="menu"
             aria-labelledby="#log-out">
             <li role="presentation">
               <%= link_to 'Log Out', session_url, :method => :delete %>
             </li>
-            <li
-              role="presentation"
-              data-toggle="modal"
-              data-target="#aboutMe">
-              About Me
+            <li role="presentation">
+              <a
+                data-toggle="modal"
+                id="about"
+                data-target="#aboutMe">
+                About Anna Petry
+              </a>
             </li>
           </ul>
 
@@ -83,28 +85,21 @@
 
 
 
-<div class="modal fade" id="aboutMe" tabindex="-1" role="dialog" aria-labelledby="aboutMe" aria-hidden="true">
+<!-- About Me Modal -->
+<div class="modal fade" id="aboutMe" tabindex="-1" role="dialog" aria-labelledby="aboutP" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header">
-        <button type="button"
-          class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="aboutMe">About Anna Petry</h4>
-      </div> <!-- Close modal header -->
-        <div class="modal-body">
-          <div class="petryInfo">
-            <img id="petry-img" src="../assets/petry-200.jpg">
-            <p id="aboutP">
-              I’m a developer, a designer, and a maker.
-              My approach to design is thoughtful and thorough, communicative and collaborative. I'd love to hear from you! Drop me a line at hello at annapetry dot com.
-            </p>
-          </div>
+      <div class="modal-body pinLg">
+        <img src="../assets/petry-300-400.jpg">
+      </div> <!-- Close modal body -->
 
-        </div> <!-- Close modal body -->
+      <div class="modal-footer" id="aboutMe">
+        <p>I’m a <span>developer</span>, a <span>designer</span>, & a <span>maker</span>. My approach to design is thoughtful & thorough, communicative & collaborative. Contact me at <span>hello at annapetry dot com</span></p>
+      </div> <!-- Close modal footer -->
+
     </div> <!-- Close of modal content -->
   </div> <!-- Close of modal dialog -->
 </div> <!-- Close of top-level modal div -->
-
 
 
 
