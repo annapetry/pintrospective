@@ -5,6 +5,7 @@ Pintrospective.Views.BoardShow = Backbone.CompositeView.extend({
     this.subview = options.subview;
     this.htmlEl = options.htmlEl;
     this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.collection, "add", this.render);
     this.createSubviews();
   },
   
