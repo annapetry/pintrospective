@@ -960,6 +960,9 @@ div.pin-panel,
   border-radius: 6px;
   margin-bottom: 0;
 }
+.pin-image:hover {
+  opacity: 0.9;
+}
 div.panel-footer,
 div.panel-body {
   background-color: $white;
