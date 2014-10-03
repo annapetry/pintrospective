@@ -72,6 +72,12 @@ a:hover {
 .btn {
   font-size: 0.9em;
 }
+.modal.fade {
+  cursor: zoom-out;
+}
+img#pin-img {
+  cursor: default;
+}
 // About Me
 div#aboutMe {
   color: $light-text;
