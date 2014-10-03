@@ -62,7 +62,7 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
     this.$pinZoomModal.modal('hide');
     var that = this;
     this.$pinZoomModal.one('hidden.bs.modal', function () {
-      window.location.hash = "/users/" + that.model.get('pinner_id');  
+      window.location.hash = "/users/" + that.model.get('pinner_id') + "/boards/" + this.model.get('board_id');  
     });
   },
   
