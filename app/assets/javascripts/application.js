@@ -18,6 +18,7 @@
 //= require underscore
 //= require backbone
 //= require backbone.stickit.min
+//= require heartcode-canvasloader-min
 //= require bootstrap
 //= require pintrospective
 //= require_tree ../templates
