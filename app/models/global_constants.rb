@@ -9,7 +9,6 @@ module GlobalConstants
     'Other',
     'Pop',
     'Post-Impressionism',
-    'Post-Modern',
     'Sculpture',
     'Super-Realism',
     'Self-Portrait',
