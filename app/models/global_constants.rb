@@ -2,12 +2,16 @@ module GlobalConstants
   CATEGORIES = [
     'Abstract',
     'Cubism',
-    'Impressionism',
+    'Expressionism',
+    'Graffiti',
+    'Mixed-Media',
     'Modern',
     'Other',
+    'Pop',
     'Post-Impressionism',
     'Post-Modern',
-    'Realism',
+    'Sculpture',
+    'Super-Realism',
     'Self-Portrait',
     'Surrealism'
   ]
