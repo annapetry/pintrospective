@@ -18,3 +18,4 @@ Ruby on Rails, Backbone.js, Bootstrap, Postgresql, Isotope.js, HTML5, CSS
 - Infinite Scroll: Consolidate Pins Index from two associations to one ActiveRecord query, using SQL, to enable use of Kaminaru pagination gem.
 - Allow for Board sorting, using jQueryUI sortable().
 - Add 'Like' functionality.
+- DRY up code, specifically form and modal skeletons should go into partials
