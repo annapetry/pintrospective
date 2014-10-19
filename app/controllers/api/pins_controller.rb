@@ -10,6 +10,8 @@ module Api
       @pins += current_user.pins_of_boards_they_follow
       @pins += current_user.pins_of_users_they_follow
 
+      expires_in 30.days, :public => true
+
       render :index
     end
 
