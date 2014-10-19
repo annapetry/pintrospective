@@ -35,5 +35,5 @@ class Board < ActiveRecord::Base
     source: :followers
   )
 
-  default_scope { order(created_at: :asc) }
+  default_scope { order(id: :asc) }
 end
