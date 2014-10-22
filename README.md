@@ -2,7 +2,7 @@
 
 #### A Visual Artist-Themed Pinterest Clone
 
-##### See it live [HERE](www.pitrospective.com)
+##### See it live [HERE](http://www.pitrospective.com)
 
 ##### Concept:
 Pintrospective provides a Pinterest-like UI to visual art exploration.
