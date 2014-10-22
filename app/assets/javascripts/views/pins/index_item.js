@@ -81,7 +81,6 @@ Pintrospective.Views.PinsIndexItem = Backbone.View.extend({
   },
   
   redirectUser: function () {
-    debugger
     window.location.hash = "/users/" + this.model.get('pinner_id') + "/boards/" + this.model.get('board_id');  
   }
 });
