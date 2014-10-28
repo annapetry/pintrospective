@@ -104,6 +104,20 @@ div#aboutMe {
    display: inline-block;
 }
 // Sing In/Up Formatting
+.alert {
+  position: absolute;
+  top: 15px;
+  left: 27.55%;
+  z-index: 1;
+  width: 45%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $brand;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding-left: 35px;
+}
 .log-page {
   float: right;
   margin: 15px 15px 0 0;
@@ -193,7 +207,6 @@ div#aboutMe {
 .sign-up-box {
   height: 550px;
 }
-
 #tag-line,
 #tag-line-up {
   position: absolute;
@@ -206,7 +219,6 @@ div#aboutMe {
 #tag-line-up {
   bottom: 8%;
 }
-
 button.btn.btn-danger.red-button:hover,
 button.edit-board-button.red-button:hover {
   background-image: -webkit-linear-gradient(#e3262e, #ab171e);
@@ -217,8 +229,6 @@ button.edit-board-button.red-button:hover {
 .sign-up-form {
   width: 100%;
 }
-
-
 .centered {
   position: fixed;
   top: 50%;
