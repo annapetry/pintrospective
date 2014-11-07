@@ -3,13 +3,16 @@ $white: #fff;
 $background: #e9e9e9;
 $dark-background: #e2e2e2;
 $dark-text: #666;
+$darker-text: #333;
 $text-box: #faf9f7;
-$light-text: #818181;
+$light-text: rgb(191, 191, 191);
 $box-shadow: #bfbfbf;
 $btn-outline: #cecece;
 $font: 'Helvetica Neue','Helvetica',arial,sans-serif;
 $darker-text: #404040;
 $brand: #db4a44;
+$brand-text: #cb2027;
+$light-hr: rgba(191, 191, 191, 0.3);
 
 @font-face {
     font-family: brandFont;

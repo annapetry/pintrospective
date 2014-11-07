@@ -28,7 +28,7 @@ html {
   width: 100%;
 }
 body {
-  padding-top: 70px;
+  padding-top: 55px;
   background-color: $background;
   color: $dark-text;
   font-family: $font;
@@ -47,6 +47,12 @@ a:hover {
 }
 .btn {
   font-size: 0.9em;
+}
+.btn-default {
+  background-color: #f7f7f7;
+  background: -webkit-linear-gradient(#fff, #f0f0f0);
+  background: linear-gradient(#fff, #f0f0f0);
+  text-shadow: 0 1px #fff;
 }
 img#pin-img {
   cursor: default;

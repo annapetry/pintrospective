@@ -6,106 +6,221 @@
 
 ************************************************************ */
 
-.user-image > img {
-  border-radius: 6px 0 0 6px;
-  height: 100%;
-}
 .user-image {
-  padding-right: 0;
-  height: 100%;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  position: absolute;
+  top: 17px;
+  left: 47.5%;
+  box-shadow: inset 0 0 0 -2px rgba(255, 255, 255, 0.48),0 0 0 1px rgba(0, 0, 0, 0.14),0 0 0 8px white;
+  display: inline-block;
+  z-index: 100;
 }
-div#showImage {
-  width: 200px;
-}
-.user-name,
-.side-note {
-  background-color: $white;
-  height: 100%;
-  left-margin: 0;
-  border-radius: 0 6px 6px 0;
-}
-.user-name {
-  position: relative;
-}
-.userName {
-  h2 {
-    display: inline-block;
+#about-user {
+  height: 230px;
+  background: $white;
+  border-bottom: solid 1px $light-hr;
+  text-align: center;
+  .user-name {
+    color: $darker-text;
+    margin-top: 90px;
   }
-  #edit-user-profile {
-    float: right;
-    margin-top: 20px;
-    width: 46px;
-    height: 33px;
-    padding-right: 3px;
-    padding-left: 3px;
-    background: linear-gradient(#f3f3f3, #e5e5e5);
-    box-shadow: 1px 1px 1px $box-shadow;
-    img {
-      width: 29px;
-      height: 19px;
+  .location-wrapper {
+    font-size: 0.8em;
+    color: $light-text;
+    margin-right: 5px;
+    margin-bottom: 10px;
+    .user-location {
+      display: inline-block;
+      font-size: 1em;
     }
   }
 }
-#edit-user-profile:focus {
-  outline-width: 0;
-}
-.popover-content {
-  width: 150px;
-  text-align: center;
-  a {
-    width: 100%;
-  }
-}
-.popover:hover {
-  background: #f2f2f2;
-  cursor: pointer;
-}
-.popover {
-  a {
+.fixed-header {
+  height: 69px;
+  border-bottom: solid 1px $light-hr;
+  #edit-user-profile {
+    float: right;
     color: $dark-text;
-    padding: 10px;
+    font-weight: 600;
+    font-size: 11px;
+    margin-top: 18px;
+    margin-right: 6px;
+    height: 33px;
+    padding: 8px 14px;
   }
 }
-.userLocation {
-  position: absolute;
-  bottom: 0;
-  padding-bottom: 5px;
-  h5 {
+.counts {
+  height: 59px;
+  background: $white;
+  box-shadow: 1px 1px 1px $box-shadow;
+  text-align: center;
+  * {
     display: inline-block;
   }
-}
-.side-note {
-  margin-left: 15px;
-  border-radius: 6px;
-  width: 238px;
-}
-.img-responsive,
-.user-name,
-.side-note {
-  box-shadow: 1px 1px 1px $box-shadow;
-}
-.side-note {
-  padding-top: 10px;
-}
-.index-header {
-  height: 153px;
-  margin-bottom: 30px;
-  margin-left: 9%;
-}
-.header-container {
-  height: 148px;
-  margin-bottom: 15px;
-}
-.large-section-divider {
-  width: 100%;
-  margin-bottom: 15px;
-  padding-left: 10px;
-  margin-left: .4%;
-  margin-top: -1%;
-  :nth-child(3) {
-    box-shadow: 1px 1px 0 $box-shadow;
+  ul {
+    display: table;
+    table-layout: fixed;
+    margin: auto;
+    padding: 0;
+    li {
+      width: 120px;
+      padding: 14px 0;
+      a.active {
+        span {
+          color: $brand-text;
+        }
+      }
+      a:hover {
+        cursor: pointer;
+        span {
+          color: $brand-text;
+        }
+      }
+    }
+  }
+  .value {
+    color: #aaa;
+    display: block;
+    font-weight: bold;
+    padding: 0;
+    font-size: 16px;
+  }
+  .label {
+    color: #9a9a9a;
+    display: block;
+    font-weight: normal;
+    font-size: 11px;
+    padding: 0;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//
+//
+//
+//.user-image > img {
+//  border-radius: 6px 0 0 6px;
+//  height: 100%;
+//}
+//.user-image {
+//  padding-right: 0;
+//  height: 100%;
+//}
+//div#showImage {
+//  width: 200px;
+//}
+//.user-name,
+//.side-note {
+//  background-color: $white;
+//  height: 100%;
+//  left-margin: 0;
+//  border-radius: 0 6px 6px 0;
+//}
+//.user-name {
+//  position: relative;
+//}
+//.userName {
+//  h2 {
+//    display: inline-block;
+//  }
+//  #edit-user-profile {
+//    float: right;
+//    margin-top: 20px;
+//    width: 46px;
+//    height: 33px;
+//    padding-right: 3px;
+//    padding-left: 3px;
+//    background: linear-gradient(#f3f3f3, #e5e5e5);
+//    box-shadow: 1px 1px 1px $box-shadow;
+//    img {
+//      width: 29px;
+//      height: 19px;
+//    }
+//  }
+//}
+//#edit-user-profile:focus {
+//  outline-width: 0;
+//}
+//.popover-content {
+//  width: 150px;
+//  text-align: center;
+//  a {
+//    width: 100%;
+//  }
+//}
+//.popover:hover {
+//  background: #f2f2f2;
+//  cursor: pointer;
+//}
+//.popover {
+//  a {
+//    color: $dark-text;
+//    padding: 10px;
+//  }
+//}
+//.userLocation {
+//  position: absolute;
+//  bottom: 0;
+//  padding-bottom: 5px;
+//  h5 {
+//    display: inline-block;
+//  }
+//}
+//.side-note {
+//  margin-left: 15px;
+//  border-radius: 6px;
+//  width: 238px;
+//}
+//.img-responsive,
+//.user-name,
+//.side-note {
+//  box-shadow: 1px 1px 1px $box-shadow;
+//}
+//.side-note {
+//  padding-top: 10px;
+//}
+//.index-header {
+//  height: 153px;
+//  margin-bottom: 30px;
+//  margin-left: 9%;
+//}
+//.header-container {
+//  height: 148px;
+//  margin-bottom: 15px;
+//}
+//.large-section-divider {
+//  width: 100%;
+//  margin-bottom: 15px;
+//  padding-left: 10px;
+//  margin-left: .4%;
+//  margin-top: -1%;
+//  :nth-child(3) {
+//    box-shadow: 1px 1px 0 $box-shadow;
+//  }
+//}
 #wide,
 #wider {
 //  width: 742px;
@@ -117,19 +232,19 @@ div#showImage {
   background: linear-gradient(#f3f3f3, #e5e5e5);
   box-shadow: 1px 1px 1px 1px $box-shadow;
 }
-.large-section-divider > button,
-.large-section-divider > a {
-  background: linear-gradient(#f3f3f3, #e5e5e5);
-  width: 91px;
-  height: 45px;
-  color: $dark-text;
-  box-shadow: 1px 1px 1px $box-shadow;
-  padding-top: 12px;
-  font-family: $font;
-  font-weight: 500;
-  font-size: 0.9em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
-}
+//.large-section-divider > button,
+//.large-section-divider > a {
+//  background: linear-gradient(#f3f3f3, #e5e5e5);
+//  width: 91px;
+//  height: 45px;
+//  color: $dark-text;
+//  box-shadow: 1px 1px 1px $box-shadow;
+//  padding-top: 12px;
+//  font-family: $font;
+//  font-weight: 500;
+//  font-size: 0.9em;
+//  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+//}
 .btn.active {
     background-color: #f9f9f9;
     background: linear-gradient(#fff, #f4f4f4);

@@ -38,42 +38,16 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
     this.attachSubviewsBefore();
     this.createSubview();
 
-    $('#edit-user-profile').popover({
-      html: true,
-      placement: 'bottom'
-    });
-
     this.$editUserModal = this.$('#editUserModal');
     this.$followToggle = this.$('#user-follow-button');
     this.addToggle();
 
-    this.$('.large-section-divider a').removeClass('active');
+    this.$('a').removeClass('active');
     var frag = '/#/' + Backbone.history.fragment;
+    console.log(frag);
     this.$("a[href='" + frag + "']").addClass('active');
 
-    this.followerBox();
-
     return this;  
-  },
-
-  followerBox: function () {
-    var that = this;
-    if (that.model.get('following')) { 
-      _.times(3, function (x) { 
-        debugger
-        if (that.model.get('following')[x]) { 
-          var $a = $('<a class="tiny-follower"></a>')
-          var $img = $('<img>');
-          var $p = $('<p></p>');
-          $img.attr('src', that.model.get('following')[x].url);
-          $a.attr('href', '/#/users/' + that.model.get('following')[x].id);
-          $p.text(that.model.get('following')[x].username);
-          
-          $a.append($img);
-          $a.append($p);
-          that.$('.side-note').append($a);
-        }
-    })}
   },
 
   addToggle: function () {
@@ -152,8 +126,7 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addActive: function (event) {
-    debugger
-    $('large-section-divider a').removeClass('active');
+    $('a').removeClass('active');
     $(event.currentTarget).addClass('active');      
   }
 });

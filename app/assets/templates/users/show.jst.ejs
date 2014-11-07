@@ -1,99 +1,70 @@
-<div class="container-fluid user-profile">
-
-  <div class="row header-container">
-
-    <div class="index-header col-md-12 col-sm-12">
-      <div class="col-md-2 col-sm-2 user-image" id="showImage">
-        <img
-          src="<%= user.escape('url') %>"
-          class="img-responsive">
-      </div>
-
-      <div class="col-md-5 col-sm-5 user-name">
-        <div class="userName">
-          <h2><%= user.escape('username').capitalize() %></h2>
-          <% if (user.id == current_user) { %>
-          <a
-            role="button"
-            class="btn btn-default popovers"
-            id="edit-user-profile"
-            data-toggle="popover"
-            tabindex="0"
-            data-trigger="focus"
-            data-content="
-              <a
-                data-toggle='modal'
-                data-target='#editUserModal'>
-                Edit Profile
-              </a>
-            ">
-            <img src="../assets/pinterest-settings.png">
-          </a>
-
-          <% } %>
-        </div>
-        <div class="userDescription">
-          <p><%= user.escape('description') %></p>
-        </div>
-        <div class="userLocation">
-          <span class="glyphicon glyphicon-map-marker"></span>
-          <h5><%= user.escape('location') %></h5>
-        </div>
-      </div>
-
-      <div class="col-md-3 col-sm-2 side-note">
-        <p>Following:</p>
-      </div>
-
-    </div> <!-- Close of Index Header-->
-  </div> <!-- Close of header-container -->
-
-  <div class="row">
-    <div class="btn-group large-section-divider col-md-12">
-      <a
-        href="/#/users/<%= user.id %>"
-        type="button"
-        id="board_count"
-        class="btn btn-default">
-        <p><%= user.get('boards_count') %> Boards</p>
-      </a>
-      <a
-        href="/#/users/<%= user.id %>/pins"
-        type="button"
-        class="btn btn-default">
-        <p><%= user.get('pin_count') %> Pins</p>
-      </a>
+<div class="container-fluid">
+  <div id="about-user" class="row">
+    <div class="col-md-12 user-image-col">
+      <img
+        src="<%= user.escape('url') %>"
+        class="img-responsive user-image">
+    </div> <!-- Close of .user-image-col -->
+    <div class="col-md-12 fixed-header">
+      <% if (user.id == current_user) { %>
       <button
-        type="button"
-        class="btn btn-default">
-        <p>No Likes!</p>
+        class="btn btn-default"
+        id="edit-user-profile"
+        data-toggle='modal'
+        data-target='#editUserModal'>
+        Edit Profile
       </button>
-      <span id="wide">
-        <% if (user.id != current_user) { %>
-          <button
-            class="btn btn-danger red-button"
-            id="user-follow-button"
-            data-follow-state="<%= (user.get('current_follow') > 0) ? "followed" : "unfollowed" %>">
-          </button>
-        <% } %>
-      </span>
-      <a
-        href="/#/users/<%= user.id %>/followers"
-        type="button"
-        id="follower-count"
-        class="btn btn-default long-btn">
-        <p><%= user.get('follower_count') %> Followers</p>
-      </a>
-      <a
-        href="/#/users/<%= user.id %>/following"
-        type="button"
-        id="following-count"
-        class="btn btn-default long-btn">
-        <p><%= user.get('following_count') %> Following</p>
-      </a>
-    </div>
-    </div>
-</div>
+      <% } %>
+    </div> <!-- Close of .fixed-header -->
+    <h1 class="user-name"><%= user.escape('username').capitalize() %></h1>
+    <div class="location-wrapper">
+      <span class="glyphicon glyphicon-map-marker"></span>
+      <h5 class="user-location"><%= user.escape('location') %></h5>
+    </div> <!-- Close of .location-wrapper -->
+    <p><%= user.escape('description') %></p>
+
+  </div> <!-- Close of #about-user -->
+  <div id="counts-row" class="row">
+    <div class="col-md-12 counts">
+      <ul>
+        <li>
+          <a
+            href="/#/users/<%= user.id %>"
+            id="board_count">
+            <span class="value"><%= user.get('boards_count') %></span>
+            <span class="label">Boards</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#/users/<%= user.id %>/pins"
+            id="pin-count">
+            <span class="value"><%= user.get('pin_count') %></span>
+            <span class="label">Pins</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#/users/<%= user.id %>/followers"
+            id="follower-count">
+            <span class="value"><%= user.get('follower_count') %></span>
+            <span class="label">Followers</span>
+          </a>
+        </li>
+        <li>
+          <a
+            href="/#/users/<%= user.id %>/following"
+            id="following-count">
+            <span class="value"><%= user.get('following_count') %></span>
+            <span class="label">Following</span>
+          </a>
+        </li>
+    </ul>
+
+    </div> <!-- Close of .counts -->
+  </div> <!-- Close of #counts -->
+</div> <!-- Close of container-fluid -->
+
 
 <div class="container index-itms">
   <div>
@@ -102,10 +73,6 @@
     <div id="user-items"></div>
   </div>
 </div>
-
-
-
-
 
 
 
