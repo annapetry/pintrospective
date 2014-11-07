@@ -7,22 +7,41 @@
     class="board-description">
       <%= board.escape('description') %>
   </h4>
+  <div class="pins-followers">
+    <span class="pin-count">
+      <a href="/#/users/<%= board.get('user_id') %>/boards/<%= board.get('id') %>">
+        <span class="value"><%= board.get('pin_count') %></span>
+        <span class="label">Pins</span>
+      </a>
+    </span>
+    ・
+    <span class="follower-count">
+      <a href="/#/<%= board.get('user_id') %>/<%= board.get('id') %>/followers">
+        <span class="value"><%= board.get('follower_count') %></span>
+        <span class="label">Followers</span>
+      </a>
+    </span>
+  </div> <!-- Close of pins-followers -->
 </div>
-  <div class="btn-group large-section-divider board-show">
-    <span id="wider">
+  <div class="wider">
+    <div class="user-info">
+      <a href="/#/users/<%= board.get('user_id') %>">
+        <img
+          src="<%= board.escape('url') %>"
+          class="img-responsive small-user-image">
+        <h4 class="small-user-name"><%= board.escape('username').capitalize() %></h4>
+      </a>
+    </div>
+    <div class="edit-follow-btn">
       <% if (current_user == board.get('user_id')) { %>
         <button
           data-toggle="modal"
           data-target="#editBoardModal"
-          class="edit-board-button red-button">
+          class="edit-board-button btn red-button">
           Edit Board
         </button>
       <% } else { %>
         <div class="non-current-user">
-          <a href="#/users/<%= board.get('user_id') %>">
-            <img src="<%= board.escape('url') %>">
-            <p><%= board.escape('username') %></p>
-          </a>
           <button
             class="btn btn-danger red-button"
             id="board-follow-button"
@@ -30,21 +49,7 @@
           </button>
         </div>
       <% } %>
-    </span>
-    <a
-      href="/#/users/<%= board.get('user_id') %>/boards/<%= board.get('id') %>"
-      type="button"
-      id="longish-btn"
-      class="btn btn-default pin-count">
-      <p pin-count-p><%= board.get('pin_count') %> Pins</p>
-    </a>
-    <a
-      href="/#/<%= board.get('user_id') %>/<%= board.get('id') %>/followers"
-      type="button"
-      class="btn btn-default follower_count long-btn">
-<!-- TODO get follower count for THIS board, which includes the followers of the owner of this board -->
-      <p><%= board.escape('follower_count') %> Followers</p>
-    </a>
+    </div> <!-- Close of .edit-follow-btn -->
   </div>
 
 
