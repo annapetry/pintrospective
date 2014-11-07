@@ -57,6 +57,26 @@ a:hover {
 img#pin-img {
   cursor: default;
 }
+
+.red-button {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-image: -webkit-linear-gradient(#e3262e, #ab171e);
+  background-image: linear-gradient(#e3262e, #ab171e);
+  background-color: #ab171e;
+  border-bottom-color: #820a0f;
+  border-left-color: #9a1015;
+  border-right-color: #9a1015;
+  border-top-color: #af151b;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
+}
+.btn-danger.red-button:focus {
+  outline: none;
+}
 // About Me
 div#aboutMe {
   color: $light-text;

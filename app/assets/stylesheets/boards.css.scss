@@ -172,28 +172,28 @@ div.pin-form {
 .board-show {
   margin-left: 10px;
 }
-.red-button {
-  margin: 6px 0 0 10px;
-  padding-left: 15px;
-  padding-right: 15px;
-  background-image: -webkit-linear-gradient(#e3262e, #db4a44);
-  background-image: linear-gradient(#db4a44, #ab171e);
-  background-color: #ab171e;
-  border-bottom-color: #820a0f;
-  border-left-color: #9a1015;
-  border-right-color: #9a1015;
-  border-top-color: #af151b;
-  border-style: solid;
-  border-width: 1px;
-  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
-  color: #fff;
-  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
-  font-size: 0.9em;
-  margin-bottom: 10px;
-}
-.btn-danger.red-button:focus{
-  outline: none;
-}
+//.red-button {
+//  margin: 6px 0 0 10px;
+//  padding-left: 15px;
+//  padding-right: 15px;
+//  background-image: -webkit-linear-gradient(#e3262e, #db4a44);
+//  background-image: linear-gradient(#db4a44, #ab171e);
+//  background-color: #ab171e;
+//  border-bottom-color: #820a0f;
+//  border-left-color: #9a1015;
+//  border-right-color: #9a1015;
+//  border-top-color: #af151b;
+//  border-style: solid;
+//  border-width: 1px;
+//  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+//  color: #fff;
+//  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
+//  font-size: 0.9em;
+//  margin-bottom: 10px;
+//}
+//.btn-danger.red-button:focus{
+//  outline: none;
+//}
 .edit-board-button {
   padding: 8px 14px 7px;
   border-radius: 6px;
