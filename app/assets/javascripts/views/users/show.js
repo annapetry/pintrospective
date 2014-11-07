@@ -44,7 +44,6 @@ Pintrospective.Views.UserShow = Backbone.CompositeView.extend({
 
     this.$('a').removeClass('active');
     var frag = '/#/' + Backbone.history.fragment;
-    console.log(frag);
     this.$("a[href='" + frag + "']").addClass('active');
 
     return this;  
