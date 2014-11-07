@@ -5,6 +5,7 @@
   Pin Search View Formatting
 
 ************************************************************ */
+
 .cat-title {
   margin-bottom: 40px;
 }
@@ -120,7 +121,17 @@ div.pin-form-div{
   top: 0;
   left: 0;
 }
-// Pin Formatting
+
+/* ************************************************************
+
+  Pin Formatting
+
+************************************************************ */
+
+#pin-items {
+  margin-top: 20px;
+}
+
 div.container {
   margin: 0;
   width: 100%;
