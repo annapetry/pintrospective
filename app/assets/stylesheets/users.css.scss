@@ -1,3 +1,180 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "utilities/variables";
+
+/* ************************************************************
+
+  User Show Formatting
+
+************************************************************ */
+
+.user-image > img {
+  border-radius: 6px 0 0 6px;
+  height: 100%;
+}
+.user-image {
+  padding-right: 0;
+  height: 100%;
+}
+div#showImage {
+  width: 200px;
+}
+.user-name,
+.side-note {
+  background-color: $white;
+  height: 100%;
+  left-margin: 0;
+  border-radius: 0 6px 6px 0;
+}
+.user-name {
+  position: relative;
+}
+.userName {
+  h2 {
+    display: inline-block;
+  }
+  #edit-user-profile {
+    float: right;
+    margin-top: 20px;
+    width: 46px;
+    height: 33px;
+    padding-right: 3px;
+    padding-left: 3px;
+    background: linear-gradient(#f3f3f3, #e5e5e5);
+    box-shadow: 1px 1px 1px $box-shadow;
+    img {
+      width: 29px;
+      height: 19px;
+    }
+  }
+}
+#edit-user-profile:focus {
+  outline-width: 0;
+}
+.popover-content {
+  width: 150px;
+  text-align: center;
+  a {
+    width: 100%;
+  }
+}
+.popover:hover {
+  background: #f2f2f2;
+  cursor: pointer;
+}
+.popover {
+  a {
+    color: $dark-text;
+    padding: 10px;
+  }
+}
+.userLocation {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 5px;
+  h5 {
+    display: inline-block;
+  }
+}
+.side-note {
+  margin-left: 15px;
+  border-radius: 6px;
+  width: 238px;
+}
+.img-responsive,
+.user-name,
+.side-note {
+  box-shadow: 1px 1px 1px $box-shadow;
+}
+.side-note {
+  padding-top: 10px;
+}
+.index-header {
+  height: 153px;
+  margin-bottom: 30px;
+  margin-left: 9%;
+}
+.header-container {
+  height: 148px;
+  margin-bottom: 15px;
+}
+.large-section-divider {
+  width: 100%;
+  margin-bottom: 15px;
+  padding-left: 10px;
+  margin-left: .4%;
+  margin-top: -1%;
+  :nth-child(3) {
+    box-shadow: 1px 1px 0 $box-shadow;
+  }
+}
+#wide,
+#wider {
+//  width: 742px;
+  width: 59%;
+  height: 44px;
+  display: inline-block;
+  float: left;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(#f3f3f3, #e5e5e5);
+  box-shadow: 1px 1px 1px 1px $box-shadow;
+}
+.large-section-divider > button,
+.large-section-divider > a {
+  background: linear-gradient(#f3f3f3, #e5e5e5);
+  width: 91px;
+  height: 45px;
+  color: $dark-text;
+  box-shadow: 1px 1px 1px $box-shadow;
+  padding-top: 12px;
+  font-family: $font;
+  font-weight: 500;
+  font-size: 0.9em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+.btn.active {
+    background-color: #f9f9f9;
+    background: linear-gradient(#fff, #f4f4f4);
+    box-shadow: 1px 1px 1px $box-shadow;
+    color: #333;
+    height: 46px;
+}
+a.long-btn {
+  width: 112px;
+}
+#user-follow-button {
+  margin-left: 41.5%;
+}
+
+/* ************************************************************
+
+  Edit User Modal Formatting
+
+************************************************************ */
+
+#user-img {
+  img {
+    width: 75px;
+    height: 75px;
+    margin-left: 15px;
+    border-radius: 6px;
+    display: inline-block;
+    float: left;
+  }
+}
+label#about-you {
+  padding-left: 0;
+}
+.user-photo {
+  float: right;
+  margin-right: 260px;
+  margin-top: -50px;
+  background: linear-gradient(#f3f3f3, #e5e5e5);
+  box-shadow: 0 1px 0 $box-shadow;
+}
+.upload-img {
+  margin-top: 23px;
+  margin-left: 20px;
+}
+#submit-user-edit-form {
+  margin-top: 0;
+}
+

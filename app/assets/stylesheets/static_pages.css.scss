@@ -1,3 +1,139 @@
-// Place all the styles related to the static_pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "utilities/variables";
+
+/* ************************************************************
+
+  Sign In/Up Formatting
+
+************************************************************ */
+
+.alert {
+  position: absolute;
+  top: 15px;
+  left: 27.55%;
+  z-index: 1;
+  width: 45%;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: $brand;
+  color: #fff;
+  border: none;
+  text-align: center;
+  padding-left: 35px;
+}
+.log-page {
+  float: right;
+  margin: 15px 15px 0 0;
+  width: 90px;
+  a {
+    color: $dark-text;
+  }
+}
+#brand,
+#brand-up {
+  padding-top: 40px;
+  padding-left: 16%;
+  font-family: brandFont2;
+  font-size: 4em;
+  color: $brand;
+  z-index: 100;
+}
+.btn:focus {
+  outline: none;
+}
+.large-background-image-container {
+  background-image: url(background-block.jpg);
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top : 0;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+.sign-in-box,
+.sign-up-box {
+  border-radius: 6px;
+  width: 45%;
+  height: 450px;
+  background-size: cover;
+  background: #fff;
+  opacity: 0.9;
+}
+.sign-in-form {
+  width: 50%;
+  height: 200px;
+  z-index: 0;
+  padding-top: 30px;
+  input,
+  button,
+  a {
+    height: 38px;
+    width: 100%;
+    font-size: 1.1em;
+  }
+  #sign-in,
+  #demo,
+  #submit-new-user-form {
+    display: block;
+    margin-bottom: 5px;
+    background-image: -webkit-linear-gradient(#e3262e, #db4a44);
+    background-image: linear-gradient(#db4a44, #ab171e);
+    margin-bottom: 0;
+  }
+  .form-group {
+    margin-bottom: 5px;
+  }
+  .red-button {
+    margin-left: 0;
+    :hover {
+      color: $white;
+    }
+  }
+}
+.sign-up-form {
+  form {
+    width: 80%;
+    padding-top: 30px;
+  }
+  .new-user-image {
+    width: 100%;
+    margin: 0;
+  }
+  .sign-up-btns {
+    width: 49.5%;
+  }
+  #submit-new-user-form {
+    margin: 0;
+  }
+}
+.sign-up-box {
+  height: 550px;
+}
+#tag-line,
+#tag-line-up {
+  position: absolute;
+  bottom: 12%;
+  font-size: 1.5em;
+  width: 100%;
+  text-align: center;
+  color: $brand;
+}
+#tag-line-up {
+  bottom: 8%;
+}
+button.btn.btn-danger.red-button:hover,
+button.edit-board-button.red-button:hover {
+  background-image: -webkit-linear-gradient(#e3262e, #ab171e);
+  background-image: linear-gradient(#e3262e, #ab171e);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.22);
+  border: 1px solid #920c12;
+}
+.sign-up-form {
+  width: 100%;
+}
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

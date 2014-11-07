@@ -1,3 +1,55 @@
-// Place all the styles related to the follows controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "utilities/variables";
+
+/* ************************************************************
+
+  Followers / Following Formatting
+
+************************************************************ */
+
+.boards-count,
+.pins-count {
+  display: inline-block;
+  background: $background;
+  color: $dark-text;
+  width: 40%;
+  height: 30px;
+  border-radius: 6px;
+  text-align: center;
+  padding-top: 5px;
+  outline: $btn-outline;
+}
+.boards-count {
+  margin-left: 15px;
+}
+.pins-count {
+  float: right;
+  margin-right: 15px;
+}
+
+
+/* ************************************************************
+
+  Following Users Sidebar Formatting
+
+************************************************************ */
+
+.tiny-follower {
+  font-weight: 500;
+  display: block;
+  p {
+    color: $light-text;
+  }
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  p {
+    letter-spacing: 1px;
+    display: inline-block;
+    padding-left: 10px;
+    color: $light-text;
+    font-size: 0.9em;
+  }
+}

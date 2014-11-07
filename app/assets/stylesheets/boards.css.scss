@@ -1,3 +1,286 @@
-// Place all the styles related to the boards controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "utilities/variables";
+
+/* ************************************************************
+
+  New Board Form Formatting
+
+************************************************************ */
+
+#board-form-wrapper {
+  display: block;
+  float: left;
+  width: 20%;
+  margin-right: 5px;
+}
+div.pin-form,
+div.board-form {
+  cursor: pointer;
+  width: 100%;
+}
+.board-form {
+  .plus-pin {
+    margin-left: 90px;
+  }
+}
+.plus-img{
+  position: absolute;
+  bottom: 50%;
+  margin-left: 150px;
+  img {
+   height: 48px;
+   width: 48px;
+  }
+}
+.create-board-text {
+  display: block;
+  margin-top: 10px;
+  margin-left: -27px;
+  font-weight: 600;
+  color: $light-text;
+}
+.modal-body.add-board-body {
+  background: $white;
+}
+.add-board-footer {
+  background: $background;
+  border-radius: 0 0 6px 6px;
+}
+#submit-board-form {
+  margin: 0;
+}
+
+/* ************************************************************
+
+  Board Index Formatting
+
+************************************************************ */
+.index-itms {
+  width: 100%;
+}
+.board-panel,
+.user-panel {
+  padding-bottom: 5px;
+  border-radius: 6px;
+  min-height: 245px;
+}
+.board-index-items,
+.user-index-items {
+  padding: 0 7px;
+  margin-bottom: 14px;
+  width: 20%;
+  float: left;
+  border-radius: 6px;
+  height: 320px;
+}
+.index-panel {
+  width: 100%;
+  text-overflow: ellipsis;
+  position: relative;
+}
+.board-item-title,
+.user-item-title {
+  font-size: 14pt;
+  color: $dark-text;
+  padding-left: 10px;
+  margin-top: 10px;
+  h5 {
+    margin-bottom: 2%;
+  }
+}
+.hero-image {
+  padding: 2%;
+  padding-bottom: 2.5%;
+  img {
+    border-radius: 6px;
+    width: 100%;
+    height: 223px;
+  }
+}
+.hero-image:hover {
+  opacity: 0.9;
+};
+.board-small-image-set {
+  width: 100%;
+  margin-left: 3.5%;
+  img {
+    width: 22%;
+    border-radius: 6px;
+    height: 51px;
+  }
+}
+#edit-board-btn {
+  width: 95%;
+  margin-top: 2.5%;
+  margin-left: 2.5%;
+  font-weight: 600;
+  color: $dark-text;
+  background: linear-gradient(#fff, #f0f0f0);
+  bottom: 3%;
+}
+
+/* ************************************************************
+
+  Board Show Formatting
+
+************************************************************ */
+
+div.board-form,
+div.pin-form {
+  height: 320px;
+  width: 94%;
+  background-color: $dark-background;
+  margin: 0;
+  border: dashed 2px $light-text;
+  border-radius: 6px;
+}
+div.board-form {
+  margin-left: 3%;
+}
+div.pin-form {
+  width: 100%;
+}
+.new-board-view {
+  padding-left: 0;
+}
+.board-title,
+.cat-title {
+  text-align: center;
+  font-size: 47px;
+  font-weight: 600;
+  color: $darker-text;
+  margin-bottom: 35px;
+  margin-bottom: 0;
+}
+.board-description {
+  font-weight: 400;
+  color: $light-text;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+#longish-btn {
+  width: 88px;
+  height: 45px;
+  box-shadow: 1px 1px 0 #bfbfbf;
+}
+#wider {
+  width: 1035px;
+  border-radius: 6px 0 0 6px;
+  border-left: $btn-outline;
+}
+.board-show {
+  margin-left: 10px;
+}
+.red-button {
+  margin: 6px 0 0 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  background-image: -webkit-linear-gradient(#e3262e, #db4a44);
+  background-image: linear-gradient(#db4a44, #ab171e);
+  background-color: #ab171e;
+  border-bottom-color: #820a0f;
+  border-left-color: #9a1015;
+  border-right-color: #9a1015;
+  border-top-color: #af151b;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+  color: #fff;
+  text-shadow: 0 -1px rgba(0, 0, 0, 0.11);
+  font-size: 0.9em;
+  margin-bottom: 10px;
+}
+.btn-danger.red-button:focus{
+  outline: none;
+}
+.edit-board-button {
+  padding: 8px 14px 7px;
+  border-radius: 6px;
+  margin-top: 5px;
+}
+.non-current-user {
+  padding-left: 15px;
+  padding-top: 7px;
+  font-weight: 600;
+  color: $dark-text;
+  display: inline-block;
+  width: 100%;
+  position: relative;
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  a {
+    display: inline-block;
+    padding-left: 4px;
+    color: $dark-text;
+    p {
+      display: inline-block;
+      position: absolute;
+      top: 12px;
+      margin-left: 40px;
+    }
+  }
+  #board-follow-button {
+    margin-left: 513px;
+    margin-top: -1px;
+  }
+}
+
+/* ************************************************************
+
+  Edit Board Modal Formatting
+
+************************************************************ */
+
+#sub-board-title {
+  p {
+    display: inline-block;
+    font-weight: 400;
+  }
+}
+#board-title {
+  display: inline-block;
+  width: 100%;
+  color: $dark-text;
+}
+#editBoardModal {
+  .modal-header {
+    height: 60px;
+  }
+  #submit-board-edit-form {
+    margin-bottom: 7px;
+  }
+}
+.edit-board-form-body {
+  background: $white;
+}
+.edit-board-form-footer,
+.delete-footer {
+  background: $background;
+  border-radius: 0 0 6px 6px;
+}
+.delete {
+  display: inline-block;
+  float: left;
+}
+.delete-board {
+  display: block;
+  margin-top: 5px;
+}
+.delete-warning {
+  font-size: 0.8em;
+}
+#deleteBoardModal {
+  .modal-body {
+    background: $white;
+  }
+  .delete-footer {
+    button {
+      margin-top: 0;
+    }
+  }
+}

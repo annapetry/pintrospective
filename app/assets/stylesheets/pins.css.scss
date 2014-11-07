@@ -1,3 +1,206 @@
-// Place all the styles related to the pins controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import "utilities/variables";
+
+/* ************************************************************
+
+  Pin Search View Formatting
+
+************************************************************ */
+.cat-title {
+  margin-bottom: 40px;
+}
+
+/* ************************************************************
+
+  Add Pin Modal Formatting
+
+************************************************************ */
+
+.from-web,
+.from-comp {
+  width: 266px;
+  height: 210px;
+  display: inline-block;
+  border-top: 1px solid #c4c4c4;
+  button {
+    margin: 0;
+    :hover {
+      background: #fafafa;
+    }
+  }
+}
+.modal-body.new-pin,
+.new-pin {
+  display: inline-block;
+  padding: 0;
+  border-radius: 6px;
+  button > img {
+    height: 100px;
+    width: 100px;
+  }
+  span {
+    display: block;
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 0.8em;
+  }
+}
+.upload-pin,
+div.pin {
+  border-radius: 6px;
+}
+#next-btn {
+  float: right;
+}
+.upload-btn {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.btn {
+  &.from-web {
+    background: #f0f0f0;
+    border-radius: 0 0 0 6px;
+  }
+  &.from-comp {
+    background: #f0f0f0;
+    border-radius: 0 0 6px 0;
+    margin-left: -5px;
+  }
+}
+.modal-title {
+  display: inline-block;
+}
+.close span {
+  margin-top: 7px;
+}
+.pin.modal-body {
+  background-color: $white;
+}
+.pin.modal-footer,
+.web-pin.modal-body {
+  background-color: $background;
+}
+div.web-pin {
+  border-radius: 0 0 6px 6px;
+}
+button#next-button {
+  margin-top: 1.4px;
+}
+#submit-pin-form {
+  img {
+    height: 16px;
+    width: 34px;
+  }
+  background-image: -webkit-linear-gradient(#e3262e, #ab171e);
+  background-image: linear-gradient(#e3262e, #ab171e);
+  background-color: #ab171e;
+  border-bottom-color: #820a0f;
+  border-left-color: #9a1015;
+  border-right-color: #9a1015;
+  border-top-color: #af151b;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.34);
+}
+
+/* ************************************************************
+
+  New Pin Button Formatting
+
+************************************************************ */
+
+#pin-form-wrapper {
+  display: block;
+  float: left;
+  width: 20%;
+  margin-right: 5px;
+}
+div.board-form,
+div.pin-form-div{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+// Pin Formatting
+div.container {
+  margin: 0;
+  width: 100%;
+  margin-left: .4%;
+}
+.pin-image {
+  img {
+    width: 100%;
+  }
+  padding: 0;
+}
+.plus-pin {
+  position: absolute;
+  bottom: 35%;
+  margin-left: 93px;
+}
+span.add-pin-text {
+  display: block;
+  margin-top: 15px;
+  font-weight: 700;
+  margin-left: -7px;
+}
+.pin-panel {
+  border-radius: 6px;
+}
+div.pin-panel,
+.pin-image {
+  .focal-img {
+    border-radius: 6px 6px 0 0;
+    cursor: zoom-in;
+  }
+  border-radius: 6px;
+  margin-bottom: 0;
+}
+.pin-image:hover {
+  opacity: 0.9;
+}
+div.panel-footer,
+div.panel-body {
+  background-color: $white;
+  border-top: 1px solid #dddddd;
+  p {
+    margin-bottom: 0;
+  }
+}
+div.panel-footer {
+  height: 50px;
+  padding: 13px 12px;
+  border-radius: 0 0 6px 6px;
+}
+div.index-items {
+  padding: 0 7px;
+  margin-bottom: 14px;
+  width: 20%;
+  float: left;
+  border-radius: 6px;
+}
+.pinLg {
+  margin: 0 auto;
+}
+.thumb-panel-footer {
+  cursor: pointer;
+  .pinner {
+    margin-top: 0;
+  }
+  .pin-user {
+    margin-top: 3px;
+  }
+}
+.pin-panel {
+  .panel-footer {
+    padding: 6px 0 4px 15px;
+  }
+}
+.user-board {
+  float: left;
+}
+.pin-board {
+  font-weight: 500;
+  font-size: 0.8em;
+  color: $light-text;
+}
+
