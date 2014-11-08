@@ -8,9 +8,8 @@
 Pintrospective provides a Pinterest-like UI to visual art exploration.
 
 ##### Key Features:
--  Creates and updates two models simultaneously using nested attributes and wrapped parameters.
--  Reduces number of n + 1 queries by using :includes, which loads model associations using the minimum number of queries.
--  Consumes a RESTful Rails API which also includes custom routes.
+- Simultaneously creates and updates User model and polymorphic Image model using nested attributes and wrapped parameters.
+- Hunted down n+1 queries on the index view to keep navigation snappy
 
 ##### Under the Hood:
 Ruby on Rails, Backbone.js, Bootstrap, Postgresql, Isotope.js, HTML5, CSS
@@ -21,3 +20,6 @@ Ruby on Rails, Backbone.js, Bootstrap, Postgresql, Isotope.js, HTML5, CSS
 - Allow for Board sorting, using jQueryUI sortable().
 - Add 'Like' functionality.
 - DRY up code, specifically form and modal skeletons should go into partials
+- Add Repin functionality
+- Add tags to pins
+- SEARCH
