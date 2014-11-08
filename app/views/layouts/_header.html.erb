@@ -1,86 +1,89 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation" id="nav">
 <div id="nav-backdrop">
 
-  <div class="btn-group header-left">
-    <a
-      href="/"
-      type="button"
-      class="btn btn-default pin-logo">
-      <img src="../assets/pinterest-logo.png">
-    </a>
-    <span id="wider"></span>
-    <button
-      type="button"
-      class="btn btn-default pin-menu dropdown-toggle"
-      id="category-list"
-      data-toggle="dropdown">
-    <img src="../assets/pinterest-menu.png">
-    </button>
-    <ul
-      class="dropdown-menu dropdown-menu-right cats"
-      role="menu"
-      aria-labelledby="#category-list">
-      <li role="presentation">
+  <header>
+    <div class="left">
+      <div id="pin-button">
         <a
-          role="menuitem"
-          tabindex="-1">
-          Filter By:
+          href="/"
+          type="button"
+          class="btn btn-default pin-logo">
+          <img src="../assets/pinterest-logo.png">
         </a>
-      </li>
-      <% GlobalConstants::CATEGORIES.each do |cat| %>
+      </div> <!-- Close of .pin-button -->
+      <div id="wider" class="btn btn-default"></div>
+      <button
+        type="button"
+        class="btn btn-default pin-menu dropdown-toggle"
+        id="category-list"
+        data-toggle="dropdown">
+      <img src="../assets/pinterest-menu.png">
+      </button>
+      <ul
+        class="dropdown-menu dropdown-menu-right cats"
+        role="menu"
+        aria-labelledby="#category-list">
         <li role="presentation">
           <a
             role="menuitem"
-            tabindex="-1"
-            href="#/search/<%= cat %>">
-            <%= cat %>
+            tabindex="-1">
+            Filter By:
           </a>
         </li>
-      <% end %>
-    </ul>
-  </div>
+        <% GlobalConstants::CATEGORIES.each do |cat| %>
+          <li role="presentation">
+            <a
+              role="menuitem"
+              tabindex="-1"
+              href="#/search/<%= cat %>">
+              <%= cat %>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    </div> <!-- Close of .left -->
 
-  <div class="header-right">
-      <div class="right-side">
+    <div class="right">
+      <div class="current-user btn btn-default">
+        <a
+          href="#/users/<%= current_user.id %>">
+          <img
+            class="current-user-image"
+            src="<%= current_user.image.url %>">
+          <% if current_user %>
+          <p class="username"><%= current_user.username %></p>
+          <% end %>
+        </a>
+      </div> <!-- Close of .current-user -->
+      <ul
+        class="dropdown-menu dropdown dropdown-menu-right log-about"
+        role="menu"
+        aria-labelledby="#log-out">
+        <li role="presentation">
+          <%= link_to 'Log Out', session_url, :method => :delete %>
+        </li>
+        <li role="presentation">
           <a
-            href="#/users/<%= current_user.id %>"
-            type="button"
-            class="btn btn-default username">
-            <img src="<%= current_user.image.url %>">
-            <% if current_user %>
-            <p><%= current_user.username %></p>
-            <% end %>
+            data-toggle="modal"
+            id="about"
+            data-target="#aboutMe">
+            About Anna Petry
           </a>
-        <div class="btn-group">
-          <ul
-            class="dropdown-menu dropdown dropdown-menu-right log-about"
-            role="menu"
-            aria-labelledby="#log-out">
-            <li role="presentation">
-              <%= link_to 'Log Out', session_url, :method => :delete %>
-            </li>
-            <li role="presentation">
-              <a
-                data-toggle="modal"
-                id="about"
-                data-target="#aboutMe">
-                About Anna Petry
-              </a>
-            </li>
-          </ul>
+        </li>
+      </ul>
 
-          <button
-            class="btn btn-default dropdown-toggle"
-            type="button"
-            id="log-out"
-            data-toggle="dropdown">
-            <img src="../assets/pinterest-pin.png">
-          </button>
-          </div>
+      <button
+        class="btn btn-default dropdown-toggle"
+        type="button"
+        id="log-out"
+        data-toggle="dropdown">
+        <img src="../assets/pinterest-pin.png">
+      </button>
 
-      </div> <!-- Close of btn-group header-right-->
-  </div>
-</div>
+  </div> <!-- Close of .right -->
+
+  </header>
+</div> <!-- Close of #nav-backdrop -->
 </nav>
 
 
