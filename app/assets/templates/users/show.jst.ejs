@@ -3,13 +3,13 @@
     <div class="col-md-12 user-image-col">
       <img
         src="<%= user.escape('url') %>"
-        class="img-responsive user-image">
+        class="user-image">
     </div> <!-- Close of .user-image-col -->
     <div class="col-md-12 fixed-header">
       <div class="on-scroll">
         <img
           src="<%= user.escape('url') %>"
-          class="img-responsive small-user-image">
+          class="small-user-image">
         <h3 class="small-user-name"><%= user.escape('username').capitalize() %></h3>
       </div> <!-- Close of .on-scroll -->
       <% if (user.id == current_user) { %>
