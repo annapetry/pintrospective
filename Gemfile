@@ -20,13 +20,11 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'lol_dba'
 gem 'thin'
 
+
 group :development do
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'debugger'
   gem 'spring'
 end
-
-
