@@ -13,6 +13,7 @@ feature "Creating an account" do
     end
 
     it "requires a Username" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'password', with: 'password'
       fill_in 'imageUrl', with: 'http://www.annapetry.com/assets/petry.jpg'
       click_on 'Sign Up'
@@ -21,6 +22,7 @@ feature "Creating an account" do
     end
 
     it "requires a Password" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'username', with: 'annapetry'
       fill_in 'imageUrl', with: 'http://www.annapetry.com/assets/petry.jpg'
       click_on 'Sign Up'
@@ -28,6 +30,7 @@ feature "Creating an account" do
     end
 
     it "requires an image" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'username', with: 'annapetry'
       fill_in 'password', with: 'password'
       click_on 'Sign Up'
@@ -35,6 +38,7 @@ feature "Creating an account" do
     end
 
     it "shows Username after signup" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'username', with: 'annapetry'
       fill_in 'password', with: 'password'
       fill_in 'imageUrl', with: 'http://www.annapetry.com/assets/petry.jpg'

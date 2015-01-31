@@ -15,6 +15,7 @@ feature "Signing in" do
     end
 
     it "requires a Username" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'passwordField', with: user.password
       click_on 'Sign In'
       expect(page).to have_content "Invalid Email and/or Password"
@@ -22,12 +23,14 @@ feature "Signing in" do
     end
 
     it "requires a Password" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'usernameField', with: user.username
       click_on 'Sign In'
       expect(page).to have_content "Invalid Email and/or Password"
     end
 
     it "shows Username after signin" do
+      expect(page).to_not have_css('.alert', visible: true)
       fill_in 'usernameField', with: user.username
       fill_in 'passwordField', with: user.password
       click_on 'Sign In'
