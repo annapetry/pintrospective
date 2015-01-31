@@ -22,10 +22,14 @@ gem 'thin'
 
 
 group :development do
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
   gem 'rspec-rails'
+  gem 'capybara'
   gem 'annotate'
   gem 'better_errors'
   gem 'binding_of_caller'
   gem 'pry-rails'
-  gem 'spring'
+  gem 'pry'
+  gem 'launchy'
 end
