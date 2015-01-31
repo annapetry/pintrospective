@@ -21,7 +21,7 @@ gem 'lol_dba'
 gem 'thin'
 
 
-group :development do
+group :development, :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'
   gem 'rspec-rails'
@@ -32,4 +32,5 @@ group :development do
   gem 'pry-rails'
   gem 'pry'
   gem 'launchy'
+  gem 'simplecov', :require => false
 end
