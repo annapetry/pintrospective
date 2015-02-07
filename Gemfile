@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'backbone-on-rails'
+gem 'ember-cli-rails'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'newrelic_rpm'
