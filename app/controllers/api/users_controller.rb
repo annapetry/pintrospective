@@ -4,7 +4,7 @@ module Api
     wrap_parameters :user, include: [:username, :location, :description, :image_attributes]
 
    def show
-     @user = User.includes(:users_they_follow, [:pins => :image, :boards => :pins]).find(params[:id])
+     @user = User.includes(:users_they_follow, [pins: :image, boards: :pins]).find(params[:id])
      render :show
    end
 
@@ -40,7 +40,7 @@ module Api
    private
 
    def user_params
-     params.require(:user).permit(:username, :description, :location, :image_attributes => [:url, :imageable_id, :imageable_type])
+     params.require(:user).permit(:username, :description, :location, image_attributes: [:url, :imageable_id, :imageable_type])
    end
 
   end

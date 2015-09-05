@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
   end
 
   def current_follow(user_id)
-    follow = self.follows_from_user.find_by(:user_id => user_id)
+    follow = self.follows_from_user.find_by(user_id: user_id)
 
     if follow
       return follow.id

@@ -31,5 +31,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'pry'
   gem 'launchy'
-  gem 'simplecov', :require => false
+  gem 'simplecov', require: false
 end

@@ -10,7 +10,7 @@ module Api
       @pins += current_user.pins_of_boards_they_follow
       @pins += current_user.pins_of_users_they_follow
 
-      expires_in 30.days, :public => true
+      expires_in 30.days, public: true
 
       render :index
     end
@@ -70,7 +70,7 @@ module Api
     end
 
     def pin_params
-      params.require(:pin).permit(:description, :board_id, :image_attributes => [:url, :imageable_id, :imageable_type])
+      params.require(:pin).permit(:description, :board_id, image_attributes: [:url, :imageable_id, :imageable_type])
     end
 
   end
