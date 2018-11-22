@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Signing in" do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before(:each) do
     visit new_session_path
@@ -37,7 +37,7 @@ feature "Signing in" do
 end
 
 feature "Signing out" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     visit new_session_path

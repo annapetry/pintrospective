@@ -8,7 +8,7 @@ gem 'figaro'
 gem 'seed_dump'
 gem 'filepicker-rails'
 gem 'font-awesome-rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.2.10'
 gem 'pg', '~> 0.18.2'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
@@ -22,7 +22,7 @@ gem 'lol_dba'
 
 
 group :development, :test do
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_bot_rails'
   gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'

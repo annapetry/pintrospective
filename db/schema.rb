@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20141002171251) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "boards", force: true do |t|
+  create_table "boards", force: :cascade do |t|
     t.integer  "user_id",                     null: false
     t.text     "description"
     t.string   "title",                       null: false
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141002171251) do
   add_index "boards", ["category"], name: "index_boards_on_category", using: :btree
   add_index "boards", ["user_id"], name: "index_boards_on_user_id", using: :btree
 
-  create_table "follows", force: true do |t|
+  create_table "follows", force: :cascade do |t|
     t.integer  "user_id",         null: false
     t.integer  "followable_id"
     t.string   "followable_type"
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141002171251) do
   add_index "follows", ["followable_id", "user_id"], name: "index_follows_on_followable_id_and_user_id", using: :btree
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
-  create_table "images", force: true do |t|
+  create_table "images", force: :cascade do |t|
     t.string   "url",            null: false
     t.integer  "imageable_id"
     t.string   "imageable_type"
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20141002171251) do
   add_index "images", ["imageable_id", "imageable_type"], name: "index_images_on_imageable_id_and_imageable_type", using: :btree
   add_index "images", ["url"], name: "index_images_on_url", using: :btree
 
-  create_table "pins", force: true do |t|
+  create_table "pins", force: :cascade do |t|
     t.string   "description"
     t.integer  "board_id",    null: false
     t.datetime "created_at"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20141002171251) do
 
   add_index "pins", ["board_id"], name: "index_pins_on_board_id", using: :btree
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "username",                    null: false
     t.string   "password_digest",             null: false
     t.string   "session_token",               null: false
