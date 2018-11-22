@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   sequence :username do |n|
     "Artist #{n}"
   end

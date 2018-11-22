@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe ApplicationController do
-  let(:user) { FactoryGirl.create :user }
+  let(:user) { FactoryBot.create :user }
 
   before { subject.login!(user) }
 

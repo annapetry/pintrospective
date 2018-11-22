@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   describe ".find_by_credentials" do
     context "with appropriate creds" do

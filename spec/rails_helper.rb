@@ -7,9 +7,9 @@ require 'spec_helper'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
-require 'factory_girl_rails'
+require 'factory_bot_rails'
 
-FactoryGirl.reload
+FactoryBot.reload
 
 ActiveRecord::Migration.maintain_test_schema!
 
